@@ -32,9 +32,9 @@ Partial Class Home
         Me.Button1 = New System.Windows.Forms.Button()
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.LinkLabel6 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -107,14 +107,14 @@ Partial Class Home
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(230, 23)
         Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Search"
+        Me.Button1.Text = "Search Inventory"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'LinkLabel3
         '
         Me.LinkLabel3.AutoSize = True
         Me.LinkLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel3.Location = New System.Drawing.Point(270, 107)
+        Me.LinkLabel3.Location = New System.Drawing.Point(462, 107)
         Me.LinkLabel3.Name = "LinkLabel3"
         Me.LinkLabel3.Size = New System.Drawing.Size(144, 16)
         Me.LinkLabel3.TabIndex = 8
@@ -125,23 +125,12 @@ Partial Class Home
         '
         Me.LinkLabel4.AutoSize = True
         Me.LinkLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel4.Location = New System.Drawing.Point(508, 107)
+        Me.LinkLabel4.Location = New System.Drawing.Point(780, 107)
         Me.LinkLabel4.Name = "LinkLabel4"
         Me.LinkLabel4.Size = New System.Drawing.Size(103, 16)
         Me.LinkLabel4.TabIndex = 9
         Me.LinkLabel4.TabStop = True
         Me.LinkLabel4.Text = "Check Inventory"
-        '
-        'LinkLabel5
-        '
-        Me.LinkLabel5.AutoSize = True
-        Me.LinkLabel5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel5.Location = New System.Drawing.Point(793, 107)
-        Me.LinkLabel5.Name = "LinkLabel5"
-        Me.LinkLabel5.Size = New System.Drawing.Size(84, 16)
-        Me.LinkLabel5.TabIndex = 10
-        Me.LinkLabel5.TabStop = True
-        Me.LinkLabel5.Text = "Check Sales"
         '
         'Label4
         '
@@ -162,14 +151,24 @@ Partial Class Home
         Me.LinkLabel6.TabStop = True
         Me.LinkLabel6.Text = "Add Technician"
         '
+        'LinkLabel5
+        '
+        Me.LinkLabel5.AutoSize = True
+        Me.LinkLabel5.Location = New System.Drawing.Point(859, 548)
+        Me.LinkLabel5.Name = "LinkLabel5"
+        Me.LinkLabel5.Size = New System.Drawing.Size(65, 13)
+        Me.LinkLabel5.TabIndex = 13
+        Me.LinkLabel5.TabStop = True
+        Me.LinkLabel5.Text = "Admin Login"
+        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(936, 570)
+        Me.Controls.Add(Me.LinkLabel5)
         Me.Controls.Add(Me.LinkLabel6)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.LinkLabel5)
         Me.Controls.Add(Me.LinkLabel4)
         Me.Controls.Add(Me.LinkLabel3)
         Me.Controls.Add(Me.Button1)
@@ -197,8 +196,8 @@ Partial Class Home
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents LinkLabel3 As System.Windows.Forms.LinkLabel
     Friend WithEvents LinkLabel4 As System.Windows.Forms.LinkLabel
-    Friend WithEvents LinkLabel5 As System.Windows.Forms.LinkLabel
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents LinkLabel6 As System.Windows.Forms.LinkLabel
+    Friend WithEvents LinkLabel5 As System.Windows.Forms.LinkLabel
 
 End Class

@@ -8,8 +8,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{57E62B4A-00F5-444C-8749-F99A868AA98D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>WindowsApplication1.My.MyApplication</StartupObject>
-    <RootNamespace>WindowsApplication1</RootNamespace>
+    <StartupObject>BERNIES.My.MyApplication</StartupObject>
+    <RootNamespace>BERNIES</RootNamespace>
     <AssemblyName>JOS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
@@ -90,6 +90,18 @@
     <Compile Include="addJO.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="logTech.Designer.vb">
+      <DependentUpon>logTech.vb</DependentUpon>
+    </Compile>
+    <Compile Include="logTech.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="regTech.Designer.vb">
+      <DependentUpon>regTech.vb</DependentUpon>
+    </Compile>
+    <Compile Include="regTech.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Invhome.Designer.vb">
       <DependentUpon>Invhome.vb</DependentUpon>
     </Compile>
@@ -134,6 +146,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editInv.resx">
       <DependentUpon>editInv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logTech.resx">
+      <DependentUpon>logTech.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="regTech.resx">
+      <DependentUpon>regTech.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
