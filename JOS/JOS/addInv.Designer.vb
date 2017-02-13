@@ -42,13 +42,16 @@ Partial Class addInv
         Me.Label10 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -104,7 +107,7 @@ Partial Class addInv
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 172)
+        Me.Label4.Location = New System.Drawing.Point(9, 215)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(49, 13)
         Me.Label4.TabIndex = 6
@@ -112,7 +115,7 @@ Partial Class addInv
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(72, 172)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(75, 215)
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown1.TabIndex = 7
@@ -120,7 +123,7 @@ Partial Class addInv
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 204)
+        Me.Label5.Location = New System.Drawing.Point(9, 247)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(79, 13)
         Me.Label5.TabIndex = 8
@@ -128,14 +131,14 @@ Partial Class addInv
         '
         'NumericUpDown2
         '
-        Me.NumericUpDown2.Location = New System.Drawing.Point(97, 202)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(100, 245)
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(75, 20)
         Me.NumericUpDown2.TabIndex = 9
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(9, 235)
+        Me.Button1.Location = New System.Drawing.Point(9, 296)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 10
@@ -144,7 +147,7 @@ Partial Class addInv
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(164, 235)
+        Me.Button2.Location = New System.Drawing.Point(164, 296)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 11
@@ -171,7 +174,7 @@ Partial Class addInv
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(13, 306)
+        Me.Label7.Location = New System.Drawing.Point(13, 340)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(63, 13)
         Me.Label7.TabIndex = 14
@@ -180,7 +183,7 @@ Partial Class addInv
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(82, 306)
+        Me.Label8.Location = New System.Drawing.Point(82, 340)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(35, 13)
         Me.Label8.TabIndex = 15
@@ -190,7 +193,7 @@ Partial Class addInv
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(590, 306)
+        Me.Label9.Location = New System.Drawing.Point(590, 340)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(98, 17)
         Me.Label9.TabIndex = 16
@@ -215,6 +218,8 @@ Partial Class addInv
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label13)
+        Me.GroupBox1.Controls.Add(Me.NumericUpDown3)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.Label11)
@@ -234,27 +239,10 @@ Partial Class addInv
         Me.GroupBox1.Controls.Add(Me.NumericUpDown2)
         Me.GroupBox1.Location = New System.Drawing.Point(16, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(256, 277)
+        Me.GroupBox1.Size = New System.Drawing.Size(256, 325)
         Me.GroupBox1.TabIndex = 19
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Enter Product Details"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 28)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(51, 13)
-        Me.Label11.TabIndex = 19
-        Me.Label11.Text = "Serial no."
-        '
-        'Label12
-        '
-        Me.Label12.Location = New System.Drawing.Point(72, 28)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(167, 13)
-        Me.Label12.TabIndex = 20
-        Me.Label12.Text = "0"
         '
         'CheckBox1
         '
@@ -266,11 +254,44 @@ Partial Class addInv
         Me.CheckBox1.Text = "New"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
+        'Label12
+        '
+        Me.Label12.Location = New System.Drawing.Point(72, 28)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(167, 13)
+        Me.Label12.TabIndex = 20
+        Me.Label12.Text = "0"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(6, 28)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(51, 13)
+        Me.Label11.TabIndex = 19
+        Me.Label11.Text = "Serial no."
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(6, 175)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(44, 13)
+        Me.Label13.TabIndex = 22
+        Me.Label13.Text = "Price: P"
+        '
+        'NumericUpDown3
+        '
+        Me.NumericUpDown3.Location = New System.Drawing.Point(72, 171)
+        Me.NumericUpDown3.Name = "NumericUpDown3"
+        Me.NumericUpDown3.Size = New System.Drawing.Size(100, 20)
+        Me.NumericUpDown3.TabIndex = 23
+        '
         'addInv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(700, 329)
+        Me.ClientSize = New System.Drawing.Size(700, 362)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -284,6 +305,7 @@ Partial Class addInv
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -311,4 +333,6 @@ Partial Class addInv
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents NumericUpDown3 As System.Windows.Forms.NumericUpDown
 End Class

@@ -90,28 +90,76 @@
     <Compile Include="addJO.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="logTech.Designer.vb">
-      <DependentUpon>logTech.vb</DependentUpon>
+    <Compile Include="addJO1.Designer.vb">
+      <DependentUpon>addJO1.vb</DependentUpon>
     </Compile>
-    <Compile Include="logTech.vb">
+    <Compile Include="addJO1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="regTech.Designer.vb">
-      <DependentUpon>regTech.vb</DependentUpon>
+    <Compile Include="addJO2.Designer.vb">
+      <DependentUpon>addJO2.vb</DependentUpon>
     </Compile>
-    <Compile Include="regTech.vb">
+    <Compile Include="addJO2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Invhome.Designer.vb">
-      <DependentUpon>Invhome.vb</DependentUpon>
+    <Compile Include="addJO3.Designer.vb">
+      <DependentUpon>addJO3.vb</DependentUpon>
     </Compile>
-    <Compile Include="Invhome.vb">
+    <Compile Include="addJO3.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JOhome.Designer.vb">
-      <DependentUpon>JOhome.vb</DependentUpon>
+    <Compile Include="backJO1.Designer.vb">
+      <DependentUpon>backJO1.vb</DependentUpon>
     </Compile>
-    <Compile Include="JOhome.vb">
+    <Compile Include="backJO1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addCustomer.Designer.vb">
+      <DependentUpon>addCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="addCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="techJO.Designer.vb">
+      <DependentUpon>techJO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="techJO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JODirectory.Designer.vb">
+      <DependentUpon>JODirectory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="JODirectory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="managerHome.Designer.vb">
+      <DependentUpon>managerHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="managerHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginMain.Designer.vb">
+      <DependentUpon>loginMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="loginMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="regEmployee.Designer.vb">
+      <DependentUpon>regEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="regEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="invHome.Designer.vb">
+      <DependentUpon>invHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="invHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="techHome.Designer.vb">
+      <DependentUpon>techHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="techHome.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.vb">
@@ -144,23 +192,47 @@
     <EmbeddedResource Include="addJO.resx">
       <DependentUpon>addJO.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="addJO1.resx">
+      <DependentUpon>addJO1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addJO2.resx">
+      <DependentUpon>addJO2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addJO3.resx">
+      <DependentUpon>addJO3.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editInv.resx">
       <DependentUpon>editInv.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="logTech.resx">
-      <DependentUpon>logTech.vb</DependentUpon>
+    <EmbeddedResource Include="backJO1.resx">
+      <DependentUpon>backJO1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="regTech.resx">
-      <DependentUpon>regTech.vb</DependentUpon>
+    <EmbeddedResource Include="addCustomer.resx">
+      <DependentUpon>addCustomer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="techJO.resx">
+      <DependentUpon>techJO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JODirectory.resx">
+      <DependentUpon>JODirectory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginMain.resx">
+      <DependentUpon>loginMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="managerHome.resx">
+      <DependentUpon>managerHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="regEmployee.resx">
+      <DependentUpon>regEmployee.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Invhome.resx">
-      <DependentUpon>Invhome.vb</DependentUpon>
+    <EmbeddedResource Include="invHome.resx">
+      <DependentUpon>invHome.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JOhome.resx">
-      <DependentUpon>JOhome.vb</DependentUpon>
+    <EmbeddedResource Include="techHome.resx">
+      <DependentUpon>techHome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

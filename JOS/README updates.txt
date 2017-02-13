@@ -1,17 +1,15 @@
--erased all labels with sales
+Major gui update
+-added managerHome.vb
+-separate addJO into 3 parts
+-added backJO1.vb
+-added techHome.vb 
+-added loginHome.vb
+-added addCustomer
+-added JODirectory
+-added regEmployee
+-added loginMain
+-added techJO
 
-updated addJO controls
-- added serial no.
-- job description
-- warranty 7 Days
-- new customer chbox
-
-addInv controls
-- serial no
-- suppiler
-
-added regTech Form (registration)
-added logTech form (login)
-
-updated Invhome
-- add/edit for parts suppliers and watch category
+Major DB infrastracture edit
+-multiple repair services in one job order
+- claim into one repair_tb
