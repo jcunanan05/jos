@@ -54,11 +54,14 @@ Partial Class editInv
         Me.Label14 = New System.Windows.Forms.Label()
         Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -73,7 +76,7 @@ Partial Class editInv
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.Label1.Location = New System.Drawing.Point(751, 332)
+        Me.Label1.Location = New System.Drawing.Point(751, 368)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(95, 17)
         Me.Label1.TabIndex = 1
@@ -140,7 +143,7 @@ Partial Class editInv
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(81, 332)
+        Me.Label9.Location = New System.Drawing.Point(81, 368)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(35, 13)
         Me.Label9.TabIndex = 28
@@ -149,7 +152,7 @@ Partial Class editInv
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(12, 332)
+        Me.Label10.Location = New System.Drawing.Point(12, 368)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(63, 13)
         Me.Label10.TabIndex = 27
@@ -166,7 +169,7 @@ Partial Class editInv
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(6, 228)
+        Me.Button2.Location = New System.Drawing.Point(6, 274)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(111, 23)
         Me.Button2.TabIndex = 30
@@ -175,7 +178,7 @@ Partial Class editInv
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(141, 228)
+        Me.Button3.Location = New System.Drawing.Point(141, 274)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(98, 23)
         Me.Button3.TabIndex = 31
@@ -184,7 +187,7 @@ Partial Class editInv
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(164, 267)
+        Me.Button4.Location = New System.Drawing.Point(164, 313)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 32
@@ -193,6 +196,8 @@ Partial Class editInv
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.NumericUpDown3)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.Label12)
@@ -213,7 +218,7 @@ Partial Class editInv
         Me.GroupBox1.Controls.Add(Me.NumericUpDown2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(256, 307)
+        Me.GroupBox1.Size = New System.Drawing.Size(256, 353)
         Me.GroupBox1.TabIndex = 33
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Enter Product Details"
@@ -315,7 +320,7 @@ Partial Class editInv
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(6, 172)
+        Me.Label13.Location = New System.Drawing.Point(6, 203)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(49, 13)
         Me.Label13.TabIndex = 6
@@ -323,7 +328,7 @@ Partial Class editInv
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(72, 172)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(72, 203)
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown1.TabIndex = 7
@@ -331,7 +336,7 @@ Partial Class editInv
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 204)
+        Me.Label14.Location = New System.Drawing.Point(6, 235)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(79, 13)
         Me.Label14.TabIndex = 8
@@ -339,7 +344,7 @@ Partial Class editInv
         '
         'NumericUpDown2
         '
-        Me.NumericUpDown2.Location = New System.Drawing.Point(97, 202)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(97, 233)
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(75, 20)
         Me.NumericUpDown2.TabIndex = 9
@@ -361,11 +366,27 @@ Partial Class editInv
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Search"
         '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(6, 171)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(44, 13)
+        Me.Label15.TabIndex = 33
+        Me.Label15.Text = "Price: P"
+        '
+        'NumericUpDown3
+        '
+        Me.NumericUpDown3.Location = New System.Drawing.Point(75, 169)
+        Me.NumericUpDown3.Name = "NumericUpDown3"
+        Me.NumericUpDown3.Size = New System.Drawing.Size(100, 20)
+        Me.NumericUpDown3.TabIndex = 34
+        '
         'editInv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(858, 358)
+        Me.ClientSize = New System.Drawing.Size(858, 394)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label9)
@@ -381,6 +402,7 @@ Partial Class editInv
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -417,4 +439,6 @@ Partial Class editInv
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDown2 As System.Windows.Forms.NumericUpDown
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents NumericUpDown3 As System.Windows.Forms.NumericUpDown
 End Class
