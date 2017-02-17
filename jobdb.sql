@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2017 at 03:29 PM
+-- Generation Time: Feb 17, 2017 at 05:36 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -65,7 +65,10 @@ CREATE TABLE `employee_tb` (
 --
 
 INSERT INTO `employee_tb` (`emp_AI`, `emp_id`, `full_name`, `username`, `position_type`) VALUES
-(1, 'emp_1', 'Jonathan Albert M. Cunanan', '50cj', 1);
+(1, 'emp_1', 'Jonathan Albert M. Cunanan', '50cj', 1),
+(2, 'emp_2', 'Manny M. Manegerial', 'manager01', 2),
+(3, 'emp_3', 'testfullname one', 'testuser', 1),
+(4, 'emp_4', 'Juan Paulo M. Cunanan', 'juanpaulo', 1);
 
 -- --------------------------------------------------------
 
@@ -128,7 +131,10 @@ CREATE TABLE `login_tb` (
 --
 
 INSERT INTO `login_tb` (`username`, `password`, `user_type`, `acct_id`) VALUES
-('50cj', '8fe4c11451281c094a6578e6ddbf5eed', 1, 1);
+('50cj', '8fe4c11451281c094a6578e6ddbf5eed', 1, 1),
+('manager01', '8fe4c11451281c094a6578e6ddbf5eed', 1, 2),
+('testuser', '8fe4c11451281c094a6578e6ddbf5eed', 1, 3),
+('juanpaulo', '8fe4c11451281c094a6578e6ddbf5eed', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -153,6 +159,15 @@ CREATE TABLE `position_type_tb` (
   `position_type` int(11) NOT NULL,
   `position_type_remark` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `position_type_tb`
+--
+
+INSERT INTO `position_type_tb` (`position_type`, `position_type_remark`) VALUES
+(1, 'Technician'),
+(2, 'Manager'),
+(3, 'Cashier');
 
 -- --------------------------------------------------------
 
@@ -260,6 +275,14 @@ CREATE TABLE `user_type_tb` (
   `user_type` int(11) NOT NULL,
   `user_type_remark` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_type_tb`
+--
+
+INSERT INTO `user_type_tb` (`user_type`, `user_type_remark`) VALUES
+(2, 'Admin'),
+(1, 'Employee');
 
 -- --------------------------------------------------------
 
@@ -479,7 +502,7 @@ ALTER TABLE `customer_tb`
 -- AUTO_INCREMENT for table `employee_tb`
 --
 ALTER TABLE `employee_tb`
-  MODIFY `emp_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `emp_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `job_desc_tb`
 --
@@ -494,7 +517,7 @@ ALTER TABLE `job_type_tb`
 -- AUTO_INCREMENT for table `login_tb`
 --
 ALTER TABLE `login_tb`
-  MODIFY `acct_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `acct_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `part_tb`
 --
