@@ -1,5 +1,6 @@
 ﻿Public Class loginMain
     'create user type, username, password variable for employee who will login
+    Private positionType As Integer = 0
     Private userType As Integer = 0
     Private userName As String = ""
     Private passWord As String = ""
@@ -14,27 +15,56 @@
         passWord = password_textbox.Text 'get text from password_textbox
 
         'create new object/instance for loginDB
-        Dim employee As loginDB = New loginDB(userName, passWord) 'arguments are userName and passWord variable
-        Dim loginCorrect As Boolean = employee.getLogin()
+        Dim newUser As loginDB = New loginDB(userName, passWord) 'arguments are userName and passWord variable
+        Dim loginCorrect As Boolean = newUser.getLogin()
 
         If loginCorrect Then
+            'if login is correct
+
             'update variable userType
-            userType = employee.getUserType()
+            userType = newUser.getUserType()
+
             'generate success message
-            MsgBox(employee.success())
-            'call method whichHome
-            whichHome(userType) 'choose which dashboard will appear. 1 for technician, 2 for manager
+            MsgBox(newUser.success())
+
+            Dim isEmp As Boolean = isEmployee(userType) 'check if user is an 1) employee or 2) admin
+            If isEmp Then
+                'if the user is an employee
+                Dim employee As employeeDB = New employeeDB(userName) 'create new object/instance for employeeDB
+                employee.getEmployee() 'get employee details
+
+                'update variable positionType
+                positionType = employee.getPositionType()
+
+                'call method whichHome
+                whichHome(positionType) 'choose which dashboard will appear. 1 for technician, 2 for manager
+            Else
+                'show admin window
+                'wala pa ko nun haha di ko pa alam gagawin ng admin
+                showAdmin()
+            End If
+
         Else
-            MsgBox(employee.wrong()) 'Generates Message box wrong username or password
+            MsgBox(newUser.wrong()) 'Generates Message box wrong username or password
         End If
     End Sub
 
+    'boolean Function
+    Public Function isEmployee(ByRef user_type As Integer)
+        'check whether user type is employee. if not, then he is admin
+        Dim yeah As Boolean = False
+        If user_type = 1 Then
+            'set yeah to true if user_type = 1 (employee) check user_type_tb at DB
+            yeah = True
+        End If
+        'return
+        Return yeah
+    End Function
 
-    Private Sub whichHome(ByRef user_type As Integer)
-        'choose which dashboard home will appear depending on the user type\
-
-        'used case statement to asses user_type
-        Select Case user_type
+    'void method
+    Private Sub whichHome(ByRef position_type As Integer)
+        'choose which dashboard home will appear depending on the user type(employee/manager) 
+        Select Case position_type
             Case 1 'for technician
                 'create new object/instance for techHome
                 Dim technician As techHome = New techHome(userName) 'use the userName typed by the user
@@ -45,7 +75,13 @@
                 manager.Show() 'show the from
             Case Else
                 'default case
-                MsgBox("No User Type: " + user_type.ToString() + " found.")
+                MsgBox("No Position Type: " + position_type.ToString() + " found.")
         End Select
+    End Sub
+
+    'void method
+    Private Sub showAdmin()
+        'show admin window
+        MsgBox("Hello Admin")
     End Sub
 End Class

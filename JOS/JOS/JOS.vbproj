@@ -79,6 +79,8 @@
     <Compile Include="addInv.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="registerDB.vb" />
+    <Compile Include="employeeDB.vb" />
     <Compile Include="loginDB.vb" />
     <Compile Include="editInv.Designer.vb">
       <DependentUpon>editInv.vb</DependentUpon>

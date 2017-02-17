@@ -42,7 +42,7 @@ Partial Class managerHome
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
+        Me.add_emp_label = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel6 = New System.Windows.Forms.LinkLabel()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
@@ -273,7 +273,7 @@ Partial Class managerHome
         '
         'GroupBox7
         '
-        Me.GroupBox7.Controls.Add(Me.LinkLabel4)
+        Me.GroupBox7.Controls.Add(Me.add_emp_label)
         Me.GroupBox7.Controls.Add(Me.LinkLabel6)
         Me.GroupBox7.Location = New System.Drawing.Point(22, 424)
         Me.GroupBox7.Name = "GroupBox7"
@@ -282,16 +282,16 @@ Partial Class managerHome
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Technician / Employee"
         '
-        'LinkLabel4
+        'add_emp_label
         '
-        Me.LinkLabel4.AutoSize = True
-        Me.LinkLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel4.Location = New System.Drawing.Point(6, 54)
-        Me.LinkLabel4.Name = "LinkLabel4"
-        Me.LinkLabel4.Size = New System.Drawing.Size(98, 16)
-        Me.LinkLabel4.TabIndex = 14
-        Me.LinkLabel4.TabStop = True
-        Me.LinkLabel4.Text = "Add Employee"
+        Me.add_emp_label.AutoSize = True
+        Me.add_emp_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.add_emp_label.Location = New System.Drawing.Point(6, 54)
+        Me.add_emp_label.Name = "add_emp_label"
+        Me.add_emp_label.Size = New System.Drawing.Size(98, 16)
+        Me.add_emp_label.TabIndex = 14
+        Me.add_emp_label.TabStop = True
+        Me.add_emp_label.Text = "Add Employee"
         '
         'LinkLabel6
         '
@@ -539,7 +539,7 @@ Partial Class managerHome
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Name = "managerHome"
-        Me.Text = "Form1"
+        Me.Text = "Manager Home"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -583,7 +583,7 @@ Partial Class managerHome
     Friend WithEvents LinkLabel2 As System.Windows.Forms.LinkLabel
     Friend WithEvents LinkLabel3 As System.Windows.Forms.LinkLabel
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
-    Friend WithEvents LinkLabel4 As System.Windows.Forms.LinkLabel
+    Friend WithEvents add_emp_label As System.Windows.Forms.LinkLabel
     Friend WithEvents LinkLabel6 As System.Windows.Forms.LinkLabel
     Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
     Friend WithEvents LinkLabel5 As System.Windows.Forms.LinkLabel

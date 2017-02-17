@@ -19,7 +19,16 @@
     Private Sub techHome_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'when the form loads
         setUserNameLabel() 'set username label
+
+
     End Sub
 
-
+    Private Sub test_details()
+        'for testing employee details
+        Dim technician As employeeDB = New employeeDB(userName)
+        technician.getEmployee()
+        MsgBox(technician.getEmpID())
+        MsgBox(technician.getEmpFullName())
+        MsgBox("Position Type: " & technician.getPositionType.ToString())
+    End Sub
 End Class

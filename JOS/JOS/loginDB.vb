@@ -13,7 +13,7 @@ Public Class loginDB
     End Sub
 
     'test to output hello world
-    Public Function helloWorld()
+    Public Shared Function helloWorld()
         Return "Hello World!"
     End Function
 
@@ -41,7 +41,6 @@ Public Class loginDB
     End Function
 
 
-
     'DB class variables
     Private server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
     Private connection As MySqlConnection = New MySqlConnection
@@ -61,7 +60,7 @@ Public Class loginDB
             connection.ConnectionString = server_string
             connection.Open() 'open connection
             'sql query
-            Dim sql_query As String = "SELECT username,password,user_type FROM login_tb WHERE username ='" & userName & "' AND password=MD5('" & passWord & "')"
+            Dim sql_query As String = "SELECT login.username,login.password,login.user_type FROM login_tb login WHERE login.username ='" & userName & "' AND login.password=MD5('" & passWord & "')"
             'connect to database and bind query
             sql_command = New MySqlCommand(sql_query, connection)
             sql_command.CommandText = sql_query 'execute command
@@ -76,13 +75,14 @@ Public Class loginDB
                 login_correct = True
                 'get employee details
                 Dim user_type As Integer = data_table.Rows(0).Item(2)
-                setUserType(user_type) 'declare method set user type. 1 for techinician, 2 for manager
+                setUserType(user_type) 'declare method set user type. 1 for techinician, 2 for Admin
             End If
         Catch ex As MySqlException
             'catch errors
             MsgBox(ex.Message)
         Finally
             'dispose and close connection
+            sql_data_adapter.Dispose()
             connection.Close()
             connection.Dispose()
         End Try
@@ -90,4 +90,5 @@ Public Class loginDB
         'return
         Return login_correct
     End Function
+
 End Class
