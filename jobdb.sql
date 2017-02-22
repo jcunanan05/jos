@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2017 at 05:36 AM
+-- Generation Time: Feb 22, 2017 at 11:02 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -32,6 +32,14 @@ CREATE TABLE `category_tb` (
   `category_name` varchar(50) NOT NULL,
   `added_by_emp_id` varchar(45) NOT NULL DEFAULT 'Default'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `category_tb`
+--
+
+INSERT INTO `category_tb` (`category_AI`, `category_id`, `category_name`, `added_by_emp_id`) VALUES
+(1, 'cat_1', 'Wristwatch', 'Default'),
+(2, 'cat_2', 'Wallclock', 'Default');
 
 -- --------------------------------------------------------
 
@@ -83,11 +91,21 @@ CREATE TABLE `inventory_tb` (
   `item_quantity` int(11) NOT NULL DEFAULT '0',
   `item_price` decimal(13,2) NOT NULL,
   `critical_amount` int(11) NOT NULL DEFAULT '0',
-  `added_by_emp_id` varchar(20) NOT NULL,
+  `added_by_emp_id` varchar(20) NOT NULL DEFAULT 'Default',
   `supplier_id` varchar(20) NOT NULL,
   `category_id` varchar(20) NOT NULL,
   `part_id` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `inventory_tb`
+--
+
+INSERT INTO `inventory_tb` (`item_AI`, `item_id`, `item_name`, `item_quantity`, `item_price`, `critical_amount`, `added_by_emp_id`, `supplier_id`, `category_id`, `part_id`) VALUES
+(1, 'item_1', 'Seiko', 14, '20.00', 3, 'Default', 'supp_3', 'cat_1', 'part_1'),
+(2, 'item_2', 'Guess', 6, '12.00', 3, 'Default', 'supp_1', 'cat_1', 'part_2'),
+(3, 'item_3', 'Tissot', 8, '5.50', 2, 'Default', 'supp_5', 'cat_1', 'part_2'),
+(4, 'item_4', 'GShock', 7, '3.00', 2, 'Default', 'supp_4', 'cat_1', 'part_1');
 
 -- --------------------------------------------------------
 
@@ -148,6 +166,14 @@ CREATE TABLE `part_tb` (
   `part_name` varchar(50) NOT NULL,
   `added_by_emp_id` varchar(20) NOT NULL DEFAULT 'Default'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `part_tb`
+--
+
+INSERT INTO `part_tb` (`part_AI`, `part_id`, `part_name`, `added_by_emp_id`) VALUES
+(1, 'part_1', 'Watch Left Hand', 'Default'),
+(2, 'part_2', 'Watch Right Hand', 'Default');
 
 -- --------------------------------------------------------
 
@@ -241,6 +267,17 @@ CREATE TABLE `supplier_tb` (
   `supplier_name` varchar(100) NOT NULL,
   `added_by_emp_id` varchar(20) NOT NULL DEFAULT 'Default'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `supplier_tb`
+--
+
+INSERT INTO `supplier_tb` (`supplier_AI`, `supplier_id`, `supplier_name`, `added_by_emp_id`) VALUES
+(1, 'supp_1', 'Timeless Watch Parts supply', 'Default'),
+(2, 'supp_2', 'Everlasting Incorporated', 'Default'),
+(3, 'supp_3', 'Time Master Inc.', 'Default'),
+(4, 'supp_4', 'New Period Era Delivery', 'Default'),
+(5, 'supp_5', 'Time Stop Incorporated', 'Default');
 
 -- --------------------------------------------------------
 
@@ -492,7 +529,7 @@ ALTER TABLE `watch_kind_tb`
 -- AUTO_INCREMENT for table `category_tb`
 --
 ALTER TABLE `category_tb`
-  MODIFY `category_AI` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `customer_tb`
 --
@@ -503,6 +540,11 @@ ALTER TABLE `customer_tb`
 --
 ALTER TABLE `employee_tb`
   MODIFY `emp_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `inventory_tb`
+--
+ALTER TABLE `inventory_tb`
+  MODIFY `item_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `job_desc_tb`
 --
@@ -522,7 +564,7 @@ ALTER TABLE `login_tb`
 -- AUTO_INCREMENT for table `part_tb`
 --
 ALTER TABLE `part_tb`
-  MODIFY `part_AI` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `part_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `repair_job_tb`
 --
@@ -532,7 +574,7 @@ ALTER TABLE `repair_job_tb`
 -- AUTO_INCREMENT for table `supplier_tb`
 --
 ALTER TABLE `supplier_tb`
-  MODIFY `supplier_AI` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `supplier_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `warranty_type_tb`
 --
