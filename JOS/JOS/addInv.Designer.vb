@@ -23,35 +23,35 @@ Partial Class addInv
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.part_name_combo = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.brand_textbox = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.category_combo = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        Me.quantity_updown = New System.Windows.Forms.NumericUpDown()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.critical_updown = New System.Windows.Forms.NumericUpDown()
+        Me.add_button = New System.Windows.Forms.Button()
+        Me.reset_button = New System.Windows.Forms.Button()
+        Me.item_data_grid = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.supplier_combo = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.price_updown = New System.Windows.Forms.NumericUpDown()
+        Me.new_supplier_chbox = New System.Windows.Forms.CheckBox()
+        Me.serial_label = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        CType(Me.quantity_updown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.critical_updown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.item_data_grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.price_updown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -63,13 +63,14 @@ Partial Class addInv
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Part Name:"
         '
-        'ComboBox1
+        'part_name_combo
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(72, 53)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.part_name_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.part_name_combo.FormattingEnabled = True
+        Me.part_name_combo.Location = New System.Drawing.Point(72, 53)
+        Me.part_name_combo.Name = "part_name_combo"
+        Me.part_name_combo.Size = New System.Drawing.Size(121, 21)
+        Me.part_name_combo.TabIndex = 1
         '
         'Label2
         '
@@ -80,12 +81,12 @@ Partial Class addInv
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Part Brand:"
         '
-        'TextBox1
+        'brand_textbox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(72, 80)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 3
+        Me.brand_textbox.Location = New System.Drawing.Point(72, 80)
+        Me.brand_textbox.Name = "brand_textbox"
+        Me.brand_textbox.Size = New System.Drawing.Size(100, 20)
+        Me.brand_textbox.TabIndex = 3
         '
         'Label3
         '
@@ -96,13 +97,14 @@ Partial Class addInv
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Category:"
         '
-        'ComboBox2
+        'category_combo
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(72, 111)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 5
+        Me.category_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.category_combo.FormattingEnabled = True
+        Me.category_combo.Location = New System.Drawing.Point(72, 111)
+        Me.category_combo.Name = "category_combo"
+        Me.category_combo.Size = New System.Drawing.Size(121, 21)
+        Me.category_combo.TabIndex = 5
         '
         'Label4
         '
@@ -113,12 +115,12 @@ Partial Class addInv
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Quantity:"
         '
-        'NumericUpDown1
+        'quantity_updown
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(75, 215)
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(100, 20)
-        Me.NumericUpDown1.TabIndex = 7
+        Me.quantity_updown.Location = New System.Drawing.Point(75, 215)
+        Me.quantity_updown.Name = "quantity_updown"
+        Me.quantity_updown.Size = New System.Drawing.Size(100, 20)
+        Me.quantity_updown.TabIndex = 7
         '
         'Label5
         '
@@ -129,43 +131,48 @@ Partial Class addInv
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Critcial amount:"
         '
-        'NumericUpDown2
+        'critical_updown
         '
-        Me.NumericUpDown2.Location = New System.Drawing.Point(100, 245)
-        Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(75, 20)
-        Me.NumericUpDown2.TabIndex = 9
+        Me.critical_updown.Location = New System.Drawing.Point(100, 245)
+        Me.critical_updown.Name = "critical_updown"
+        Me.critical_updown.Size = New System.Drawing.Size(75, 20)
+        Me.critical_updown.TabIndex = 9
         '
-        'Button1
+        'add_button
         '
-        Me.Button1.Location = New System.Drawing.Point(9, 296)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.add_button.Location = New System.Drawing.Point(9, 296)
+        Me.add_button.Name = "add_button"
+        Me.add_button.Size = New System.Drawing.Size(75, 23)
+        Me.add_button.TabIndex = 10
+        Me.add_button.Text = "Add"
+        Me.add_button.UseVisualStyleBackColor = True
         '
-        'Button2
+        'reset_button
         '
-        Me.Button2.Location = New System.Drawing.Point(164, 296)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Reset"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.reset_button.Location = New System.Drawing.Point(164, 296)
+        Me.reset_button.Name = "reset_button"
+        Me.reset_button.Size = New System.Drawing.Size(75, 23)
+        Me.reset_button.TabIndex = 11
+        Me.reset_button.Text = "Reset"
+        Me.reset_button.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'item_data_grid
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(281, 40)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(407, 249)
-        Me.DataGridView1.TabIndex = 12
+        Me.item_data_grid.AllowUserToAddRows = False
+        Me.item_data_grid.AllowUserToDeleteRows = False
+        Me.item_data_grid.AllowUserToResizeRows = False
+        Me.item_data_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.item_data_grid.Location = New System.Drawing.Point(384, 28)
+        Me.item_data_grid.Name = "item_data_grid"
+        Me.item_data_grid.ReadOnly = True
+        Me.item_data_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.item_data_grid.Size = New System.Drawing.Size(456, 249)
+        Me.item_data_grid.TabIndex = 12
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(278, 24)
+        Me.Label6.Location = New System.Drawing.Point(381, 12)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(82, 13)
         Me.Label6.TabIndex = 13
@@ -193,7 +200,7 @@ Partial Class addInv
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(590, 340)
+        Me.Label9.Location = New System.Drawing.Point(742, 336)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(98, 17)
         Me.Label9.TabIndex = 16
@@ -208,68 +215,42 @@ Partial Class addInv
         Me.Label10.TabIndex = 17
         Me.Label10.Text = "Supplier:"
         '
-        'ComboBox3
+        'supplier_combo
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(72, 139)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 18
+        Me.supplier_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.supplier_combo.FormattingEnabled = True
+        Me.supplier_combo.Location = New System.Drawing.Point(72, 139)
+        Me.supplier_combo.Name = "supplier_combo"
+        Me.supplier_combo.Size = New System.Drawing.Size(227, 21)
+        Me.supplier_combo.TabIndex = 18
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label13)
-        Me.GroupBox1.Controls.Add(Me.NumericUpDown3)
-        Me.GroupBox1.Controls.Add(Me.CheckBox1)
-        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.price_updown)
+        Me.GroupBox1.Controls.Add(Me.new_supplier_chbox)
+        Me.GroupBox1.Controls.Add(Me.serial_label)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox3)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.supplier_combo)
+        Me.GroupBox1.Controls.Add(Me.part_name_combo)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.brand_textbox)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.ComboBox2)
+        Me.GroupBox1.Controls.Add(Me.category_combo)
         Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.NumericUpDown1)
-        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.quantity_updown)
+        Me.GroupBox1.Controls.Add(Me.reset_button)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.NumericUpDown2)
+        Me.GroupBox1.Controls.Add(Me.add_button)
+        Me.GroupBox1.Controls.Add(Me.critical_updown)
         Me.GroupBox1.Location = New System.Drawing.Point(16, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(256, 325)
+        Me.GroupBox1.Size = New System.Drawing.Size(359, 325)
         Me.GroupBox1.TabIndex = 19
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Enter Product Details"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(199, 143)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(48, 17)
-        Me.CheckBox1.TabIndex = 21
-        Me.CheckBox1.Text = "New"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'Label12
-        '
-        Me.Label12.Location = New System.Drawing.Point(72, 28)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(167, 13)
-        Me.Label12.TabIndex = 20
-        Me.Label12.Text = "0"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 28)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(51, 13)
-        Me.Label11.TabIndex = 19
-        Me.Label11.Text = "Serial no."
         '
         'Label13
         '
@@ -280,59 +261,89 @@ Partial Class addInv
         Me.Label13.TabIndex = 22
         Me.Label13.Text = "Price: P"
         '
-        'NumericUpDown3
+        'price_updown
         '
-        Me.NumericUpDown3.Location = New System.Drawing.Point(72, 171)
-        Me.NumericUpDown3.Name = "NumericUpDown3"
-        Me.NumericUpDown3.Size = New System.Drawing.Size(100, 20)
-        Me.NumericUpDown3.TabIndex = 23
+        Me.price_updown.DecimalPlaces = 2
+        Me.price_updown.Increment = New Decimal(New Integer() {25, 0, 0, 131072})
+        Me.price_updown.Location = New System.Drawing.Point(72, 171)
+        Me.price_updown.Name = "price_updown"
+        Me.price_updown.Size = New System.Drawing.Size(100, 20)
+        Me.price_updown.TabIndex = 23
+        Me.price_updown.Value = New Decimal(New Integer() {100, 0, 0, 131072})
+        '
+        'new_supplier_chbox
+        '
+        Me.new_supplier_chbox.AutoSize = True
+        Me.new_supplier_chbox.Location = New System.Drawing.Point(305, 143)
+        Me.new_supplier_chbox.Name = "new_supplier_chbox"
+        Me.new_supplier_chbox.Size = New System.Drawing.Size(48, 17)
+        Me.new_supplier_chbox.TabIndex = 21
+        Me.new_supplier_chbox.Text = "New"
+        Me.new_supplier_chbox.UseVisualStyleBackColor = True
+        '
+        'serial_label
+        '
+        Me.serial_label.Location = New System.Drawing.Point(72, 28)
+        Me.serial_label.Name = "serial_label"
+        Me.serial_label.Size = New System.Drawing.Size(167, 13)
+        Me.serial_label.TabIndex = 20
+        Me.serial_label.Text = "0"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(6, 28)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(51, 13)
+        Me.Label11.TabIndex = 19
+        Me.Label11.Text = "Serial no."
         '
         'addInv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(700, 362)
+        Me.ClientSize = New System.Drawing.Size(852, 362)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.item_data_grid)
         Me.Name = "addInv"
         Me.Text = "Add Inventory"
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.quantity_updown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.critical_updown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.item_data_grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.price_updown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents part_name_combo As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents brand_textbox As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents category_combo As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
+    Friend WithEvents quantity_updown As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDown2 As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents critical_updown As System.Windows.Forms.NumericUpDown
+    Friend WithEvents add_button As System.Windows.Forms.Button
+    Friend WithEvents reset_button As System.Windows.Forms.Button
+    Friend WithEvents item_data_grid As System.Windows.Forms.DataGridView
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents supplier_combo As System.Windows.Forms.ComboBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents new_supplier_chbox As System.Windows.Forms.CheckBox
+    Friend WithEvents serial_label As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDown3 As System.Windows.Forms.NumericUpDown
+    Friend WithEvents price_updown As System.Windows.Forms.NumericUpDown
 End Class

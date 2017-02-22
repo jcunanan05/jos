@@ -275,9 +275,9 @@ Partial Class managerHome
         '
         Me.GroupBox7.Controls.Add(Me.add_emp_label)
         Me.GroupBox7.Controls.Add(Me.LinkLabel6)
-        Me.GroupBox7.Location = New System.Drawing.Point(22, 424)
+        Me.GroupBox7.Location = New System.Drawing.Point(569, 226)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(142, 80)
+        Me.GroupBox7.Size = New System.Drawing.Size(245, 43)
         Me.GroupBox7.TabIndex = 9
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Technician / Employee"
@@ -286,7 +286,7 @@ Partial Class managerHome
         '
         Me.add_emp_label.AutoSize = True
         Me.add_emp_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.add_emp_label.Location = New System.Drawing.Point(6, 54)
+        Me.add_emp_label.Location = New System.Drawing.Point(117, 17)
         Me.add_emp_label.Name = "add_emp_label"
         Me.add_emp_label.Size = New System.Drawing.Size(98, 16)
         Me.add_emp_label.TabIndex = 14
@@ -297,7 +297,7 @@ Partial Class managerHome
         '
         Me.LinkLabel6.AutoSize = True
         Me.LinkLabel6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel6.Location = New System.Drawing.Point(6, 29)
+        Me.LinkLabel6.Location = New System.Drawing.Point(6, 16)
         Me.LinkLabel6.Name = "LinkLabel6"
         Me.LinkLabel6.Size = New System.Drawing.Size(105, 16)
         Me.LinkLabel6.TabIndex = 13
@@ -343,12 +343,12 @@ Partial Class managerHome
         Me.GroupBox9.Controls.Add(Me.LinkLabel8)
         Me.GroupBox9.Controls.Add(Me.LinkLabel9)
         Me.GroupBox9.Controls.Add(Me.LinkLabel10)
-        Me.GroupBox9.Location = New System.Drawing.Point(22, 510)
+        Me.GroupBox9.Location = New System.Drawing.Point(22, 226)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(142, 123)
         Me.GroupBox9.TabIndex = 19
         Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Modify Categories"
+        Me.GroupBox9.Text = "Inventory Categories"
         '
         'LinkLabel11
         '
@@ -397,7 +397,7 @@ Partial Class managerHome
         Me.GroupBox10.Controls.Add(Me.LinkLabel16)
         Me.GroupBox10.Controls.Add(Me.LinkLabel12)
         Me.GroupBox10.Controls.Add(Me.LinkLabel13)
-        Me.GroupBox10.Location = New System.Drawing.Point(22, 226)
+        Me.GroupBox10.Location = New System.Drawing.Point(22, 355)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Size = New System.Drawing.Size(142, 192)
         Me.GroupBox10.TabIndex = 20

@@ -5,6 +5,15 @@ Public Class loginDB
     Private userName, passWord As String
     Private userType As Integer 'user_type in jobdb.login_tb, in MySQL
 
+    'DB class variables
+    Private server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+    Private connection As MySqlConnection = New MySqlConnection
+    Private sql_command As MySqlCommand
+    Private sql_reader As MySqlDataReader
+    Private sql_bind As New BindingSource
+    Private sql_data_adapter As New MySqlDataAdapter
+    Private data_table As New DataTable 'sql data container
+
     'initalization constructor, has 2 parameters user_name and pass_word
     Public Sub New(ByRef user_name As String, ByRef pass_word As String)
         'initialize variables
@@ -40,15 +49,6 @@ Public Class loginDB
         Return userName
     End Function
 
-
-    'DB class variables
-    Private server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
-    Private connection As MySqlConnection = New MySqlConnection
-    Private sql_command As MySqlCommand
-    Private sql_reader As MySqlDataReader
-    Private sql_bind As New BindingSource
-    Private sql_data_adapter As New MySqlDataAdapter
-    Private data_table As New DataTable 'sql data container
 
     'get login details and return true if it matches
     'boolean function
