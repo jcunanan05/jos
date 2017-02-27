@@ -6,7 +6,7 @@ Public Class loginDB
     Private userType As Integer 'user_type in jobdb.login_tb, in MySQL
 
     'DB class variables
-    Private server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+    Private server_string As String = serverStringDB.getServerString()
     Private connection As MySqlConnection = New MySqlConnection
     Private sql_command As MySqlCommand
     Private sql_reader As MySqlDataReader
@@ -60,7 +60,7 @@ Public Class loginDB
             connection.ConnectionString = server_string
             connection.Open() 'open connection
             'sql query
-            Dim sql_query As String = "SELECT login.username,login.password,login.user_type FROM login_tb login WHERE login.username ='" & userName & "' AND login.password=MD5('" & passWord & "')"
+            Dim sql_query As String = "SELECT login.username,login.password,login.user_type FROM login_tb login WHERE BINARY login.username = BINARY '" & userName & "' AND login.password=MD5('" & passWord & "')"
             'connect to database and bind query
             sql_command = New MySqlCommand(sql_query, connection)
             sql_command.CommandText = sql_query 'execute command

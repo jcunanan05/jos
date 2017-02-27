@@ -45,7 +45,7 @@ Public Class registerDB
     End Function
 
     'DB class variables
-    Private server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+    Private server_string As String = serverStringDB.getServerString()
     Private connection As MySqlConnection = New MySqlConnection
     Private sql_command As MySqlCommand
     Private sql_reader As MySqlDataReader
@@ -63,7 +63,7 @@ Public Class registerDB
             connection.ConnectionString = server_string
             connection.Open() 'open connection
             'sql query
-            Dim sql_query As String = "SELECT emp_id,username FROM employee_tb WHERE username='" & userName & "'"
+            Dim sql_query As String = "SELECT emp_id,username FROM employee_tb WHERE BINARY username= BINARY '" & userName & "'"
             'connect to database and bind query
             sql_command = New MySqlCommand(sql_query, connection)
             sql_command.CommandText = sql_query 'execute command

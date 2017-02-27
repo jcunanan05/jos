@@ -37,7 +37,7 @@ Partial Class addInv
         Me.item_data_grid = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.manager_label = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.supplier_combo = New System.Windows.Forms.ComboBox()
@@ -47,6 +47,7 @@ Partial Class addInv
         Me.new_supplier_chbox = New System.Windows.Forms.CheckBox()
         Me.serial_label = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.new_category_chbox = New System.Windows.Forms.CheckBox()
         CType(Me.quantity_updown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.critical_updown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.item_data_grid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,9 +78,9 @@ Partial Class addInv
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(6, 83)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 13)
+        Me.Label2.Size = New System.Drawing.Size(61, 13)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Part Brand:"
+        Me.Label2.Text = "Part Model:"
         '
         'brand_textbox
         '
@@ -93,17 +94,17 @@ Partial Class addInv
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(6, 114)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(52, 13)
+        Me.Label3.Size = New System.Drawing.Size(83, 13)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Category:"
+        Me.Label3.Text = "Brand Category:"
         '
         'category_combo
         '
         Me.category_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.category_combo.FormattingEnabled = True
-        Me.category_combo.Location = New System.Drawing.Point(72, 111)
+        Me.category_combo.Location = New System.Drawing.Point(95, 111)
         Me.category_combo.Name = "category_combo"
-        Me.category_combo.Size = New System.Drawing.Size(121, 21)
+        Me.category_combo.Size = New System.Drawing.Size(204, 21)
         Me.category_combo.TabIndex = 5
         '
         'Label4
@@ -118,6 +119,7 @@ Partial Class addInv
         'quantity_updown
         '
         Me.quantity_updown.Location = New System.Drawing.Point(75, 215)
+        Me.quantity_updown.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.quantity_updown.Name = "quantity_updown"
         Me.quantity_updown.Size = New System.Drawing.Size(100, 20)
         Me.quantity_updown.TabIndex = 7
@@ -134,6 +136,7 @@ Partial Class addInv
         'critical_updown
         '
         Me.critical_updown.Location = New System.Drawing.Point(100, 245)
+        Me.critical_updown.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.critical_updown.Name = "critical_updown"
         Me.critical_updown.Size = New System.Drawing.Size(75, 20)
         Me.critical_updown.TabIndex = 9
@@ -187,14 +190,14 @@ Partial Class addInv
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Technician:"
         '
-        'Label8
+        'manager_label
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(82, 340)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(35, 13)
-        Me.Label8.TabIndex = 15
-        Me.Label8.Text = "Guest"
+        Me.manager_label.AutoSize = True
+        Me.manager_label.Location = New System.Drawing.Point(82, 340)
+        Me.manager_label.Name = "manager_label"
+        Me.manager_label.Size = New System.Drawing.Size(35, 13)
+        Me.manager_label.TabIndex = 15
+        Me.manager_label.Text = "Guest"
         '
         'Label9
         '
@@ -226,6 +229,7 @@ Partial Class addInv
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.new_category_chbox)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.price_updown)
         Me.GroupBox1.Controls.Add(Me.new_supplier_chbox)
@@ -266,6 +270,7 @@ Partial Class addInv
         Me.price_updown.DecimalPlaces = 2
         Me.price_updown.Increment = New Decimal(New Integer() {25, 0, 0, 131072})
         Me.price_updown.Location = New System.Drawing.Point(72, 171)
+        Me.price_updown.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.price_updown.Name = "price_updown"
         Me.price_updown.Size = New System.Drawing.Size(100, 20)
         Me.price_updown.TabIndex = 23
@@ -298,6 +303,16 @@ Partial Class addInv
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "Serial no."
         '
+        'new_category_chbox
+        '
+        Me.new_category_chbox.AutoSize = True
+        Me.new_category_chbox.Location = New System.Drawing.Point(305, 113)
+        Me.new_category_chbox.Name = "new_category_chbox"
+        Me.new_category_chbox.Size = New System.Drawing.Size(48, 17)
+        Me.new_category_chbox.TabIndex = 24
+        Me.new_category_chbox.Text = "New"
+        Me.new_category_chbox.UseVisualStyleBackColor = True
+        '
         'addInv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -305,7 +320,7 @@ Partial Class addInv
         Me.ClientSize = New System.Drawing.Size(852, 362)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.manager_label)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.item_data_grid)
@@ -336,7 +351,7 @@ Partial Class addInv
     Friend WithEvents item_data_grid As System.Windows.Forms.DataGridView
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents manager_label As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents supplier_combo As System.Windows.Forms.ComboBox
@@ -346,4 +361,5 @@ Partial Class addInv
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents price_updown As System.Windows.Forms.NumericUpDown
+    Friend WithEvents new_category_chbox As System.Windows.Forms.CheckBox
 End Class

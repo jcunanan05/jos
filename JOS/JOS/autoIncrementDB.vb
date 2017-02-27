@@ -4,7 +4,7 @@ Public Class autoIncrementDB
     Private tableName As String
 
     'variables for db
-    Private server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+    Private server_string As String = serverStringDB.getServerString()
     Private connection As MySqlConnection = New MySqlConnection
     Private sql_command As MySqlCommand
     Private sql_data_adapter As New MySqlDataAdapter

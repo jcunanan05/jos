@@ -11,7 +11,7 @@ Public Class employeeDB
     Private positionType As Integer
 
     'DB instance variables
-    Private server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+    Private server_string As String = serverStringDB.getServerString()
     Private connection As MySqlConnection = New MySqlConnection
     Private sql_command As MySqlCommand
     Private sql_reader As MySqlDataReader
@@ -81,7 +81,7 @@ Public Class employeeDB
             connection.ConnectionString = server_string
             connection.Open() 'open connection
             'sql query
-            Dim sql_query As String = "SELECT emp_id,full_name,position_type FROM employee_tb WHERE username='" & userName & "'"
+            Dim sql_query As String = "SELECT emp_id,full_name,position_type FROM employee_tb WHERE BINARY username= BINARY '" & userName & "'"
             'connect to database and bind query
             sql_command = New MySqlCommand(sql_query, connection)
             sql_command.CommandText = sql_query 'execute command
@@ -124,7 +124,7 @@ Public Class employeeDB
         'As of now there are two. 1 for technician, 2 for manager
 
         'variables for db
-        Dim server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+        Dim server_string As String = serverStringDB.getServerString()
         Dim connection As MySqlConnection = New MySqlConnection
         Dim sql_command As MySqlCommand
         Dim sql_data_adapter As New MySqlDataAdapter

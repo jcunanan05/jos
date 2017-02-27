@@ -8,7 +8,7 @@ Public Class inventoryDB
     Private partCritical As Integer
 
     'DB class variables
-    Private server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+    Private server_string As String = serverStringDB.getServerString()
     Private connection As MySqlConnection = New MySqlConnection
     Private sql_command As MySqlCommand
     Private sql_reader As MySqlDataReader
@@ -37,6 +37,11 @@ Public Class inventoryDB
     Public Function wrongNewSupplier()
         'String function that returns a text that same supplier when it is the same in the database
         Return "Same Supplier. Select from the Existing Suppliers."
+    End Function
+
+    Public Function wrongNewCategory()
+        'String function that returns a text that same supplier when it is the same in the database
+        Return "Same Brand Category. Select from the Existing Brand Categories."
     End Function
 
     'boolean function
@@ -87,23 +92,20 @@ Public Class inventoryDB
     End Function
 
     'boolean function
-    Public Function itemTaken()
+    Public Function categoryTaken(ByRef new_chbox As CheckBox)
         'this method returns boolean
-        'returns true if the item with the same supplier, category, and kind has match on DB
+        'returns true if the new category name has match in the database
         Dim isTaken As Boolean = True
 
         'count results
         Dim count As Integer = 0
-            'if the user wants to add new supplier
+        If new_chbox.Checked Then
+            'if the user wants to add new brand category
             Try
                 connection.ConnectionString = server_string
                 connection.Open() 'open connection
-            'select queries for ids
-            Dim select_supplier As String = "SELECT supplier_id FROM supplier_tb WHERE supplier_name='" & partSupplier & "'"
-            Dim select_category As String = "SELECT category_id FROM category_tb WHERE category_name='" & partCategory & "'"
-            Dim select_part As String = "SELECT part_id FROM part_tb WHERE part_name = '" & partName & "'"
-            'sql query
-            Dim sql_query As String = "SELECT item_id,item_name FROM inventory_tb WHERE item_name='" & partBrand & "' AND supplier_id =(" & select_supplier & ") AND category_id =(" & select_category & ") AND part_id =(" & select_part & ");"
+                'sql query
+                Dim sql_query As String = "SELECT category_id,category_name FROM category_tb WHERE category_name='" & partCategory & "'"
                 'connect to database and bind query
                 sql_command = New MySqlCommand(sql_query, connection)
                 sql_command.CommandText = sql_query 'execute command
@@ -114,7 +116,7 @@ Public Class inventoryDB
                 count = data_table.Rows.Count 'count sql results
 
                 If count = 0 Then
-                'if no same item is found
+                    'if no category is found
                     isTaken = False ' set isTaken to false
                 End If
 
@@ -126,15 +128,66 @@ Public Class inventoryDB
                 connection.Close()
                 connection.Dispose()
             End Try
+        Else
+            'if the user won't add new category
+            'set isTaken to false
+            isTaken = False
+        End If
+
+        'return
+        Return isTaken
+    End Function
+
+    'boolean function
+    Public Function itemTaken()
+        'this method returns boolean
+        'returns true if the item with the same supplier, category, and kind has match on DB
+        Dim isTaken As Boolean = True
+
+        'count results
+        Dim count As Integer = 0
+        'if the user wants to add new supplier
+        Try
+            connection.ConnectionString = server_string
+            connection.Open() 'open connection
+            'select queries for ids
+            Dim select_supplier As String = "SELECT supplier_id FROM supplier_tb WHERE supplier_name='" & partSupplier & "'"
+            Dim select_category As String = "SELECT category_id FROM category_tb WHERE category_name='" & partCategory & "'"
+            Dim select_part As String = "SELECT part_id FROM part_tb WHERE part_name = '" & partName & "'"
+            'sql query
+            Dim sql_query As String = "SELECT item_id,item_model FROM inventory_tb WHERE item_model='" & partBrand & "' AND supplier_id =(" & select_supplier & ") AND category_id =(" & select_category & ") AND part_id =(" & select_part & ");"
+            'connect to database and bind query
+            sql_command = New MySqlCommand(sql_query, connection)
+            sql_command.CommandText = sql_query 'execute command
+            'get data from database
+            sql_data_adapter.SelectCommand = sql_command
+            sql_data_adapter.Fill(data_table) ' fill data table with rows from sql command earlier
+
+            count = data_table.Rows.Count 'count sql results
+
+            If count = 0 Then
+                'if no same item is found
+                isTaken = False ' set isTaken to false
+            End If
+
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        Finally
+            'dispose and close connection
+            sql_data_adapter.Dispose()
+            connection.Close()
+            connection.Dispose()
+        End Try
 
         'return
         Return isTaken
     End Function
 
     'void method
-    Public Sub addItem(ByRef new_supplier_chbox As CheckBox)
+    Public Sub addItem(ByRef new_supplier_chbox As CheckBox, ByRef new_category_chbox As CheckBox)
         'add new item to the inventory
         Dim new_supplier As String = ""
+        Dim new_category As String = ""
         'this method will add the new item.
         Try
             connection.ConnectionString = server_string
@@ -143,12 +196,16 @@ Public Class inventoryDB
             Dim select_supplier As String = "SELECT supplier_id FROM supplier_tb WHERE supplier_name='" & partSupplier & "'"
             Dim select_category As String = "SELECT category_id FROM category_tb WHERE category_name='" & partCategory & "'"
             Dim select_part As String = "SELECT part_id FROM part_tb WHERE part_name = '" & partName & "'"
-
+            'new supplier
             If new_supplier_chbox.Checked Then
                 new_supplier = "INSERT INTO supplier_tb (supplier_name) VALUES ('" & partSupplier & "');"
             End If
+            'new brand category
+            If new_category_chbox.Checked Then
+                new_category = "INSERT INTO category_tb (category_name) VALUES ('" & partCategory & "');"
+            End If
 
-            Dim sql_query As String = new_supplier & "INSERT INTO inventory_tb (part_id, item_name, category_id, supplier_id, item_price, item_quantity, critical_amount) VALUES ((" & select_part & "),'" & partBrand & "',(" & select_category & "),(" & select_supplier & "),'" & partPrice.ToString & "','" & partQuantity & "','" & partCritical.ToString & "');"
+            Dim sql_query As String = new_supplier & new_category & "INSERT INTO inventory_tb (part_id, item_model, category_id, supplier_id, item_price, item_quantity, critical_amount) VALUES ((" & select_part & "),'" & partBrand & "',(" & select_category & "),(" & select_supplier & "),'" & partPrice.ToString & "','" & partQuantity & "','" & partCritical.ToString & "');"
             'connect to database
             sql_command = New MySqlCommand(sql_query, connection)
             'execute query
@@ -172,7 +229,7 @@ Public Class inventoryDB
         ' of standard watch part names. E.G. battery. right hand, left hand, etc
 
         'variables for db
-        Dim server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+        Dim server_string As String = serverStringDB.getServerString()
         Dim connection As MySqlConnection = New MySqlConnection
         Dim sql_command As MySqlCommand
         Dim sql_data_adapter As New MySqlDataAdapter
@@ -230,7 +287,7 @@ Public Class inventoryDB
         ' of watch categories. 
 
         'variables for db
-        Dim server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+        Dim server_string As String = serverStringDB.getServerString()
         Dim connection As MySqlConnection = New MySqlConnection
         Dim sql_command As MySqlCommand
         Dim sql_data_adapter As New MySqlDataAdapter
@@ -288,7 +345,7 @@ Public Class inventoryDB
         ' of suppliers. 
 
         'variables for db
-        Dim server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+        Dim server_string As String = serverStringDB.getServerString()
         Dim connection As MySqlConnection = New MySqlConnection
         Dim sql_command As MySqlCommand
         Dim sql_data_adapter As New MySqlDataAdapter
@@ -358,12 +415,13 @@ Public Class inventoryDB
         Return newSerial
     End Function
 
+    'global function
     Public Shared Sub getRecentlyAdded(ByRef itemDataGrid As DataGridView)
         'This is a global function
         'displays recentlyAdded inventory in a DataGridView. as of now first 15 rows
         'requires @param DataGridView
         'variables for db
-        Dim server_string As String = "Server=localhost;UserId=root;Password=;Database=jobdb"
+        Dim server_string As String = serverStringDB.getServerString()
         Dim connection As MySqlConnection = New MySqlConnection
         Dim sql_command As MySqlCommand
         Dim sql_bind As New BindingSource
@@ -382,7 +440,7 @@ Public Class inventoryDB
             'for left join supplier_id
             Dim supplier_id As String = "supplier_tb supplier ON inventory.supplier_id = supplier.supplier_id"
             'rows to be displayed/selected
-            Dim selected_row As String = "inventory.item_id, part.part_name, inventory.item_name, inventory.item_quantity, inventory.item_price, inventory.critical_amount, supplier.supplier_name, category.category_name"
+            Dim selected_row As String = "inventory.item_id, part.part_name, category.category_name, inventory.item_model, inventory.item_quantity, inventory.item_price, inventory.critical_amount, supplier.supplier_name"
             'main sql query
             Dim sql_query As String = "SELECT " & selected_row & " FROM inventory_tb inventory LEFT JOIN " & part_id & " LEFT JOIN " & category_id & " LEFT JOIN " & supplier_id & " ORDER BY inventory.item_AI DESC LIMIT 15;"
             'connect to database and bind query
@@ -401,12 +459,13 @@ Public Class inventoryDB
                 .RowHeadersVisible = False 'hide row header
                 .Columns(0).HeaderCell.Value = "Item ID"
                 .Columns(1).HeaderCell.Value = "Watch Part"
-                .Columns(2).HeaderCell.Value = "Item Name"
-                .Columns(3).HeaderCell.Value = "Stock Qty"
-                .Columns(4).HeaderCell.Value = "Item Price"
-                .Columns(5).HeaderCell.Value = "Critical Stock #"
-                .Columns(6).HeaderCell.Value = "Supplier Name"
-                .Columns(7).HeaderCell.Value = "Watch Category"
+                .Columns(2).HeaderCell.Value = "Brand Category"
+                .Columns(3).HeaderCell.Value = "Item Model"
+                .Columns(4).HeaderCell.Value = "Stock Qty"
+                .Columns(5).HeaderCell.Value = "Item Price"
+                .Columns(6).HeaderCell.Value = "Critical Stock #"
+                .Columns(7).HeaderCell.Value = "Supplier Name"
+
                 'auto size columns
                 .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
                 .ClearSelection() 'no select

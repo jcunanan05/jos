@@ -38,7 +38,7 @@ Partial Class managerHome
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.add_product_label = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
@@ -53,8 +53,9 @@ Partial Class managerHome
         Me.LinkLabel9 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel10 = New System.Windows.Forms.LinkLabel()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel18 = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabel17 = New System.Windows.Forms.LinkLabel()
+        Me.add_service_label = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel16 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel12 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel13 = New System.Windows.Forms.LinkLabel()
@@ -228,7 +229,7 @@ Partial Class managerHome
         '
         'GroupBox6
         '
-        Me.GroupBox6.Controls.Add(Me.LinkLabel2)
+        Me.GroupBox6.Controls.Add(Me.add_product_label)
         Me.GroupBox6.Controls.Add(Me.LinkLabel3)
         Me.GroupBox6.Controls.Add(Me.LinkLabel1)
         Me.GroupBox6.Location = New System.Drawing.Point(22, 138)
@@ -238,16 +239,16 @@ Partial Class managerHome
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Inventory"
         '
-        'LinkLabel2
+        'add_product_label
         '
-        Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel2.Location = New System.Drawing.Point(6, 41)
-        Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(82, 16)
-        Me.LinkLabel2.TabIndex = 14
-        Me.LinkLabel2.TabStop = True
-        Me.LinkLabel2.Text = "Add Product"
+        Me.add_product_label.AutoSize = True
+        Me.add_product_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.add_product_label.Location = New System.Drawing.Point(6, 41)
+        Me.add_product_label.Name = "add_product_label"
+        Me.add_product_label.Size = New System.Drawing.Size(82, 16)
+        Me.add_product_label.TabIndex = 14
+        Me.add_product_label.TabStop = True
+        Me.add_product_label.Text = "Add Product"
         '
         'LinkLabel3
         '
@@ -392,45 +393,57 @@ Partial Class managerHome
         '
         'GroupBox10
         '
+        Me.GroupBox10.Controls.Add(Me.LinkLabel2)
         Me.GroupBox10.Controls.Add(Me.LinkLabel18)
-        Me.GroupBox10.Controls.Add(Me.LinkLabel17)
+        Me.GroupBox10.Controls.Add(Me.add_service_label)
         Me.GroupBox10.Controls.Add(Me.LinkLabel16)
         Me.GroupBox10.Controls.Add(Me.LinkLabel12)
         Me.GroupBox10.Controls.Add(Me.LinkLabel13)
         Me.GroupBox10.Location = New System.Drawing.Point(22, 355)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(142, 192)
+        Me.GroupBox10.Size = New System.Drawing.Size(142, 231)
         Me.GroupBox10.TabIndex = 20
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Job Orders"
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.LinkLabel2.Location = New System.Drawing.Point(6, 42)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(106, 16)
+        Me.LinkLabel2.TabIndex = 18
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Edit Job Service"
         '
         'LinkLabel18
         '
         Me.LinkLabel18.AutoSize = True
         Me.LinkLabel18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel18.Location = New System.Drawing.Point(8, 164)
+        Me.LinkLabel18.Location = New System.Drawing.Point(6, 201)
         Me.LinkLabel18.Name = "LinkLabel18"
         Me.LinkLabel18.Size = New System.Drawing.Size(103, 16)
         Me.LinkLabel18.TabIndex = 17
         Me.LinkLabel18.TabStop = True
         Me.LinkLabel18.Text = "Check Warranty"
         '
-        'LinkLabel17
+        'add_service_label
         '
-        Me.LinkLabel17.AutoSize = True
-        Me.LinkLabel17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel17.Location = New System.Drawing.Point(6, 123)
-        Me.LinkLabel17.Name = "LinkLabel17"
-        Me.LinkLabel17.Size = New System.Drawing.Size(89, 32)
-        Me.LinkLabel17.TabIndex = 16
-        Me.LinkLabel17.TabStop = True
-        Me.LinkLabel17.Text = "Add/Edit Job " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Services"
+        Me.add_service_label.AutoSize = True
+        Me.add_service_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.add_service_label.Location = New System.Drawing.Point(6, 16)
+        Me.add_service_label.Name = "add_service_label"
+        Me.add_service_label.Size = New System.Drawing.Size(108, 16)
+        Me.add_service_label.TabIndex = 16
+        Me.add_service_label.TabStop = True
+        Me.add_service_label.Text = "Add Job Service"
         '
         'LinkLabel16
         '
         Me.LinkLabel16.AutoSize = True
         Me.LinkLabel16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel16.Location = New System.Drawing.Point(6, 97)
+        Me.LinkLabel16.Location = New System.Drawing.Point(6, 133)
         Me.LinkLabel16.Name = "LinkLabel16"
         Me.LinkLabel16.Size = New System.Drawing.Size(109, 16)
         Me.LinkLabel16.TabIndex = 15
@@ -441,7 +454,7 @@ Partial Class managerHome
         '
         Me.LinkLabel12.AutoSize = True
         Me.LinkLabel12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel12.Location = New System.Drawing.Point(6, 54)
+        Me.LinkLabel12.Location = New System.Drawing.Point(6, 92)
         Me.LinkLabel12.Name = "LinkLabel12"
         Me.LinkLabel12.Size = New System.Drawing.Size(112, 32)
         Me.LinkLabel12.TabIndex = 14
@@ -452,7 +465,7 @@ Partial Class managerHome
         '
         Me.LinkLabel13.AutoSize = True
         Me.LinkLabel13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.LinkLabel13.Location = New System.Drawing.Point(6, 29)
+        Me.LinkLabel13.Location = New System.Drawing.Point(6, 67)
         Me.LinkLabel13.Name = "LinkLabel13"
         Me.LinkLabel13.Size = New System.Drawing.Size(96, 16)
         Me.LinkLabel13.TabIndex = 13
@@ -580,7 +593,7 @@ Partial Class managerHome
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
-    Friend WithEvents LinkLabel2 As System.Windows.Forms.LinkLabel
+    Friend WithEvents add_product_label As System.Windows.Forms.LinkLabel
     Friend WithEvents LinkLabel3 As System.Windows.Forms.LinkLabel
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
     Friend WithEvents add_emp_label As System.Windows.Forms.LinkLabel
@@ -602,10 +615,11 @@ Partial Class managerHome
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents LinkLabel17 As System.Windows.Forms.LinkLabel
+    Friend WithEvents add_service_label As System.Windows.Forms.LinkLabel
     Friend WithEvents LinkLabel16 As System.Windows.Forms.LinkLabel
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents username_label As System.Windows.Forms.Label
     Friend WithEvents LinkLabel18 As System.Windows.Forms.LinkLabel
     Friend WithEvents LinkLabel19 As System.Windows.Forms.LinkLabel
+    Friend WithEvents LinkLabel2 As System.Windows.Forms.LinkLabel
 End Class

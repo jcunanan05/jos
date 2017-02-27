@@ -41,4 +41,22 @@
         Dim registerEmp As regEmployee = New regEmployee(userName, userType) 'arguments username and usertype
         registerEmp.Show() ' show regEmployee form
     End Sub
+
+    Private Sub add_product_label_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles add_product_label.LinkClicked
+        'when add product is clicked
+
+        'create new object/instance
+        Dim addInventory As addInv = New addInv(userName)
+        addInventory.Show() 'show addInv form
+    End Sub
+
+    Private Sub add_service_label_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles add_service_label.LinkClicked
+        'when add job service is clicked
+
+        'create new object/instance
+        Dim addJobService As addService = New addService(userName)
+        addJobService.Show()
+    End Sub
+
+
 End Class
