@@ -1,8 +1,7 @@
 Updates
--new class inventoryDB.vb
--codes added on addInv.vb
--new class autoIncrement.vb
--bug on inventory_tb on sql fixed. (item_AI has not been set for auto increment)
+-set item_name to item_model in the database and in inventoryDB.vb
+-added new brand category functionality
+-refactored server string into one string source only
 
 i'll explain that these classes do
 loginMain.vb
@@ -64,8 +63,9 @@ inventoryDB.vb
 -requires parameter(part name, brand, category, supplier, price, quantity, critical_amount)
 -handles inventory commands such as add inventory
 -supplierTaken(new_checkbox) checks if supplier exists when 'new_supplier' is checked. returns True if supplier exist
+-categoryTaken(new_checkbox) checks if category exists when 'new_checkbox' is checked. returns True if category exist
 -itemTaken() - checks if an inventory item has the same brand, supplier, category, and partname. returns true if the same item exist.
--addItem() - this will add the new item to the inventory with the parameter checkbox if new supplier or not.
+-addItem(supplier_chbox,category_chbox) - this will add the new item to the inventory with the parameter checkbox if new supplier or not and for category also.
 -getPartRemark() - this is a global function that returns a 'string array' of part names
 -getCategoryRemark() - this is a global function that returns a 'string array' of watch categories
 -getSupplierRemark() - this is a global function that returns a 'string array' of supplier list

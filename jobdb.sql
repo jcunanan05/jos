@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2017 at 11:02 AM
+-- Generation Time: Feb 27, 2017 at 05:06 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -38,8 +38,9 @@ CREATE TABLE `category_tb` (
 --
 
 INSERT INTO `category_tb` (`category_AI`, `category_id`, `category_name`, `added_by_emp_id`) VALUES
-(1, 'cat_1', 'Wristwatch', 'Default'),
-(2, 'cat_2', 'Wallclock', 'Default');
+(1, 'cat_1', 'Guess', 'Default'),
+(2, 'cat_2', 'Tissot', 'Default'),
+(3, 'cat_3', 'Casio', 'Default');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,7 @@ INSERT INTO `employee_tb` (`emp_AI`, `emp_id`, `full_name`, `username`, `positio
 CREATE TABLE `inventory_tb` (
   `item_AI` int(11) NOT NULL,
   `item_id` varchar(20) AS (concat('item_',item_AI)) VIRTUAL,
-  `item_name` varchar(100) NOT NULL,
+  `item_model` varchar(100) NOT NULL,
   `item_quantity` int(11) NOT NULL DEFAULT '0',
   `item_price` decimal(13,2) NOT NULL,
   `critical_amount` int(11) NOT NULL DEFAULT '0',
@@ -101,11 +102,12 @@ CREATE TABLE `inventory_tb` (
 -- Dumping data for table `inventory_tb`
 --
 
-INSERT INTO `inventory_tb` (`item_AI`, `item_id`, `item_name`, `item_quantity`, `item_price`, `critical_amount`, `added_by_emp_id`, `supplier_id`, `category_id`, `part_id`) VALUES
-(1, 'item_1', 'Seiko', 14, '20.00', 3, 'Default', 'supp_3', 'cat_1', 'part_1'),
-(2, 'item_2', 'Guess', 6, '12.00', 3, 'Default', 'supp_1', 'cat_1', 'part_2'),
-(3, 'item_3', 'Tissot', 8, '5.50', 2, 'Default', 'supp_5', 'cat_1', 'part_2'),
-(4, 'item_4', 'GShock', 7, '3.00', 2, 'Default', 'supp_4', 'cat_1', 'part_1');
+INSERT INTO `inventory_tb` (`item_AI`, `item_id`, `item_model`, `item_quantity`, `item_price`, `critical_amount`, `added_by_emp_id`, `supplier_id`, `category_id`, `part_id`) VALUES
+(1, 'item_1', 'AA3201', 14, '20.00', 3, 'Default', 'supp_3', 'cat_1', 'part_1'),
+(2, 'item_2', 'AB1230', 6, '12.00', 3, 'Default', 'supp_1', 'cat_1', 'part_2'),
+(3, 'item_3', 'M01B35', 8, '5.50', 2, 'Default', 'supp_5', 'cat_1', 'part_2'),
+(4, 'item_4', '12MN013', 7, '3.00', 2, 'Default', 'supp_4', 'cat_1', 'part_1'),
+(5, 'item_5', 'A0124AB', 22, '12.00', 6, 'Default', 'supp_3', 'cat_3', 'part_1');
 
 -- --------------------------------------------------------
 
@@ -119,6 +121,14 @@ CREATE TABLE `job_desc_tb` (
   `job_desc` varchar(300) NOT NULL,
   `job_desc_price` decimal(13,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `job_desc_tb`
+--
+
+INSERT INTO `job_desc_tb` (`job_desc_AI`, `job_desc_id`, `job_desc`, `job_desc_price`) VALUES
+(1, 'job_desc_1', 'Battery Replacement', '100.00'),
+(2, 'job_desc_2', 'Watch Hand Replacement', '120.00');
 
 -- --------------------------------------------------------
 
@@ -210,7 +220,7 @@ CREATE TABLE `repair_job_tb` (
   `total_price` decimal(13,2) NOT NULL,
   `warranty_type` varchar(30) NOT NULL DEFAULT 'warr_0',
   `warranty_remark` varchar(45) NOT NULL DEFAULT 'No warranty',
-  `watch_serial_no` varchar(100) NOT NULL,
+  `watch_serial_no` varchar(100) DEFAULT NULL,
   `watch_kind` int(11) NOT NULL,
   `watch_build` int(11) NOT NULL,
   `watch_remark` varchar(500) NOT NULL,
@@ -529,7 +539,7 @@ ALTER TABLE `watch_kind_tb`
 -- AUTO_INCREMENT for table `category_tb`
 --
 ALTER TABLE `category_tb`
-  MODIFY `category_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `category_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `customer_tb`
 --
@@ -544,12 +554,12 @@ ALTER TABLE `employee_tb`
 -- AUTO_INCREMENT for table `inventory_tb`
 --
 ALTER TABLE `inventory_tb`
-  MODIFY `item_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `item_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `job_desc_tb`
 --
 ALTER TABLE `job_desc_tb`
-  MODIFY `job_desc_AI` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `job_desc_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `job_type_tb`
 --
