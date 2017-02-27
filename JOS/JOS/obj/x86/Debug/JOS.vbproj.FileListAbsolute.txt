@@ -34,3 +34,4 @@ C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.backJO1.re
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.addCustomer.resources
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.techJO.resources
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.regEmployee.resources
+C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.addService.resources
