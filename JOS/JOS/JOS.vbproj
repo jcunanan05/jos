@@ -49,6 +49,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -78,6 +79,30 @@
     <Compile Include="addInv.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="autoIncrementDB.vb" />
+    <Compile Include="addService.Designer.vb">
+      <DependentUpon>addService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="addService.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="warrantyDB.vb" />
+    <Compile Include="watchDB.vb" />
+    <Compile Include="technicianDB.vb" />
+    <Compile Include="jobOrderDB.vb" />
+    <Compile Include="customerDB.vb" />
+    <Compile Include="seeEmployee.Designer.vb">
+      <DependentUpon>seeEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="seeEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serverStringDB.vb" />
+    <Compile Include="jobDescDB.vb" />
+    <Compile Include="inventoryDB.vb" />
+    <Compile Include="registerDB.vb" />
+    <Compile Include="employeeDB.vb" />
+    <Compile Include="loginDB.vb" />
     <Compile Include="editInv.Designer.vb">
       <DependentUpon>editInv.vb</DependentUpon>
     </Compile>
@@ -209,6 +234,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="addCustomer.resx">
       <DependentUpon>addCustomer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addService.resx">
+      <DependentUpon>addService.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="seeEmployee.resx">
+      <DependentUpon>seeEmployee.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="techJO.resx">
       <DependentUpon>techJO.vb</DependentUpon>

@@ -24,19 +24,22 @@ Partial Class addJO2
     Private Sub InitializeComponent()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -50,17 +53,14 @@ Partial Class addJO2
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Button10 = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Button11 = New System.Windows.Forms.Button()
@@ -102,6 +102,24 @@ Partial Class addJO2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "List of Services"
         '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(247, 188)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(107, 23)
+        Me.Button8.TabIndex = 45
+        Me.Button8.Text = "Clear Selection"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(6, 188)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(172, 23)
+        Me.Button2.TabIndex = 39
+        Me.Button2.Text = "Add Service"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(360, 162)
@@ -141,6 +159,25 @@ Partial Class addJO2
         Me.GroupBox6.TabIndex = 39
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Chosen Services"
+        '
+        'Label2
+        '
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(125, 152)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(214, 18)
+        Me.Label2.TabIndex = 54
+        Me.Label2.Text = "0"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(13, 152)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(77, 18)
+        Me.Label1.TabIndex = 53
+        Me.Label1.Text = "Amount: P"
         '
         'DataGridView2
         '
@@ -187,34 +224,6 @@ Partial Class addJO2
         Me.Button3.Text = "Remove Selected Service"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(6, 188)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(172, 23)
-        Me.Button2.TabIndex = 39
-        Me.Button2.Text = "Add Service"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(13, 152)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(77, 18)
-        Me.Label1.TabIndex = 53
-        Me.Label1.Text = "Amount: P"
-        '
-        'Label2
-        '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(125, 152)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(214, 18)
-        Me.Label2.TabIndex = 54
-        Me.Label2.Text = "0"
-        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
@@ -238,6 +247,23 @@ Partial Class addJO2
         Me.GroupBox2.TabIndex = 40
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Search and Choose Parts"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(104, 211)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 50
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(11, 214)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(68, 13)
+        Me.Label6.TabIndex = 49
+        Me.Label6.Text = "Watch Build:"
         '
         'Label22
         '
@@ -348,32 +374,6 @@ Partial Class addJO2
         Me.DataGridView3.Size = New System.Drawing.Size(403, 100)
         Me.DataGridView3.TabIndex = 0
         '
-        'Button8
-        '
-        Me.Button8.Location = New System.Drawing.Point(247, 188)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(107, 23)
-        Me.Button8.TabIndex = 45
-        Me.Button8.Text = "Clear Selection"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(104, 211)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 50
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(11, 214)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(68, 13)
-        Me.Label6.TabIndex = 49
-        Me.Label6.Text = "Watch Build:"
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.Label12)
@@ -389,6 +389,34 @@ Partial Class addJO2
         Me.GroupBox3.TabIndex = 41
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Chosen Parts"
+        '
+        'Label12
+        '
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(117, 153)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(214, 18)
+        Me.Label12.TabIndex = 56
+        Me.Label12.Text = "0"
+        '
+        'Label13
+        '
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(117, 130)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(214, 18)
+        Me.Label13.TabIndex = 55
+        Me.Label13.Text = "0"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(13, 154)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(77, 18)
+        Me.Label9.TabIndex = 53
+        Me.Label9.Text = "Amount: P"
         '
         'DataGridView4
         '
@@ -426,34 +454,6 @@ Partial Class addJO2
         Me.Button10.Text = "Remove Part"
         Me.Button10.UseVisualStyleBackColor = True
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(13, 154)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(77, 18)
-        Me.Label9.TabIndex = 53
-        Me.Label9.Text = "Amount: P"
-        '
-        'Label12
-        '
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(117, 153)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(214, 18)
-        Me.Label12.TabIndex = 56
-        Me.Label12.Text = "0"
-        '
-        'Label13
-        '
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(117, 130)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(214, 18)
-        Me.Label13.TabIndex = 55
-        Me.Label13.Text = "0"
-        '
         'Label14
         '
         Me.Label14.AutoSize = True
@@ -466,10 +466,11 @@ Partial Class addJO2
         '
         'Label15
         '
+        Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(164, 559)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(295, 22)
+        Me.Label15.Size = New System.Drawing.Size(21, 22)
         Me.Label15.TabIndex = 43
         Me.Label15.Text = "0"
         '

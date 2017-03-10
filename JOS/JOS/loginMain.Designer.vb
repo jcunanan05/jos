@@ -23,10 +23,10 @@ Partial Class loginMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.login_button = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.password_textbox = New System.Windows.Forms.TextBox()
+        Me.username_textbox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -35,10 +35,10 @@ Partial Class loginMain
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.login_button)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.password_textbox)
+        Me.GroupBox1.Controls.Add(Me.username_textbox)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(128, 75)
         Me.GroupBox1.Name = "GroupBox1"
@@ -47,14 +47,14 @@ Partial Class loginMain
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Add Details"
         '
-        'Button1
+        'login_button
         '
-        Me.Button1.Location = New System.Drawing.Point(113, 71)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Login"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.login_button.Location = New System.Drawing.Point(113, 71)
+        Me.login_button.Name = "login_button"
+        Me.login_button.Size = New System.Drawing.Size(75, 23)
+        Me.login_button.TabIndex = 8
+        Me.login_button.Text = "Login"
+        Me.login_button.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -65,19 +65,20 @@ Partial Class loginMain
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Password:"
         '
-        'TextBox3
+        'password_textbox
         '
-        Me.TextBox3.Location = New System.Drawing.Point(69, 45)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(167, 20)
-        Me.TextBox3.TabIndex = 4
+        Me.password_textbox.Location = New System.Drawing.Point(69, 45)
+        Me.password_textbox.Name = "password_textbox"
+        Me.password_textbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.password_textbox.Size = New System.Drawing.Size(167, 20)
+        Me.password_textbox.TabIndex = 4
         '
-        'TextBox2
+        'username_textbox
         '
-        Me.TextBox2.Location = New System.Drawing.Point(71, 19)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(165, 20)
-        Me.TextBox2.TabIndex = 3
+        Me.username_textbox.Location = New System.Drawing.Point(71, 19)
+        Me.username_textbox.Name = "username_textbox"
+        Me.username_textbox.Size = New System.Drawing.Size(165, 20)
+        Me.username_textbox.TabIndex = 3
         '
         'Label2
         '
@@ -125,10 +126,10 @@ Partial Class loginMain
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents login_button As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents password_textbox As System.Windows.Forms.TextBox
+    Friend WithEvents username_textbox As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label

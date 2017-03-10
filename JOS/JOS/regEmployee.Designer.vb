@@ -23,58 +23,117 @@ Partial Class regEmployee
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.last_name_textbox = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.middle_i_textbox = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.emp_position_combo = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.register_button = New System.Windows.Forms.Button()
+        Me.new_confirm_textbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.new_password_textbox = New System.Windows.Forms.TextBox()
+        Me.new_user_name_textbox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.first_name_textbox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.manager_label = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.last_name_textbox)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.middle_i_textbox)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.emp_position_combo)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.TextBox4)
+        Me.GroupBox1.Controls.Add(Me.register_button)
+        Me.GroupBox1.Controls.Add(Me.new_confirm_textbox)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.new_password_textbox)
+        Me.GroupBox1.Controls.Add(Me.new_user_name_textbox)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.first_name_textbox)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(447, 222)
+        Me.GroupBox1.Size = New System.Drawing.Size(622, 222)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Add Details"
         '
-        'Button1
+        'last_name_textbox
         '
-        Me.Button1.Location = New System.Drawing.Point(190, 173)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Register"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.last_name_textbox.Location = New System.Drawing.Point(422, 17)
+        Me.last_name_textbox.Name = "last_name_textbox"
+        Me.last_name_textbox.Size = New System.Drawing.Size(194, 20)
+        Me.last_name_textbox.TabIndex = 14
         '
-        'TextBox4
+        'Label7
         '
-        Me.TextBox4.Location = New System.Drawing.Point(76, 132)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(165, 20)
-        Me.TextBox4.TabIndex = 7
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(359, 20)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(61, 13)
+        Me.Label7.TabIndex = 13
+        Me.Label7.Text = "Last Name:"
+        '
+        'middle_i_textbox
+        '
+        Me.middle_i_textbox.Location = New System.Drawing.Point(308, 17)
+        Me.middle_i_textbox.Name = "middle_i_textbox"
+        Me.middle_i_textbox.Size = New System.Drawing.Size(43, 20)
+        Me.middle_i_textbox.TabIndex = 12
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(255, 20)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(47, 13)
+        Me.Label6.TabIndex = 11
+        Me.Label6.Text = "Middle I."
+        '
+        'emp_position_combo
+        '
+        Me.emp_position_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.emp_position_combo.FormattingEnabled = True
+        Me.emp_position_combo.Location = New System.Drawing.Point(109, 46)
+        Me.emp_position_combo.Name = "emp_position_combo"
+        Me.emp_position_combo.Size = New System.Drawing.Size(156, 21)
+        Me.emp_position_combo.TabIndex = 10
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(7, 49)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(96, 13)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "Employee Position:"
+        '
+        'register_button
+        '
+        Me.register_button.Location = New System.Drawing.Point(190, 173)
+        Me.register_button.Name = "register_button"
+        Me.register_button.Size = New System.Drawing.Size(195, 23)
+        Me.register_button.TabIndex = 8
+        Me.register_button.Text = "Register"
+        Me.register_button.UseVisualStyleBackColor = True
+        '
+        'new_confirm_textbox
+        '
+        Me.new_confirm_textbox.Location = New System.Drawing.Point(76, 132)
+        Me.new_confirm_textbox.Name = "new_confirm_textbox"
+        Me.new_confirm_textbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.new_confirm_textbox.Size = New System.Drawing.Size(165, 20)
+        Me.new_confirm_textbox.TabIndex = 7
         '
         'Label4
         '
@@ -94,19 +153,20 @@ Partial Class regEmployee
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Password:"
         '
-        'TextBox3
+        'new_password_textbox
         '
-        Me.TextBox3.Location = New System.Drawing.Point(76, 105)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(165, 20)
-        Me.TextBox3.TabIndex = 4
+        Me.new_password_textbox.Location = New System.Drawing.Point(76, 105)
+        Me.new_password_textbox.Name = "new_password_textbox"
+        Me.new_password_textbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.new_password_textbox.Size = New System.Drawing.Size(165, 20)
+        Me.new_password_textbox.TabIndex = 4
         '
-        'TextBox2
+        'new_user_name_textbox
         '
-        Me.TextBox2.Location = New System.Drawing.Point(76, 76)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(165, 20)
-        Me.TextBox2.TabIndex = 3
+        Me.new_user_name_textbox.Location = New System.Drawing.Point(76, 76)
+        Me.new_user_name_textbox.Name = "new_user_name_textbox"
+        Me.new_user_name_textbox.Size = New System.Drawing.Size(165, 20)
+        Me.new_user_name_textbox.TabIndex = 3
         '
         'Label2
         '
@@ -117,30 +177,30 @@ Partial Class regEmployee
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Username:"
         '
-        'TextBox1
+        'first_name_textbox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(70, 17)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(371, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.first_name_textbox.Location = New System.Drawing.Point(70, 17)
+        Me.first_name_textbox.Name = "first_name_textbox"
+        Me.first_name_textbox.Size = New System.Drawing.Size(179, 20)
+        Me.first_name_textbox.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(7, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 13)
+        Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Full Name:"
+        Me.Label1.Text = "First Name:"
         '
-        'Label10
+        'manager_label
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(67, 237)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(35, 13)
-        Me.Label10.TabIndex = 33
-        Me.Label10.Text = "Guest"
+        Me.manager_label.AutoSize = True
+        Me.manager_label.Location = New System.Drawing.Point(67, 237)
+        Me.manager_label.Name = "manager_label"
+        Me.manager_label.Size = New System.Drawing.Size(35, 13)
+        Me.manager_label.TabIndex = 33
+        Me.manager_label.Text = "Guest"
         '
         'Label12
         '
@@ -155,36 +215,19 @@ Partial Class regEmployee
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.Label13.Location = New System.Drawing.Point(357, 237)
+        Me.Label13.Location = New System.Drawing.Point(532, 237)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(102, 17)
         Me.Label13.TabIndex = 34
         Me.Label13.Text = "Add Employee"
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(7, 49)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(96, 13)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Employee Position:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(109, 46)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(156, 21)
-        Me.ComboBox1.TabIndex = 10
-        '
         'regEmployee
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(471, 263)
+        Me.ClientSize = New System.Drawing.Size(646, 263)
         Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.manager_label)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "regEmployee"
@@ -196,18 +239,22 @@ Partial Class regEmployee
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents register_button As System.Windows.Forms.Button
+    Friend WithEvents new_confirm_textbox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents new_password_textbox As System.Windows.Forms.TextBox
+    Friend WithEvents new_user_name_textbox As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents first_name_textbox As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents manager_label As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents emp_position_combo As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents last_name_textbox As System.Windows.Forms.TextBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents middle_i_textbox As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class
