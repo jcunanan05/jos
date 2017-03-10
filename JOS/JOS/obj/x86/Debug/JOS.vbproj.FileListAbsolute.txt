@@ -26,8 +26,13 @@ C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.editInv.re
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.JODirectory.resources
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.loginMain.resources
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.managerHome.resources
-C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.regTech.resources
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.Home.resources
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.Invhome.resources
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.techHome.resources
 C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.Resources.resources
+C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.backJO1.resources
+C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.addCustomer.resources
+C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.techJO.resources
+C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.regEmployee.resources
+C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.addService.resources
+C:\Users\Ace Santos\Desktop\Jonathan VB\JOS\JOS\obj\x86\Debug\BERNIES.seeEmployee.resources
