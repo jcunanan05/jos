@@ -1,7 +1,8 @@
 Updates
--added form seeEmployee.vb
--added class customerDB.vb
--added form addCustomer.vb
+-edited form addJO1
+-added tempServiceDB.vb
+-added jobDescDB.vb
+-added add job service and remove temporary job service functionality
 
 
 i'll explain that these classes do
@@ -81,6 +82,7 @@ addInv.vb
 -setSerialLabel() - updates serial number label. gets from inventoryDB.getNewSerial()
 -add_button_click - in charge of adding inventory. performs same item and same supplier checks before proceeding
 
+
 customerDB.vb
 -requres parameter (customer name, customer contact)
 -sameCustomer() - returns true if the customer being added has the same name and number in DB
@@ -89,5 +91,94 @@ customerDB.vb
 -getNewSerial() - get latest serial no of customer being added
 -getAllCustomer(datagridview) - displays all customers in datagridview
 
--notes: no edit function on inventory
+
+jobDescDB.vb
+-requires parameter (job_name, job_price)
+-serviceTaken() - returns true if job service has match on database
+-addService() - adds Job service into Database
+- getNewSerial() - global function that gets the latest serial number
+- getAllJobService(datagridview) - displays job services offered to job order
+
+
+tempServiceDB.vb
+-requires parameter (job_service_id)
+-jobServiceExist() - return true if job service exists in DB
+-addTempSvc() - add job service into temp_svc_tb in DB
+-removeTempSvc() - global method. remove job service from temp_svc_tb
+- emptyTempSvc() - global method. empty temp_svc_tb table
+- getSomeJobService(datagridview) - global method. displays all Job services EXCEPT  selected in temp_svc_tb
+- getTempJobService(datagridview) - global method. displays contents of temp_svc_tb from DB
+
+
+addJO1.vb
+-variables with pick - they are variables for datagrid cell click. they are temporary storages. e.g. pickJobSvcID
+-addJO1_FormClosed() - when form is closed. it will empty the temporary table
+-addJO1_FormLoad() - when form loads. It set-ups customer datagrid, disables groupbox, set-ups  technician, watchkind, watch build combo boxes, set-ups the radiobutton for job types, gets the tab number, set-ups Job service datagrid and parts datagrid, set-ups warranty combo box
+-setSerialLabel() - updates label with the current serial number
+- ALL methods for JOB SERVICES
+-setJobServiceIDLabel(job_service_id, job_service_price) - sets the variable and updates displayed text for job_service_id_label
+-getPickJobSvcID() - getter for pickJobSvcID. returns pickJobSvcID
+-setPickJobSvcID(String) - setter for pickJobSvcID
+-getPickJobSvcPrice() - getter for pickJobSvcPrice. returns pickJobSvcPrice
+-setPickJobSvcPrice(Decimal) - setter for pickJobSvcPrice
+-resetPickJobServiceIDLabel - resets displayed text of job_service_id_label to "select above" and sets pickJobSvcID ="" and pickJobSvcPrice = 0.0
+-add_service_button_Click() - when add service button is clicked.
+-clear_svc_datagrid_button_Click() - if clear selection button is clicked. calls resetJobServiceIDLabel() and clears job_service_datagrid selection
+-job_service_datagrid_CellClick() - when datagrid is clicked. and calls setJobServiceIDLabel()
+-job_service_datagrid_DataBindingComplete() - clears selection for job_service_datagrid when data is refreshed.
+-refresh_service_label_LinkClicked() - when refresh_service_label is clicked. calls setSomeJobServiceDatagrid()
+-setJobServiceDatagrid() - updates job_service_datagrid with data from DB
+-setSomeJobServiceDataGrid() - updates job_service_datagrid with filtered data from  temp_svc_tb
+- ALL methods for TEMP SVC
+-setTempDataGrid() - update datagrid of temporary chosen services
+-temp_svc_datagrid_CellClick() - when temp_svc_datagrid is clicked.  calls setTempSvcIDLabel()
+-setTempSvcIDLabel(String, Decimal) - updates display text for temp_svc_id_label and calls setPickTempSvcID() and setPickTempSvcPrice
+-setTempSvcPrice(Decimal) - setter for tempSvcPrice
+-getTempSvcPrice() - getter. returns tempSvcPrice as Decimal
+-resetTempSvcPriceLabel() - updates display and calls setTempSvcPrice()
+-setTempSvcCount(Integer) - updates display text of temp_svc_count_label
+-resetTempSvcCount() - calls setTempSvcCount() and updates display text
+-getPickTempSvcID() - getter for pickTempSvcID. returns String
+-setPickTempSvcID() - setter for pickTempSvcID. 
+-remove_service_button_Click - when remove service button is clicked. deletes selected job service id from temp_svc_id , calls setTempSvcDatagrid(), setSomeJobServiceDataGrid(), setTempSvcCount(), setTempSvcPrice(), and resetTempSvcIDLabel()
+-reset_temp_button_Click() - when reset services button is clicked. empties temp_svc_tb in DB and refreshes labels and tables.
+-ALL methods for PARTS
+-setPartsDatagrid() - updates parts_data_grid with data from DB
+-parts_data_grid_CellClick() - 
+-parts_data_grid_DataBindingComplete -
+-refresh_parts_label_LinkClicked() - 
+-setPartsIDLabel(String) - 
+- All method for CUSTOMER
+-setOldCustomerDataGrid() - updates table of customers
+-customer_data_grid_CellClick() - calls setOldCustomerLabel
+-setOldCustomerLabel() - updates display for old_customer_label and calls setOldCustomerID()
+-setOldCustomerID(String) - setter for oldCustomerID
+-resetOldCustomer() - clear selection for customer_data_grid, calls setOldCustomerID(), resetOldCustomerLabel(), and disable oldCustomerGrpbx
+-resetOldCustomerSearchBox() - empties search_customer_txtbox
+-resetOldCustomerLabel() - displays "Select Above"
+-enableOldCustomerDatagrid(boolean) - 
+-enableOldCustomerGrpbx(Boolean) - 
+-enableNewCustomerGrpbx(Boolean) - 
+-new_customer_chbox_CheckedChanged() - when checkbox is clicked. enables or disables groupbox of new customer of old customer
+-search_customer_button_Click() - updates customer datagrid with search results
+-search_customer_txtbox_KeyPress() - letter or digit only allowed to prevent errors from mysql syntax
+- ALL methods for JOB TYPE
+-setJobTypeRadio() - set On the go as default radiobutton checked
+-setJobRepairType(Integer) - setter for jobRepairType
+-getJobRepairType() - returns integer. getter for jobRepairType
+-otg_radio_CheckedChanged() - 
+-admit_radio_CheckedChanged() - 
+- ALL methods for COMBO BOX
+-setTechnicianCombo()
+-setWatchBuildCombo()
+-setWatchKindCombo()
+-setWarrantyCombo()
+- ALL methods for TAB PAGES
+-next_tab_button_Click()
+-prev_tab_button_Click()
+-getTabNumber()
+
+
+
+-notes: no window_id yet for mulitple windows using job_order.
 --try to test if there are bugs just let me know

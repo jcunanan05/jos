@@ -9,6 +9,10 @@ Public Class jobOrderDB
     Private sql_bind As New BindingSource
     Private sql_data_adapter As New MySqlDataAdapter
 
+    'initialization constructor
+    Public Sub New()
+
+    End Sub
 
     'global function
     Public Shared Function getNewSerial()

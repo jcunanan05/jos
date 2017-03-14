@@ -86,6 +86,7 @@
     <Compile Include="addService.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="tempServiceDB.vb" />
     <Compile Include="warrantyDB.vb" />
     <Compile Include="watchDB.vb" />
     <Compile Include="technicianDB.vb" />

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2017 at 05:06 PM
+-- Generation Time: Mar 14, 2017 at 02:56 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -55,6 +55,14 @@ CREATE TABLE `customer_tb` (
   `customer_contact` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `customer_tb`
+--
+
+INSERT INTO `customer_tb` (`customer_AI`, `customer_id`, `customer_name`, `customer_contact`) VALUES
+(1, 'cust_1', 'Cunanan, Jonathan Albert M.', '09123456789'),
+(2, 'cust_2', 'Cunanan, Juan Paulo M.', '09351221329');
+
 -- --------------------------------------------------------
 
 --
@@ -76,7 +84,7 @@ CREATE TABLE `employee_tb` (
 INSERT INTO `employee_tb` (`emp_AI`, `emp_id`, `full_name`, `username`, `position_type`) VALUES
 (1, 'emp_1', 'Jonathan Albert M. Cunanan', '50cj', 1),
 (2, 'emp_2', 'Manny M. Manegerial', 'manager01', 2),
-(3, 'emp_3', 'testfullname one', 'testuser', 1),
+(3, 'emp_3', 'Tessie Ting', 'testuser', 1),
 (4, 'emp_4', 'Juan Paulo M. Cunanan', 'juanpaulo', 1);
 
 -- --------------------------------------------------------
@@ -128,7 +136,7 @@ CREATE TABLE `job_desc_tb` (
 
 INSERT INTO `job_desc_tb` (`job_desc_AI`, `job_desc_id`, `job_desc`, `job_desc_price`) VALUES
 (1, 'job_desc_1', 'Battery Replacement', '100.00'),
-(2, 'job_desc_2', 'Watch Hand Replacement', '120.00');
+(2, 'job_desc_2', 'Watch Hand Replacement', '110.00');
 
 -- --------------------------------------------------------
 
@@ -140,6 +148,14 @@ CREATE TABLE `job_type_tb` (
   `job_type` int(11) NOT NULL,
   `job_type_remark` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `job_type_tb`
+--
+
+INSERT INTO `job_type_tb` (`job_type`, `job_type_remark`) VALUES
+(1, 'Admit'),
+(2, 'On-the-go');
 
 -- --------------------------------------------------------
 
@@ -355,6 +371,14 @@ CREATE TABLE `warranty_type_tb` (
   `warranty_day` int(10) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `warranty_type_tb`
+--
+
+INSERT INTO `warranty_type_tb` (`warranty_AI`, `warranty_type`, `warranty_type_remark`, `warranty_day`) VALUES
+(1, 'warr_1', '7 Days Warranty', 7),
+(2, 'warr_2', '1 Year Warranty', 365);
+
 -- --------------------------------------------------------
 
 --
@@ -366,6 +390,14 @@ CREATE TABLE `watch_build_tb` (
   `watch_build_remark` varchar(70) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `watch_build_tb`
+--
+
+INSERT INTO `watch_build_tb` (`watch_build`, `watch_build_remark`) VALUES
+(1, 'Gold'),
+(2, 'Silver');
+
 -- --------------------------------------------------------
 
 --
@@ -376,6 +408,14 @@ CREATE TABLE `watch_kind_tb` (
   `watch_kind` int(11) NOT NULL,
   `watch_kind_desc` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `watch_kind_tb`
+--
+
+INSERT INTO `watch_kind_tb` (`watch_kind`, `watch_kind_desc`) VALUES
+(2, 'Ladies\' Watch'),
+(1, 'Men\'s Watch');
 
 --
 -- Indexes for dumped tables
@@ -544,7 +584,7 @@ ALTER TABLE `category_tb`
 -- AUTO_INCREMENT for table `customer_tb`
 --
 ALTER TABLE `customer_tb`
-  MODIFY `customer_AI` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customer_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `employee_tb`
 --
@@ -564,7 +604,7 @@ ALTER TABLE `job_desc_tb`
 -- AUTO_INCREMENT for table `job_type_tb`
 --
 ALTER TABLE `job_type_tb`
-  MODIFY `job_type` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `job_type` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `login_tb`
 --
@@ -589,7 +629,12 @@ ALTER TABLE `supplier_tb`
 -- AUTO_INCREMENT for table `warranty_type_tb`
 --
 ALTER TABLE `warranty_type_tb`
-  MODIFY `warranty_AI` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `warranty_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `watch_build_tb`
+--
+ALTER TABLE `watch_build_tb`
+  MODIFY `watch_build` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

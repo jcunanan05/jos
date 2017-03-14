@@ -30,7 +30,8 @@ Partial Class addJO1
         Me.Label16 = New System.Windows.Forms.Label()
         Me.otg_radio = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.existing_customer_label = New System.Windows.Forms.Label()
+        Me.watch_kind_combo = New System.Windows.Forms.ComboBox()
+        Me.old_customer_label = New System.Windows.Forms.Label()
         Me.new_customer_grpbox = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -52,7 +53,7 @@ Partial Class addJO1
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.customer_list_grpbx = New System.Windows.Forms.GroupBox()
+        Me.old_customer_grpbx = New System.Windows.Forms.GroupBox()
         Me.search_customer_button = New System.Windows.Forms.Button()
         Me.search_customer_txtbox = New System.Windows.Forms.TextBox()
         Me.customer_data_grid = New System.Windows.Forms.DataGridView()
@@ -74,6 +75,9 @@ Partial Class addJO1
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.refresh_parts_label = New System.Windows.Forms.LinkLabel()
+        Me.part_id_label = New System.Windows.Forms.Label()
+        Me.Label43 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -90,15 +94,20 @@ Partial Class addJO1
         Me.Label26 = New System.Windows.Forms.Label()
         Me.parts_data_grid = New System.Windows.Forms.DataGridView()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.Label15 = New System.Windows.Forms.Label()
+        Me.temp_svc_id_label = New System.Windows.Forms.Label()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.temp_svc_price_label = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.temp_svc_datagrid = New System.Windows.Forms.DataGridView()
+        Me.reset_temp_svc_button = New System.Windows.Forms.Button()
+        Me.temp_svc_count_label = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.remove_service_button = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.refresh_service_label = New System.Windows.Forms.LinkLabel()
+        Me.job_service_id_label = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.clear_svc_datagrid_button = New System.Windows.Forms.Button()
         Me.add_service_button = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
@@ -120,11 +129,10 @@ Partial Class addJO1
         Me.Label33 = New System.Windows.Forms.Label()
         Me.next_tab_button = New System.Windows.Forms.Button()
         Me.prev_tab_button = New System.Windows.Forms.Button()
-        Me.watch_kind_combo = New System.Windows.Forms.ComboBox()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.new_customer_grpbox.SuspendLayout()
-        Me.customer_list_grpbx.SuspendLayout()
+        Me.old_customer_grpbx.SuspendLayout()
         CType(Me.customer_data_grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.job_tab_control.SuspendLayout()
         Me.step1_tab_page.SuspendLayout()
@@ -135,7 +143,7 @@ Partial Class addJO1
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.parts_data_grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.temp_svc_datagrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.job_service_datagrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
@@ -218,7 +226,7 @@ Partial Class addJO1
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.watch_kind_combo)
-        Me.GroupBox1.Controls.Add(Me.existing_customer_label)
+        Me.GroupBox1.Controls.Add(Me.old_customer_label)
         Me.GroupBox1.Controls.Add(Me.new_customer_grpbox)
         Me.GroupBox1.Controls.Add(Me.watch_build_combo)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -238,15 +246,24 @@ Partial Class addJO1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Basic Details"
         '
-        'existing_customer_label
+        'watch_kind_combo
         '
-        Me.existing_customer_label.AutoSize = True
-        Me.existing_customer_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.existing_customer_label.Location = New System.Drawing.Point(190, 16)
-        Me.existing_customer_label.Name = "existing_customer_label"
-        Me.existing_customer_label.Size = New System.Drawing.Size(77, 15)
-        Me.existing_customer_label.TabIndex = 25
-        Me.existing_customer_label.Text = "Select Above"
+        Me.watch_kind_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.watch_kind_combo.FormattingEnabled = True
+        Me.watch_kind_combo.Location = New System.Drawing.Point(102, 204)
+        Me.watch_kind_combo.Name = "watch_kind_combo"
+        Me.watch_kind_combo.Size = New System.Drawing.Size(209, 21)
+        Me.watch_kind_combo.TabIndex = 26
+        '
+        'old_customer_label
+        '
+        Me.old_customer_label.AutoSize = True
+        Me.old_customer_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.old_customer_label.Location = New System.Drawing.Point(190, 16)
+        Me.old_customer_label.Name = "old_customer_label"
+        Me.old_customer_label.Size = New System.Drawing.Size(77, 15)
+        Me.old_customer_label.TabIndex = 25
+        Me.old_customer_label.Text = "Select Above"
         '
         'new_customer_grpbox
         '
@@ -435,17 +452,17 @@ Partial Class addJO1
         Me.Label7.TabIndex = 36
         Me.Label7.Text = "Step 1: Add Job Order and Select Customer"
         '
-        'customer_list_grpbx
+        'old_customer_grpbx
         '
-        Me.customer_list_grpbx.Controls.Add(Me.search_customer_button)
-        Me.customer_list_grpbx.Controls.Add(Me.search_customer_txtbox)
-        Me.customer_list_grpbx.Controls.Add(Me.customer_data_grid)
-        Me.customer_list_grpbx.Location = New System.Drawing.Point(10, 110)
-        Me.customer_list_grpbx.Name = "customer_list_grpbx"
-        Me.customer_list_grpbx.Size = New System.Drawing.Size(738, 128)
-        Me.customer_list_grpbx.TabIndex = 37
-        Me.customer_list_grpbx.TabStop = False
-        Me.customer_list_grpbx.Text = "Customer List:"
+        Me.old_customer_grpbx.Controls.Add(Me.search_customer_button)
+        Me.old_customer_grpbx.Controls.Add(Me.search_customer_txtbox)
+        Me.old_customer_grpbx.Controls.Add(Me.customer_data_grid)
+        Me.old_customer_grpbx.Location = New System.Drawing.Point(10, 110)
+        Me.old_customer_grpbx.Name = "old_customer_grpbx"
+        Me.old_customer_grpbx.Size = New System.Drawing.Size(738, 128)
+        Me.old_customer_grpbx.TabIndex = 37
+        Me.old_customer_grpbx.TabStop = False
+        Me.old_customer_grpbx.Text = "Customer List:"
         '
         'search_customer_button
         '
@@ -532,7 +549,7 @@ Partial Class addJO1
         Me.step1_tab_page.BackColor = System.Drawing.SystemColors.Control
         Me.step1_tab_page.Controls.Add(Me.Label7)
         Me.step1_tab_page.Controls.Add(Me.GroupBox5)
-        Me.step1_tab_page.Controls.Add(Me.customer_list_grpbx)
+        Me.step1_tab_page.Controls.Add(Me.old_customer_grpbx)
         Me.step1_tab_page.Controls.Add(Me.GroupBox1)
         Me.step1_tab_page.Location = New System.Drawing.Point(4, 22)
         Me.step1_tab_page.Name = "step1_tab_page"
@@ -625,11 +642,14 @@ Partial Class addJO1
         '
         'DataGridView4
         '
+        Me.DataGridView4.AllowUserToAddRows = False
+        Me.DataGridView4.AllowUserToDeleteRows = False
+        Me.DataGridView4.AllowUserToResizeColumns = False
+        Me.DataGridView4.AllowUserToResizeRows = False
         Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView4.Location = New System.Drawing.Point(16, 19)
         Me.DataGridView4.MultiSelect = False
         Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.ReadOnly = True
         Me.DataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView4.Size = New System.Drawing.Size(315, 107)
         Me.DataGridView4.TabIndex = 52
@@ -664,6 +684,9 @@ Partial Class addJO1
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.refresh_parts_label)
+        Me.GroupBox3.Controls.Add(Me.part_id_label)
+        Me.GroupBox3.Controls.Add(Me.Label43)
         Me.GroupBox3.Controls.Add(Me.ComboBox1)
         Me.GroupBox3.Controls.Add(Me.Label22)
         Me.GroupBox3.Controls.Add(Me.Label23)
@@ -685,6 +708,35 @@ Partial Class addJO1
         Me.GroupBox3.TabIndex = 41
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Search and Choose Parts"
+        '
+        'refresh_parts_label
+        '
+        Me.refresh_parts_label.AutoSize = True
+        Me.refresh_parts_label.Location = New System.Drawing.Point(301, 169)
+        Me.refresh_parts_label.Name = "refresh_parts_label"
+        Me.refresh_parts_label.Size = New System.Drawing.Size(44, 13)
+        Me.refresh_parts_label.TabIndex = 53
+        Me.refresh_parts_label.TabStop = True
+        Me.refresh_parts_label.Text = "Refresh"
+        '
+        'part_id_label
+        '
+        Me.part_id_label.AutoSize = True
+        Me.part_id_label.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.part_id_label.Location = New System.Drawing.Point(84, 168)
+        Me.part_id_label.Name = "part_id_label"
+        Me.part_id_label.Size = New System.Drawing.Size(94, 15)
+        Me.part_id_label.TabIndex = 52
+        Me.part_id_label.Text = "Select Above"
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(13, 170)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(66, 13)
+        Me.Label43.TabIndex = 51
+        Me.Label43.Text = "Selected ID:"
         '
         'ComboBox1
         '
@@ -808,7 +860,6 @@ Partial Class addJO1
         '
         Me.parts_data_grid.AllowUserToAddRows = False
         Me.parts_data_grid.AllowUserToDeleteRows = False
-        Me.parts_data_grid.AllowUserToOrderColumns = True
         Me.parts_data_grid.AllowUserToResizeColumns = False
         Me.parts_data_grid.AllowUserToResizeRows = False
         Me.parts_data_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -816,18 +867,21 @@ Partial Class addJO1
         Me.parts_data_grid.MultiSelect = False
         Me.parts_data_grid.Name = "parts_data_grid"
         Me.parts_data_grid.ReadOnly = True
-        Me.parts_data_grid.Size = New System.Drawing.Size(331, 152)
+        Me.parts_data_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.parts_data_grid.Size = New System.Drawing.Size(331, 146)
         Me.parts_data_grid.TabIndex = 0
         '
         'GroupBox6
         '
-        Me.GroupBox6.Controls.Add(Me.Label15)
+        Me.GroupBox6.Controls.Add(Me.temp_svc_id_label)
+        Me.GroupBox6.Controls.Add(Me.Label42)
+        Me.GroupBox6.Controls.Add(Me.temp_svc_price_label)
         Me.GroupBox6.Controls.Add(Me.Label18)
-        Me.GroupBox6.Controls.Add(Me.DataGridView2)
-        Me.GroupBox6.Controls.Add(Me.Button4)
-        Me.GroupBox6.Controls.Add(Me.Label20)
+        Me.GroupBox6.Controls.Add(Me.temp_svc_datagrid)
+        Me.GroupBox6.Controls.Add(Me.reset_temp_svc_button)
+        Me.GroupBox6.Controls.Add(Me.temp_svc_count_label)
         Me.GroupBox6.Controls.Add(Me.Label21)
-        Me.GroupBox6.Controls.Add(Me.Button5)
+        Me.GroupBox6.Controls.Add(Me.remove_service_button)
         Me.GroupBox6.Location = New System.Drawing.Point(370, 28)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(345, 226)
@@ -835,80 +889,104 @@ Partial Class addJO1
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Chosen Services"
         '
-        'Label15
+        'temp_svc_id_label
         '
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(125, 152)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(214, 18)
-        Me.Label15.TabIndex = 54
-        Me.Label15.Text = "0"
+        Me.temp_svc_id_label.AutoSize = True
+        Me.temp_svc_id_label.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.temp_svc_id_label.Location = New System.Drawing.Point(79, 130)
+        Me.temp_svc_id_label.Name = "temp_svc_id_label"
+        Me.temp_svc_id_label.Size = New System.Drawing.Size(94, 15)
+        Me.temp_svc_id_label.TabIndex = 56
+        Me.temp_svc_id_label.Text = "Select Above"
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(13, 130)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(66, 13)
+        Me.Label42.TabIndex = 55
+        Me.Label42.Text = "Selected ID:"
+        '
+        'temp_svc_price_label
+        '
+        Me.temp_svc_price_label.AutoSize = True
+        Me.temp_svc_price_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.temp_svc_price_label.Location = New System.Drawing.Point(99, 166)
+        Me.temp_svc_price_label.Name = "temp_svc_price_label"
+        Me.temp_svc_price_label.Size = New System.Drawing.Size(16, 18)
+        Me.temp_svc_price_label.TabIndex = 54
+        Me.temp_svc_price_label.Text = "0"
         '
         'Label18
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(13, 152)
+        Me.Label18.Location = New System.Drawing.Point(13, 166)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(77, 18)
         Me.Label18.TabIndex = 53
         Me.Label18.Text = "Amount: P"
         '
-        'DataGridView2
+        'temp_svc_datagrid
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.AllowUserToOrderColumns = True
-        Me.DataGridView2.AllowUserToResizeColumns = False
-        Me.DataGridView2.AllowUserToResizeRows = False
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(16, 19)
-        Me.DataGridView2.MultiSelect = False
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(315, 107)
-        Me.DataGridView2.TabIndex = 52
+        Me.temp_svc_datagrid.AllowUserToAddRows = False
+        Me.temp_svc_datagrid.AllowUserToDeleteRows = False
+        Me.temp_svc_datagrid.AllowUserToResizeColumns = False
+        Me.temp_svc_datagrid.AllowUserToResizeRows = False
+        Me.temp_svc_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.temp_svc_datagrid.Location = New System.Drawing.Point(16, 19)
+        Me.temp_svc_datagrid.MultiSelect = False
+        Me.temp_svc_datagrid.Name = "temp_svc_datagrid"
+        Me.temp_svc_datagrid.ReadOnly = True
+        Me.temp_svc_datagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.temp_svc_datagrid.Size = New System.Drawing.Size(315, 107)
+        Me.temp_svc_datagrid.TabIndex = 52
         '
-        'Button4
+        'reset_temp_svc_button
         '
-        Me.Button4.Location = New System.Drawing.Point(235, 188)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(96, 23)
-        Me.Button4.TabIndex = 51
-        Me.Button4.Text = "Reset Services"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.reset_temp_svc_button.Location = New System.Drawing.Point(235, 188)
+        Me.reset_temp_svc_button.Name = "reset_temp_svc_button"
+        Me.reset_temp_svc_button.Size = New System.Drawing.Size(96, 23)
+        Me.reset_temp_svc_button.TabIndex = 51
+        Me.reset_temp_svc_button.Text = "Reset Services"
+        Me.reset_temp_svc_button.UseVisualStyleBackColor = True
         '
-        'Label20
+        'temp_svc_count_label
         '
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(125, 129)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(214, 18)
-        Me.Label20.TabIndex = 49
-        Me.Label20.Text = "0"
+        Me.temp_svc_count_label.AutoSize = True
+        Me.temp_svc_count_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.temp_svc_count_label.Location = New System.Drawing.Point(99, 143)
+        Me.temp_svc_count_label.Name = "temp_svc_count_label"
+        Me.temp_svc_count_label.Size = New System.Drawing.Size(16, 18)
+        Me.temp_svc_count_label.TabIndex = 49
+        Me.temp_svc_count_label.Text = "0"
         '
         'Label21
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(13, 129)
+        Me.Label21.Location = New System.Drawing.Point(13, 143)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(69, 18)
         Me.Label21.TabIndex = 48
         Me.Label21.Text = "Services:"
         '
-        'Button5
+        'remove_service_button
         '
-        Me.Button5.Location = New System.Drawing.Point(16, 188)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(152, 23)
-        Me.Button5.TabIndex = 47
-        Me.Button5.Text = "Remove Selected Service"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.remove_service_button.Location = New System.Drawing.Point(16, 188)
+        Me.remove_service_button.Name = "remove_service_button"
+        Me.remove_service_button.Size = New System.Drawing.Size(152, 23)
+        Me.remove_service_button.TabIndex = 47
+        Me.remove_service_button.Text = "Remove Selected Service"
+        Me.remove_service_button.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Button8)
+        Me.GroupBox2.Controls.Add(Me.refresh_service_label)
+        Me.GroupBox2.Controls.Add(Me.job_service_id_label)
+        Me.GroupBox2.Controls.Add(Me.Label40)
+        Me.GroupBox2.Controls.Add(Me.clear_svc_datagrid_button)
         Me.GroupBox2.Controls.Add(Me.add_service_button)
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me.TextBox7)
@@ -920,14 +998,43 @@ Partial Class addJO1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "List of Services"
         '
-        'Button8
+        'refresh_service_label
         '
-        Me.Button8.Location = New System.Drawing.Point(238, 188)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(107, 23)
-        Me.Button8.TabIndex = 45
-        Me.Button8.Text = "Clear Selection"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.refresh_service_label.AutoSize = True
+        Me.refresh_service_label.Location = New System.Drawing.Point(301, 143)
+        Me.refresh_service_label.Name = "refresh_service_label"
+        Me.refresh_service_label.Size = New System.Drawing.Size(44, 13)
+        Me.refresh_service_label.TabIndex = 48
+        Me.refresh_service_label.TabStop = True
+        Me.refresh_service_label.Text = "Refresh"
+        '
+        'job_service_id_label
+        '
+        Me.job_service_id_label.AutoSize = True
+        Me.job_service_id_label.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.job_service_id_label.Location = New System.Drawing.Point(72, 143)
+        Me.job_service_id_label.Name = "job_service_id_label"
+        Me.job_service_id_label.Size = New System.Drawing.Size(94, 15)
+        Me.job_service_id_label.TabIndex = 47
+        Me.job_service_id_label.Text = "Select Above"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(6, 143)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(66, 13)
+        Me.Label40.TabIndex = 46
+        Me.Label40.Text = "Selected ID:"
+        '
+        'clear_svc_datagrid_button
+        '
+        Me.clear_svc_datagrid_button.Location = New System.Drawing.Point(238, 188)
+        Me.clear_svc_datagrid_button.Name = "clear_svc_datagrid_button"
+        Me.clear_svc_datagrid_button.Size = New System.Drawing.Size(107, 23)
+        Me.clear_svc_datagrid_button.TabIndex = 45
+        Me.clear_svc_datagrid_button.Text = "Clear Selection"
+        Me.clear_svc_datagrid_button.UseVisualStyleBackColor = True
         '
         'add_service_button
         '
@@ -958,7 +1065,6 @@ Partial Class addJO1
         '
         Me.job_service_datagrid.AllowUserToAddRows = False
         Me.job_service_datagrid.AllowUserToDeleteRows = False
-        Me.job_service_datagrid.AllowUserToOrderColumns = True
         Me.job_service_datagrid.AllowUserToResizeColumns = False
         Me.job_service_datagrid.AllowUserToResizeRows = False
         Me.job_service_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -967,7 +1073,7 @@ Partial Class addJO1
         Me.job_service_datagrid.Name = "job_service_datagrid"
         Me.job_service_datagrid.ReadOnly = True
         Me.job_service_datagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.job_service_datagrid.Size = New System.Drawing.Size(339, 137)
+        Me.job_service_datagrid.Size = New System.Drawing.Size(339, 121)
         Me.job_service_datagrid.TabIndex = 33
         '
         'Label11
@@ -1139,15 +1245,6 @@ Partial Class addJO1
         Me.prev_tab_button.Text = "Prev Tab"
         Me.prev_tab_button.UseVisualStyleBackColor = True
         '
-        'watch_kind_combo
-        '
-        Me.watch_kind_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.watch_kind_combo.FormattingEnabled = True
-        Me.watch_kind_combo.Location = New System.Drawing.Point(102, 204)
-        Me.watch_kind_combo.Name = "watch_kind_combo"
-        Me.watch_kind_combo.Size = New System.Drawing.Size(209, 21)
-        Me.watch_kind_combo.TabIndex = 26
-        '
         'addJO1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1168,8 +1265,8 @@ Partial Class addJO1
         Me.GroupBox1.PerformLayout()
         Me.new_customer_grpbox.ResumeLayout(False)
         Me.new_customer_grpbox.PerformLayout()
-        Me.customer_list_grpbx.ResumeLayout(False)
-        Me.customer_list_grpbx.PerformLayout()
+        Me.old_customer_grpbx.ResumeLayout(False)
+        Me.old_customer_grpbx.PerformLayout()
         CType(Me.customer_data_grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.job_tab_control.ResumeLayout(False)
         Me.step1_tab_page.ResumeLayout(False)
@@ -1185,7 +1282,7 @@ Partial Class addJO1
         CType(Me.parts_data_grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.temp_svc_datagrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.job_service_datagrid, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1221,7 +1318,7 @@ Partial Class addJO1
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents customer_list_grpbx As System.Windows.Forms.GroupBox
+    Friend WithEvents old_customer_grpbx As System.Windows.Forms.GroupBox
     Friend WithEvents customer_data_grid As System.Windows.Forms.DataGridView
     Friend WithEvents submit_button As System.Windows.Forms.Button
     Friend WithEvents Label13 As System.Windows.Forms.Label
@@ -1233,7 +1330,7 @@ Partial Class addJO1
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents existing_customer_label As System.Windows.Forms.Label
+    Friend WithEvents old_customer_label As System.Windows.Forms.Label
     Friend WithEvents new_customer_grpbox As System.Windows.Forms.GroupBox
     Friend WithEvents search_customer_txtbox As System.Windows.Forms.TextBox
     Friend WithEvents search_customer_button As System.Windows.Forms.Button
@@ -1245,19 +1342,19 @@ Partial Class addJO1
     Friend WithEvents prev_tab_button As System.Windows.Forms.Button
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents clear_svc_datagrid_button As System.Windows.Forms.Button
     Friend WithEvents add_service_button As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
     Friend WithEvents job_service_datagrid As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents temp_svc_price_label As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents temp_svc_datagrid As System.Windows.Forms.DataGridView
+    Friend WithEvents reset_temp_svc_button As System.Windows.Forms.Button
+    Friend WithEvents temp_svc_count_label As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents remove_service_button As System.Windows.Forms.Button
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
@@ -1298,4 +1395,12 @@ Partial Class addJO1
     Friend WithEvents Label39 As System.Windows.Forms.Label
     Friend WithEvents Label38 As System.Windows.Forms.Label
     Friend WithEvents watch_kind_combo As System.Windows.Forms.ComboBox
+    Friend WithEvents part_id_label As System.Windows.Forms.Label
+    Friend WithEvents Label43 As System.Windows.Forms.Label
+    Friend WithEvents job_service_id_label As System.Windows.Forms.Label
+    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents refresh_parts_label As System.Windows.Forms.LinkLabel
+    Friend WithEvents refresh_service_label As System.Windows.Forms.LinkLabel
+    Friend WithEvents temp_svc_id_label As System.Windows.Forms.Label
+    Friend WithEvents Label42 As System.Windows.Forms.Label
 End Class
