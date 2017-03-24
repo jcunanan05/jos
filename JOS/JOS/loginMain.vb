@@ -84,4 +84,20 @@
         'show admin window
         MsgBox("Hello Admin")
     End Sub
+
+    Private Sub username_textbox_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles username_textbox.KeyPress
+        'keypress event
+        'handle other characters besides letter, digit, spacebar, and backspace
+        If Char.IsLetterOrDigit(e.KeyChar) = False Then
+            If e.KeyChar = CChar(ChrW(Keys.Back)) Then
+                e.Handled = False
+            Else
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub username_textbox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles username_textbox.TextChanged
+
+    End Sub
 End Class

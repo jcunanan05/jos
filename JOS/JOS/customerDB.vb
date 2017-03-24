@@ -137,6 +137,49 @@ Public Class customerDB
         End Try
     End Sub
 
+
+    'getter for customerID
+    Public Function getCustomerID()
+        'gets customerID if found in the db
+        'needs customerName and customerContact
+
+        Dim customer_id As String = ""
+        Dim data_table As New DataTable 'sql data table container
+        'count result
+        Dim count As Integer = 0
+        Try
+            'try to connect to DB
+            connection.ConnectionString = server_string
+            connection.Open() 'open connection
+            'sql query
+            Dim sql_query As String = "SELECT customer_id, customer_name FROM customer_tb WHERE customer_name = '" & customerName & "' AND customer_contact = '" & customerContact & "';"
+            'connect to database and bind query
+            sql_command = New MySqlCommand(sql_query, connection)
+            sql_command.CommandText = sql_query 'execute command
+            'get data from database
+            sql_data_adapter.SelectCommand = sql_command
+            sql_data_adapter.Fill(data_table) ' fill data table with rows from sql command earlier
+
+            count = data_table.Rows.Count  'count sql results
+
+            If count = 1 Then
+                'if customerID is found
+                customer_id = data_table.Rows(0).Item(0) ' customer_id STRING
+            End If
+
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        Finally
+            'dispose and close connection
+            data_table.Dispose()
+            sql_data_adapter.Dispose()
+            connection.Close()
+            connection.Dispose()
+        End Try
+        'Return String
+        Return customer_id
+    End Function
+
     'global function
     Public Shared Function getNewSerial()
         'returns latest serial number for add inventory
@@ -262,4 +305,7 @@ Public Class customerDB
             connection.Dispose()
         End Try
     End Sub
+
+
+
 End Class

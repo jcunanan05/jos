@@ -22,6 +22,9 @@ Partial Class addJO1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.serial_label = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -30,27 +33,27 @@ Partial Class addJO1
         Me.Label16 = New System.Windows.Forms.Label()
         Me.otg_radio = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.watch_desc_txtbox = New System.Windows.Forms.TextBox()
         Me.watch_kind_combo = New System.Windows.Forms.ComboBox()
         Me.old_customer_label = New System.Windows.Forms.Label()
         Me.new_customer_grpbox = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.middle_i_txtbox = New System.Windows.Forms.TextBox()
+        Me.last_name_txtbox = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.first_name_txtbox = New System.Windows.Forms.TextBox()
+        Me.contact_no_txtbox = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.watch_build_combo = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.new_customer_chbox = New System.Windows.Forms.CheckBox()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.watch_serial_no_txtbox = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.item_name_txtbox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.old_customer_grpbx = New System.Windows.Forms.GroupBox()
@@ -64,16 +67,24 @@ Partial Class addJO1
         Me.job_tab_control = New System.Windows.Forms.TabControl()
         Me.step1_tab_page = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.grand_total_label = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.additional_updown = New System.Windows.Forms.NumericUpDown()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.temp_part_id_label = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.temp_part_price_label = New System.Windows.Forms.Label()
+        Me.temp_part_count_label = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
-        Me.Button10 = New System.Windows.Forms.Button()
+        Me.temp_part_datagrid = New System.Windows.Forms.DataGridView()
+        Me.reset_temp_part_button = New System.Windows.Forms.Button()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.Button11 = New System.Windows.Forms.Button()
+        Me.remove_part_button = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.refresh_parts_label = New System.Windows.Forms.LinkLabel()
         Me.part_id_label = New System.Windows.Forms.Label()
@@ -81,8 +92,8 @@ Partial Class addJO1
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.part_qty_updown = New System.Windows.Forms.NumericUpDown()
+        Me.clear_part_datagrid_button = New System.Windows.Forms.Button()
         Me.add_part_button = New System.Windows.Forms.Button()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
@@ -115,16 +126,18 @@ Partial Class addJO1
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.expect_claim_label = New System.Windows.Forms.Label()
+        Me.repair_day_updown = New System.Windows.Forms.NumericUpDown()
+        Me.repair_date_label = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.repair_datepicker = New System.Windows.Forms.DateTimePicker()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.Label39 = New System.Windows.Forms.Label()
+        Me.warranty_remark_txtbox = New System.Windows.Forms.TextBox()
+        Me.expect_warranty_label = New System.Windows.Forms.Label()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.warranty_combo = New System.Windows.Forms.ComboBox()
         Me.Label34 = New System.Windows.Forms.Label()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.next_tab_button = New System.Windows.Forms.Button()
@@ -137,10 +150,12 @@ Partial Class addJO1
         Me.job_tab_control.SuspendLayout()
         Me.step1_tab_page.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        CType(Me.additional_updown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.temp_part_datagrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.part_qty_updown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.parts_data_grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
         CType(Me.temp_svc_datagrid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,6 +163,7 @@ Partial Class addJO1
         CType(Me.job_service_datagrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
+        CType(Me.repair_day_updown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox7.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -225,6 +241,7 @@ Partial Class addJO1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.watch_desc_txtbox)
         Me.GroupBox1.Controls.Add(Me.watch_kind_combo)
         Me.GroupBox1.Controls.Add(Me.old_customer_label)
         Me.GroupBox1.Controls.Add(Me.new_customer_grpbox)
@@ -232,12 +249,11 @@ Partial Class addJO1
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.new_customer_chbox)
-        Me.GroupBox1.Controls.Add(Me.RichTextBox1)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
+        Me.GroupBox1.Controls.Add(Me.watch_serial_no_txtbox)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.item_name_txtbox)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 244)
         Me.GroupBox1.Name = "GroupBox1"
@@ -245,6 +261,15 @@ Partial Class addJO1
         Me.GroupBox1.TabIndex = 35
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Basic Details"
+        '
+        'watch_desc_txtbox
+        '
+        Me.watch_desc_txtbox.Location = New System.Drawing.Point(395, 159)
+        Me.watch_desc_txtbox.Multiline = True
+        Me.watch_desc_txtbox.Name = "watch_desc_txtbox"
+        Me.watch_desc_txtbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.watch_desc_txtbox.Size = New System.Drawing.Size(263, 50)
+        Me.watch_desc_txtbox.TabIndex = 52
         '
         'watch_kind_combo
         '
@@ -269,11 +294,11 @@ Partial Class addJO1
         '
         Me.new_customer_grpbox.Controls.Add(Me.Label10)
         Me.new_customer_grpbox.Controls.Add(Me.Label14)
-        Me.new_customer_grpbox.Controls.Add(Me.TextBox6)
-        Me.new_customer_grpbox.Controls.Add(Me.TextBox2)
+        Me.new_customer_grpbox.Controls.Add(Me.middle_i_txtbox)
+        Me.new_customer_grpbox.Controls.Add(Me.last_name_txtbox)
         Me.new_customer_grpbox.Controls.Add(Me.Label12)
-        Me.new_customer_grpbox.Controls.Add(Me.TextBox4)
-        Me.new_customer_grpbox.Controls.Add(Me.TextBox5)
+        Me.new_customer_grpbox.Controls.Add(Me.first_name_txtbox)
+        Me.new_customer_grpbox.Controls.Add(Me.contact_no_txtbox)
         Me.new_customer_grpbox.Controls.Add(Me.Label17)
         Me.new_customer_grpbox.Location = New System.Drawing.Point(6, 69)
         Me.new_customer_grpbox.Name = "new_customer_grpbox"
@@ -300,19 +325,19 @@ Partial Class addJO1
         Me.Label14.TabIndex = 23
         Me.Label14.Text = "Middle I."
         '
-        'TextBox6
+        'middle_i_txtbox
         '
-        Me.TextBox6.Location = New System.Drawing.Point(505, 13)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(49, 20)
-        Me.TextBox6.TabIndex = 22
+        Me.middle_i_txtbox.Location = New System.Drawing.Point(505, 13)
+        Me.middle_i_txtbox.Name = "middle_i_txtbox"
+        Me.middle_i_txtbox.Size = New System.Drawing.Size(49, 20)
+        Me.middle_i_txtbox.TabIndex = 22
         '
-        'TextBox2
+        'last_name_txtbox
         '
-        Me.TextBox2.Location = New System.Drawing.Point(71, 13)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(158, 20)
-        Me.TextBox2.TabIndex = 17
+        Me.last_name_txtbox.Location = New System.Drawing.Point(71, 13)
+        Me.last_name_txtbox.Name = "last_name_txtbox"
+        Me.last_name_txtbox.Size = New System.Drawing.Size(158, 20)
+        Me.last_name_txtbox.TabIndex = 17
         '
         'Label12
         '
@@ -323,19 +348,19 @@ Partial Class addJO1
         Me.Label12.TabIndex = 21
         Me.Label12.Text = "First Name:"
         '
-        'TextBox4
+        'first_name_txtbox
         '
-        Me.TextBox4.Location = New System.Drawing.Point(304, 13)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(142, 20)
-        Me.TextBox4.TabIndex = 18
+        Me.first_name_txtbox.Location = New System.Drawing.Point(304, 13)
+        Me.first_name_txtbox.Name = "first_name_txtbox"
+        Me.first_name_txtbox.Size = New System.Drawing.Size(142, 20)
+        Me.first_name_txtbox.TabIndex = 18
         '
-        'TextBox5
+        'contact_no_txtbox
         '
-        Me.TextBox5.Location = New System.Drawing.Point(71, 38)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(158, 20)
-        Me.TextBox5.TabIndex = 11
+        Me.contact_no_txtbox.Location = New System.Drawing.Point(71, 38)
+        Me.contact_no_txtbox.Name = "contact_no_txtbox"
+        Me.contact_no_txtbox.Size = New System.Drawing.Size(158, 20)
+        Me.contact_no_txtbox.TabIndex = 11
         '
         'Label17
         '
@@ -383,14 +408,6 @@ Partial Class addJO1
         Me.new_customer_chbox.Text = "New Customer"
         Me.new_customer_chbox.UseVisualStyleBackColor = True
         '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Location = New System.Drawing.Point(395, 156)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(165, 42)
-        Me.RichTextBox1.TabIndex = 7
-        Me.RichTextBox1.Text = ""
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -400,12 +417,12 @@ Partial Class addJO1
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "Watch Description:"
         '
-        'TextBox3
+        'watch_serial_no_txtbox
         '
-        Me.TextBox3.Location = New System.Drawing.Point(102, 179)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(152, 20)
-        Me.TextBox3.TabIndex = 5
+        Me.watch_serial_no_txtbox.Location = New System.Drawing.Point(102, 179)
+        Me.watch_serial_no_txtbox.Name = "watch_serial_no_txtbox"
+        Me.watch_serial_no_txtbox.Size = New System.Drawing.Size(152, 20)
+        Me.watch_serial_no_txtbox.TabIndex = 5
         '
         'Label3
         '
@@ -426,12 +443,12 @@ Partial Class addJO1
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Selected Customer Name:"
         '
-        'TextBox1
+        'item_name_txtbox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(102, 153)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(152, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.item_name_txtbox.Location = New System.Drawing.Point(102, 153)
+        Me.item_name_txtbox.Name = "item_name_txtbox"
+        Me.item_name_txtbox.Size = New System.Drawing.Size(152, 20)
+        Me.item_name_txtbox.TabIndex = 1
         '
         'Label1
         '
@@ -562,8 +579,7 @@ Partial Class addJO1
         '
         Me.TabPage2.AutoScroll = True
         Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
-        Me.TabPage2.Controls.Add(Me.Label31)
-        Me.TabPage2.Controls.Add(Me.Label32)
+        Me.TabPage2.Controls.Add(Me.GroupBox9)
         Me.TabPage2.Controls.Add(Me.GroupBox4)
         Me.TabPage2.Controls.Add(Me.GroupBox3)
         Me.TabPage2.Controls.Add(Me.GroupBox6)
@@ -576,111 +592,222 @@ Partial Class addJO1
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Step 2"
         '
-        'Label31
+        'GroupBox9
         '
-        Me.Label31.AutoSize = True
-        Me.Label31.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(517, 485)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(21, 22)
-        Me.Label31.TabIndex = 45
-        Me.Label31.Text = "0"
+        Me.GroupBox9.Controls.Add(Me.Button1)
+        Me.GroupBox9.Controls.Add(Me.grand_total_label)
+        Me.GroupBox9.Controls.Add(Me.Label27)
+        Me.GroupBox9.Controls.Add(Me.TextBox9)
+        Me.GroupBox9.Controls.Add(Me.Label32)
+        Me.GroupBox9.Controls.Add(Me.Label15)
+        Me.GroupBox9.Controls.Add(Me.additional_updown)
+        Me.GroupBox9.Location = New System.Drawing.Point(370, 522)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(345, 125)
+        Me.GroupBox9.TabIndex = 43
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Additional Charges"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(249, 16)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(82, 20)
+        Me.Button1.TabIndex = 53
+        Me.Button1.Text = "Add Charge"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'grand_total_label
+        '
+        Me.grand_total_label.AutoSize = True
+        Me.grand_total_label.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grand_total_label.Location = New System.Drawing.Point(161, 82)
+        Me.grand_total_label.Name = "grand_total_label"
+        Me.grand_total_label.Size = New System.Drawing.Size(21, 22)
+        Me.grand_total_label.TabIndex = 45
+        Me.grand_total_label.Text = "0"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(6, 42)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(52, 13)
+        Me.Label27.TabIndex = 52
+        Me.Label27.Text = "Remarks:"
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(60, 42)
+        Me.TextBox9.Multiline = True
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox9.Size = New System.Drawing.Size(279, 37)
+        Me.TextBox9.TabIndex = 51
         '
         'Label32
         '
         Me.Label32.AutoSize = True
         Me.Label32.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(371, 485)
+        Me.Label32.Location = New System.Drawing.Point(15, 82)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(139, 23)
         Me.Label32.TabIndex = 44
         Me.Label32.Text = "Grand Total: P"
         '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(6, 18)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(79, 13)
+        Me.Label15.TabIndex = 49
+        Me.Label15.Text = "Additional P:"
+        '
+        'additional_updown
+        '
+        Me.additional_updown.DecimalPlaces = 2
+        Me.additional_updown.Increment = New Decimal(New Integer() {5, 0, 0, 65536})
+        Me.additional_updown.Location = New System.Drawing.Point(85, 16)
+        Me.additional_updown.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.additional_updown.Name = "additional_updown"
+        Me.additional_updown.Size = New System.Drawing.Size(158, 20)
+        Me.additional_updown.TabIndex = 50
+        '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.Label27)
-        Me.GroupBox4.Controls.Add(Me.Label28)
+        Me.GroupBox4.Controls.Add(Me.temp_part_id_label)
+        Me.GroupBox4.Controls.Add(Me.Label20)
+        Me.GroupBox4.Controls.Add(Me.temp_part_price_label)
+        Me.GroupBox4.Controls.Add(Me.temp_part_count_label)
         Me.GroupBox4.Controls.Add(Me.Label29)
-        Me.GroupBox4.Controls.Add(Me.DataGridView4)
-        Me.GroupBox4.Controls.Add(Me.Button10)
+        Me.GroupBox4.Controls.Add(Me.temp_part_datagrid)
+        Me.GroupBox4.Controls.Add(Me.reset_temp_part_button)
         Me.GroupBox4.Controls.Add(Me.Label30)
-        Me.GroupBox4.Controls.Add(Me.Button11)
+        Me.GroupBox4.Controls.Add(Me.remove_part_button)
         Me.GroupBox4.Location = New System.Drawing.Point(370, 260)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(345, 222)
+        Me.GroupBox4.Size = New System.Drawing.Size(345, 259)
         Me.GroupBox4.TabIndex = 42
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Chosen Parts"
         '
-        'Label27
+        'temp_part_id_label
         '
-        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(117, 153)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(214, 18)
-        Me.Label27.TabIndex = 56
-        Me.Label27.Text = "0"
+        Me.temp_part_id_label.AutoSize = True
+        Me.temp_part_id_label.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.temp_part_id_label.Location = New System.Drawing.Point(82, 152)
+        Me.temp_part_id_label.Name = "temp_part_id_label"
+        Me.temp_part_id_label.Size = New System.Drawing.Size(94, 15)
+        Me.temp_part_id_label.TabIndex = 58
+        Me.temp_part_id_label.Text = "Select Above"
         '
-        'Label28
+        'Label20
         '
-        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(117, 130)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(214, 18)
-        Me.Label28.TabIndex = 55
-        Me.Label28.Text = "0"
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(16, 152)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(66, 13)
+        Me.Label20.TabIndex = 57
+        Me.Label20.Text = "Selected ID:"
+        '
+        'temp_part_price_label
+        '
+        Me.temp_part_price_label.AutoSize = True
+        Me.temp_part_price_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.temp_part_price_label.Location = New System.Drawing.Point(117, 194)
+        Me.temp_part_price_label.Name = "temp_part_price_label"
+        Me.temp_part_price_label.Size = New System.Drawing.Size(16, 18)
+        Me.temp_part_price_label.TabIndex = 56
+        Me.temp_part_price_label.Text = "0"
+        '
+        'temp_part_count_label
+        '
+        Me.temp_part_count_label.AutoSize = True
+        Me.temp_part_count_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.temp_part_count_label.Location = New System.Drawing.Point(117, 171)
+        Me.temp_part_count_label.Name = "temp_part_count_label"
+        Me.temp_part_count_label.Size = New System.Drawing.Size(16, 18)
+        Me.temp_part_count_label.TabIndex = 55
+        Me.temp_part_count_label.Text = "0"
         '
         'Label29
         '
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(13, 154)
+        Me.Label29.Location = New System.Drawing.Point(13, 195)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(77, 18)
         Me.Label29.TabIndex = 53
         Me.Label29.Text = "Amount: P"
         '
-        'DataGridView4
+        'temp_part_datagrid
         '
-        Me.DataGridView4.AllowUserToAddRows = False
-        Me.DataGridView4.AllowUserToDeleteRows = False
-        Me.DataGridView4.AllowUserToResizeColumns = False
-        Me.DataGridView4.AllowUserToResizeRows = False
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Location = New System.Drawing.Point(16, 19)
-        Me.DataGridView4.MultiSelect = False
-        Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView4.Size = New System.Drawing.Size(315, 107)
-        Me.DataGridView4.TabIndex = 52
+        Me.temp_part_datagrid.AllowUserToAddRows = False
+        Me.temp_part_datagrid.AllowUserToDeleteRows = False
+        Me.temp_part_datagrid.AllowUserToResizeColumns = False
+        Me.temp_part_datagrid.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.temp_part_datagrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.temp_part_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.temp_part_datagrid.DefaultCellStyle = DataGridViewCellStyle2
+        Me.temp_part_datagrid.Location = New System.Drawing.Point(16, 19)
+        Me.temp_part_datagrid.MultiSelect = False
+        Me.temp_part_datagrid.Name = "temp_part_datagrid"
+        Me.temp_part_datagrid.ReadOnly = True
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.temp_part_datagrid.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.temp_part_datagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.temp_part_datagrid.Size = New System.Drawing.Size(315, 130)
+        Me.temp_part_datagrid.TabIndex = 52
         '
-        'Button10
+        'reset_temp_part_button
         '
-        Me.Button10.Location = New System.Drawing.Point(264, 185)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(75, 23)
-        Me.Button10.TabIndex = 51
-        Me.Button10.Text = "Reset Parts"
-        Me.Button10.UseVisualStyleBackColor = True
+        Me.reset_temp_part_button.Location = New System.Drawing.Point(264, 216)
+        Me.reset_temp_part_button.Name = "reset_temp_part_button"
+        Me.reset_temp_part_button.Size = New System.Drawing.Size(75, 23)
+        Me.reset_temp_part_button.TabIndex = 51
+        Me.reset_temp_part_button.Text = "Reset Parts"
+        Me.reset_temp_part_button.UseVisualStyleBackColor = True
         '
         'Label30
         '
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(13, 129)
+        Me.Label30.Location = New System.Drawing.Point(13, 170)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(102, 18)
+        Me.Label30.Size = New System.Drawing.Size(103, 18)
         Me.Label30.TabIndex = 48
-        Me.Label30.Text = "Parts Needed:"
+        Me.Label30.Text = "Parts Chosen:"
         '
-        'Button11
+        'remove_part_button
         '
-        Me.Button11.Location = New System.Drawing.Point(16, 185)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(92, 23)
-        Me.Button11.TabIndex = 47
-        Me.Button11.Text = "Remove Part"
-        Me.Button11.UseVisualStyleBackColor = True
+        Me.remove_part_button.Location = New System.Drawing.Point(16, 216)
+        Me.remove_part_button.Name = "remove_part_button"
+        Me.remove_part_button.Size = New System.Drawing.Size(92, 23)
+        Me.remove_part_button.TabIndex = 47
+        Me.remove_part_button.Text = "Remove Part"
+        Me.remove_part_button.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -690,8 +817,8 @@ Partial Class addJO1
         Me.GroupBox3.Controls.Add(Me.ComboBox1)
         Me.GroupBox3.Controls.Add(Me.Label22)
         Me.GroupBox3.Controls.Add(Me.Label23)
-        Me.GroupBox3.Controls.Add(Me.NumericUpDown1)
-        Me.GroupBox3.Controls.Add(Me.Button6)
+        Me.GroupBox3.Controls.Add(Me.part_qty_updown)
+        Me.GroupBox3.Controls.Add(Me.clear_part_datagrid_button)
         Me.GroupBox3.Controls.Add(Me.add_part_button)
         Me.GroupBox3.Controls.Add(Me.Label24)
         Me.GroupBox3.Controls.Add(Me.ComboBox3)
@@ -704,7 +831,7 @@ Partial Class addJO1
         Me.GroupBox3.Controls.Add(Me.parts_data_grid)
         Me.GroupBox3.Location = New System.Drawing.Point(10, 260)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(355, 331)
+        Me.GroupBox3.Size = New System.Drawing.Size(355, 387)
         Me.GroupBox3.TabIndex = 41
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Search and Choose Parts"
@@ -712,7 +839,7 @@ Partial Class addJO1
         'refresh_parts_label
         '
         Me.refresh_parts_label.AutoSize = True
-        Me.refresh_parts_label.Location = New System.Drawing.Point(301, 169)
+        Me.refresh_parts_label.Location = New System.Drawing.Point(301, 214)
         Me.refresh_parts_label.Name = "refresh_parts_label"
         Me.refresh_parts_label.Size = New System.Drawing.Size(44, 13)
         Me.refresh_parts_label.TabIndex = 53
@@ -723,7 +850,7 @@ Partial Class addJO1
         '
         Me.part_id_label.AutoSize = True
         Me.part_id_label.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.part_id_label.Location = New System.Drawing.Point(84, 168)
+        Me.part_id_label.Location = New System.Drawing.Point(84, 213)
         Me.part_id_label.Name = "part_id_label"
         Me.part_id_label.Size = New System.Drawing.Size(94, 15)
         Me.part_id_label.TabIndex = 52
@@ -732,7 +859,7 @@ Partial Class addJO1
         'Label43
         '
         Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(13, 170)
+        Me.Label43.Location = New System.Drawing.Point(13, 215)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(66, 13)
         Me.Label43.TabIndex = 51
@@ -741,7 +868,7 @@ Partial Class addJO1
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(104, 272)
+        Me.ComboBox1.Location = New System.Drawing.Point(104, 317)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 50
@@ -749,7 +876,7 @@ Partial Class addJO1
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(11, 275)
+        Me.Label22.Location = New System.Drawing.Point(11, 320)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(68, 13)
         Me.Label22.TabIndex = 49
@@ -758,31 +885,34 @@ Partial Class addJO1
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(238, 270)
+        Me.Label23.Location = New System.Drawing.Point(238, 315)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(49, 13)
         Me.Label23.TabIndex = 47
         Me.Label23.Text = "Quantity:"
         '
-        'NumericUpDown1
+        'part_qty_updown
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(288, 268)
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(57, 20)
-        Me.NumericUpDown1.TabIndex = 48
+        Me.part_qty_updown.Location = New System.Drawing.Point(288, 313)
+        Me.part_qty_updown.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.part_qty_updown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.part_qty_updown.Name = "part_qty_updown"
+        Me.part_qty_updown.Size = New System.Drawing.Size(57, 20)
+        Me.part_qty_updown.TabIndex = 48
+        Me.part_qty_updown.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
-        'Button6
+        'clear_part_datagrid_button
         '
-        Me.Button6.Location = New System.Drawing.Point(241, 302)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(107, 23)
-        Me.Button6.TabIndex = 44
-        Me.Button6.Text = "Clear Selection"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.clear_part_datagrid_button.Location = New System.Drawing.Point(241, 347)
+        Me.clear_part_datagrid_button.Name = "clear_part_datagrid_button"
+        Me.clear_part_datagrid_button.Size = New System.Drawing.Size(107, 23)
+        Me.clear_part_datagrid_button.TabIndex = 44
+        Me.clear_part_datagrid_button.Text = "Clear Selection"
+        Me.clear_part_datagrid_button.UseVisualStyleBackColor = True
         '
         'add_part_button
         '
-        Me.add_part_button.Location = New System.Drawing.Point(6, 302)
+        Me.add_part_button.Location = New System.Drawing.Point(6, 347)
         Me.add_part_button.Name = "add_part_button"
         Me.add_part_button.Size = New System.Drawing.Size(172, 23)
         Me.add_part_button.TabIndex = 38
@@ -792,7 +922,7 @@ Partial Class addJO1
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(194, 220)
+        Me.Label24.Location = New System.Drawing.Point(194, 265)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(41, 13)
         Me.Label24.TabIndex = 37
@@ -801,7 +931,7 @@ Partial Class addJO1
         'ComboBox3
         '
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(104, 243)
+        Me.ComboBox3.Location = New System.Drawing.Point(104, 288)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox3.TabIndex = 36
@@ -809,7 +939,7 @@ Partial Class addJO1
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(11, 246)
+        Me.Label25.Location = New System.Drawing.Point(11, 291)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(87, 13)
         Me.Label25.TabIndex = 35
@@ -818,7 +948,7 @@ Partial Class addJO1
         'ComboBox4
         '
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(241, 212)
+        Me.ComboBox4.Location = New System.Drawing.Point(241, 257)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(104, 21)
         Me.ComboBox4.TabIndex = 34
@@ -826,14 +956,14 @@ Partial Class addJO1
         'ComboBox5
         '
         Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(77, 212)
+        Me.ComboBox5.Location = New System.Drawing.Point(77, 257)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(110, 21)
         Me.ComboBox5.TabIndex = 33
         '
         'Button9
         '
-        Me.Button9.Location = New System.Drawing.Point(288, 186)
+        Me.Button9.Location = New System.Drawing.Point(288, 231)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(57, 23)
         Me.Button9.TabIndex = 32
@@ -842,7 +972,7 @@ Partial Class addJO1
         '
         'TextBox8
         '
-        Me.TextBox8.Location = New System.Drawing.Point(14, 186)
+        Me.TextBox8.Location = New System.Drawing.Point(14, 231)
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(268, 20)
         Me.TextBox8.TabIndex = 31
@@ -850,7 +980,7 @@ Partial Class addJO1
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(11, 220)
+        Me.Label26.Location = New System.Drawing.Point(11, 265)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(60, 13)
         Me.Label26.TabIndex = 30
@@ -868,7 +998,7 @@ Partial Class addJO1
         Me.parts_data_grid.Name = "parts_data_grid"
         Me.parts_data_grid.ReadOnly = True
         Me.parts_data_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.parts_data_grid.Size = New System.Drawing.Size(331, 146)
+        Me.parts_data_grid.Size = New System.Drawing.Size(331, 191)
         Me.parts_data_grid.TabIndex = 0
         '
         'GroupBox6
@@ -1101,44 +1231,65 @@ Partial Class addJO1
         '
         'GroupBox8
         '
-        Me.GroupBox8.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox8.Controls.Add(Me.expect_claim_label)
+        Me.GroupBox8.Controls.Add(Me.repair_day_updown)
+        Me.GroupBox8.Controls.Add(Me.repair_date_label)
         Me.GroupBox8.Controls.Add(Me.Label36)
-        Me.GroupBox8.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox8.Controls.Add(Me.repair_datepicker)
         Me.GroupBox8.Controls.Add(Me.Label37)
         Me.GroupBox8.Location = New System.Drawing.Point(6, 188)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(740, 75)
+        Me.GroupBox8.Size = New System.Drawing.Size(740, 101)
         Me.GroupBox8.TabIndex = 41
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Repair And Claim"
         '
-        'DateTimePicker2
+        'expect_claim_label
         '
-        Me.DateTimePicker2.CustomFormat = "yyyy-MM-dd"
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker2.Location = New System.Drawing.Point(367, 25)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(115, 20)
-        Me.DateTimePicker2.TabIndex = 3
+        Me.expect_claim_label.AutoSize = True
+        Me.expect_claim_label.Location = New System.Drawing.Point(335, 57)
+        Me.expect_claim_label.Name = "expect_claim_label"
+        Me.expect_claim_label.Size = New System.Drawing.Size(58, 13)
+        Me.expect_claim_label.TabIndex = 50
+        Me.expect_claim_label.Text = "Claim Date"
+        '
+        'repair_day_updown
+        '
+        Me.repair_day_updown.Location = New System.Drawing.Point(338, 25)
+        Me.repair_day_updown.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.repair_day_updown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.repair_day_updown.Name = "repair_day_updown"
+        Me.repair_day_updown.Size = New System.Drawing.Size(128, 20)
+        Me.repair_day_updown.TabIndex = 49
+        Me.repair_day_updown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'repair_date_label
+        '
+        Me.repair_date_label.AutoSize = True
+        Me.repair_date_label.Location = New System.Drawing.Point(80, 57)
+        Me.repair_date_label.Name = "repair_date_label"
+        Me.repair_date_label.Size = New System.Drawing.Size(76, 13)
+        Me.repair_date_label.TabIndex = 4
+        Me.repair_date_label.Text = "Date of Repair"
         '
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(237, 28)
+        Me.Label36.Location = New System.Drawing.Point(252, 28)
         Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(109, 13)
+        Me.Label36.Size = New System.Drawing.Size(80, 13)
         Me.Label36.TabIndex = 2
-        Me.Label36.Text = "Expected Claim Date:"
+        Me.Label36.Text = "Days of Repair:"
         '
-        'DateTimePicker1
+        'repair_datepicker
         '
-        Me.DateTimePicker1.CustomFormat = "yyyy-MM-dd"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(83, 25)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(105, 20)
-        Me.DateTimePicker1.TabIndex = 1
-        Me.DateTimePicker1.Value = New Date(2017, 1, 24, 23, 1, 31, 0)
+        Me.repair_datepicker.CustomFormat = "yyyy-MM-dd"
+        Me.repair_datepicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.repair_datepicker.Location = New System.Drawing.Point(83, 25)
+        Me.repair_datepicker.Name = "repair_datepicker"
+        Me.repair_datepicker.Size = New System.Drawing.Size(105, 20)
+        Me.repair_datepicker.TabIndex = 1
+        Me.repair_datepicker.Value = New Date(2017, 3, 5, 0, 0, 0, 0)
         '
         'Label37
         '
@@ -1151,11 +1302,11 @@ Partial Class addJO1
         '
         'GroupBox7
         '
-        Me.GroupBox7.Controls.Add(Me.Label39)
+        Me.GroupBox7.Controls.Add(Me.warranty_remark_txtbox)
+        Me.GroupBox7.Controls.Add(Me.expect_warranty_label)
         Me.GroupBox7.Controls.Add(Me.Label38)
         Me.GroupBox7.Controls.Add(Me.warranty_combo)
         Me.GroupBox7.Controls.Add(Me.Label34)
-        Me.GroupBox7.Controls.Add(Me.RichTextBox2)
         Me.GroupBox7.Controls.Add(Me.Label35)
         Me.GroupBox7.Location = New System.Drawing.Point(6, 28)
         Me.GroupBox7.Name = "GroupBox7"
@@ -1164,14 +1315,23 @@ Partial Class addJO1
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Warranty"
         '
-        'Label39
+        'warranty_remark_txtbox
         '
-        Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(180, 64)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(30, 13)
-        Me.Label39.TabIndex = 8
-        Me.Label39.Text = "Date"
+        Me.warranty_remark_txtbox.Location = New System.Drawing.Point(151, 109)
+        Me.warranty_remark_txtbox.Multiline = True
+        Me.warranty_remark_txtbox.Name = "warranty_remark_txtbox"
+        Me.warranty_remark_txtbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.warranty_remark_txtbox.Size = New System.Drawing.Size(331, 39)
+        Me.warranty_remark_txtbox.TabIndex = 52
+        '
+        'expect_warranty_label
+        '
+        Me.expect_warranty_label.AutoSize = True
+        Me.expect_warranty_label.Location = New System.Drawing.Point(180, 64)
+        Me.expect_warranty_label.Name = "expect_warranty_label"
+        Me.expect_warranty_label.Size = New System.Drawing.Size(76, 13)
+        Me.expect_warranty_label.TabIndex = 8
+        Me.expect_warranty_label.Text = "Warranty Date"
         '
         'Label38
         '
@@ -1199,14 +1359,6 @@ Partial Class addJO1
         Me.Label34.Size = New System.Drawing.Size(113, 13)
         Me.Label34.TabIndex = 5
         Me.Label34.Text = "Select Warranty Type:"
-        '
-        'RichTextBox2
-        '
-        Me.RichTextBox2.Location = New System.Drawing.Point(151, 106)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(329, 37)
-        Me.RichTextBox2.TabIndex = 4
-        Me.RichTextBox2.Text = ""
         '
         'Label35
         '
@@ -1273,12 +1425,15 @@ Partial Class addJO1
         Me.step1_tab_page.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        CType(Me.additional_updown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.temp_part_datagrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.part_qty_updown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.parts_data_grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
@@ -1290,6 +1445,7 @@ Partial Class addJO1
         Me.TabPage3.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
+        CType(Me.repair_day_updown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.ResumeLayout(False)
@@ -1308,14 +1464,13 @@ Partial Class addJO1
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents new_customer_chbox As System.Windows.Forms.CheckBox
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents contact_no_txtbox As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents watch_serial_no_txtbox As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents item_name_txtbox As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents old_customer_grpbx As System.Windows.Forms.GroupBox
@@ -1325,11 +1480,11 @@ Partial Class addJO1
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents middle_i_txtbox As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents first_name_txtbox As System.Windows.Forms.TextBox
+    Friend WithEvents last_name_txtbox As System.Windows.Forms.TextBox
     Friend WithEvents old_customer_label As System.Windows.Forms.Label
     Friend WithEvents new_customer_grpbox As System.Windows.Forms.GroupBox
     Friend WithEvents search_customer_txtbox As System.Windows.Forms.TextBox
@@ -1359,8 +1514,8 @@ Partial Class addJO1
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents part_qty_updown As System.Windows.Forms.NumericUpDown
+    Friend WithEvents clear_part_datagrid_button As System.Windows.Forms.Button
     Friend WithEvents add_part_button As System.Windows.Forms.Button
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
@@ -1372,27 +1527,25 @@ Partial Class addJO1
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents parts_data_grid As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label27 As System.Windows.Forms.Label
-    Friend WithEvents Label28 As System.Windows.Forms.Label
+    Friend WithEvents temp_part_price_label As System.Windows.Forms.Label
+    Friend WithEvents temp_part_count_label As System.Windows.Forms.Label
     Friend WithEvents Label29 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
-    Friend WithEvents Button10 As System.Windows.Forms.Button
+    Friend WithEvents temp_part_datagrid As System.Windows.Forms.DataGridView
+    Friend WithEvents reset_temp_part_button As System.Windows.Forms.Button
     Friend WithEvents Label30 As System.Windows.Forms.Label
-    Friend WithEvents Button11 As System.Windows.Forms.Button
-    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents remove_part_button As System.Windows.Forms.Button
+    Friend WithEvents grand_total_label As System.Windows.Forms.Label
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents Label33 As System.Windows.Forms.Label
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
     Friend WithEvents warranty_combo As System.Windows.Forms.ComboBox
     Friend WithEvents Label34 As System.Windows.Forms.Label
-    Friend WithEvents RichTextBox2 As System.Windows.Forms.RichTextBox
     Friend WithEvents Label35 As System.Windows.Forms.Label
     Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
-    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label36 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents repair_datepicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label37 As System.Windows.Forms.Label
-    Friend WithEvents Label39 As System.Windows.Forms.Label
+    Friend WithEvents expect_warranty_label As System.Windows.Forms.Label
     Friend WithEvents Label38 As System.Windows.Forms.Label
     Friend WithEvents watch_kind_combo As System.Windows.Forms.ComboBox
     Friend WithEvents part_id_label As System.Windows.Forms.Label
@@ -1403,4 +1556,17 @@ Partial Class addJO1
     Friend WithEvents refresh_service_label As System.Windows.Forms.LinkLabel
     Friend WithEvents temp_svc_id_label As System.Windows.Forms.Label
     Friend WithEvents Label42 As System.Windows.Forms.Label
+    Friend WithEvents temp_part_id_label As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents additional_updown As System.Windows.Forms.NumericUpDown
+    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
+    Friend WithEvents warranty_remark_txtbox As System.Windows.Forms.TextBox
+    Friend WithEvents watch_desc_txtbox As System.Windows.Forms.TextBox
+    Friend WithEvents Label27 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents repair_date_label As System.Windows.Forms.Label
+    Friend WithEvents expect_claim_label As System.Windows.Forms.Label
+    Friend WithEvents repair_day_updown As System.Windows.Forms.NumericUpDown
 End Class

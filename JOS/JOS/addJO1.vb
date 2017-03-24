@@ -1,19 +1,49 @@
 ﻿Public Class addJO1
     'Instance Variables
+    'new WindowMaker Instance/object
+    Dim newWindow As windowNamer = New windowNamer()
+    'form windowID
+    Dim windowID As String = newWindow.getWindowID()
+
     'TAB1
     Private oldCustomerID As String = ""
     Private jobRepairType As Integer = 0
     Private isNewCustomer As Boolean = False
     'TAB2
-
+    '  jobservice
     Private pickJobSvcID As String = ""
     Private pickJobSvcPrice As Decimal = 0.0
     Private pickTempSvcID As String = ""
     Private pickTempSvcPrice As Decimal = 0.0
 
     Private tempSvcCount As Integer = 0
-    Private tempSvcPrice As Decimal = 0.0
-    Private pickPartID = ""
+    'will be a decimal variable
+    Private WithEvents tempSvcPrice As New priceEvent
+
+    '  parts
+    Private pickPartID As String = ""
+    Private pickPartPrice As Decimal = 0.0
+    Private pickPartQuantity As Integer = 0
+
+    Private pickTempPartID As String = ""
+    Private pickTempPartPrice As Decimal = 0.0
+    Private pickTempPartQty As Integer = 0
+
+    Private tempPartCount As Integer = 0
+    'will be a decimal variable later
+    Private WithEvents tempPartPrice As New priceEvent
+
+    ' grand total
+    Private grandTotal As Decimal = 0.0
+    Private addCharge As Decimal = 0.0
+
+    'TAB 3
+    Private repairDate As Date = Date.Now()
+    Private repairDay As Integer = 0
+    Private claimDate As Date = Date.Now()
+    Private warrantyDay As Integer = 0
+    Private warrantyDate As Date = Date.Now()
+
     'tabpage index
     Private tabNumber As Integer = 0
 
@@ -21,7 +51,11 @@
     Private Sub addJO1_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         'when form is closed
         'empty temp_svc_tb in DB
-        tempServiceDB.emptyTempService()
+        tempServiceDB.emptyTempService(windowID)
+        'empty temp_part_tb in DB
+        tempPartsDB.emptyTempPart(windowID)
+        'delete entry from window_maker_tb in DB
+        newWindow.deleteWindowID(windowID)
     End Sub
 
     'form onCreate
@@ -51,10 +85,26 @@
         setJobServiceDatagrid()
         'set parts datagridview
         setPartsDatagrid()
+        'set tempSvcPrice 0
+        tempSvcPrice.DecimalVariable = 0
+        'set tempPartPrice 0
+        tempPartPrice.DecimalVariable = 0
 
         'TAB 3
         'set warranty type combo box
         setWarrantyCombo()
+        'set repair date datetimepicker
+        repair_datepicker.Value = Date.Now()
+        'disable repair_day_updown
+        repairDayEnabled(False)
+        'set repair_date_label
+        setRepairDateLabel()
+        'setRepairDay
+        setRepairDay(0)
+        'set claimDate
+        setClaimDate()
+        'set claim date label
+        setExcpectClaimLabel()
     End Sub
 
     Public Sub New()
@@ -125,7 +175,7 @@
     Private Sub add_service_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles add_service_button.Click
         'when add service button is clicked
         'create new object/instance
-        Dim addService As tempServiceDB = New tempServiceDB(pickJobSvcID)
+        Dim addService As tempServiceDB = New tempServiceDB(pickJobSvcID, windowID)
         'check if job service id exist in database
         Dim isExist As Boolean = addService.jobServiceExist()
         'if
@@ -191,7 +241,7 @@
     'void method
     Private Sub setSomeJobServiceDataGrid()
         'set datagrid with filtered data from temp_svc_tb
-        tempServiceDB.getSomeJobService(job_service_datagrid)
+        tempServiceDB.getSomeJobService(job_service_datagrid, windowID)
     End Sub
 
     ''''''''' ALL TEMP SVC
@@ -199,7 +249,7 @@
     'void method
     Private Sub setTempSvcDataGrid()
         'set datagrid of temporary chosen services
-        tempServiceDB.getTempJobService(temp_svc_datagrid)
+        tempServiceDB.getTempJobService(temp_svc_datagrid, windowID)
     End Sub
 
     'temp_svc_datagrid cellclick
@@ -236,7 +286,7 @@
     'setter method
     Private Sub setTempSvcPrice(ByRef temp_svc_price As Decimal)
         'set tempSvcTotal Price
-        tempSvcPrice = temp_svc_price
+        tempSvcPrice.DecimalVariable = temp_svc_price
         'update label
         temp_svc_price_label.Text = getTempSvcPrice()
     End Sub
@@ -244,7 +294,7 @@
     'returns Decimal
     Private Function getTempSvcPrice()
         'returns decimal format
-        Return tempSvcPrice
+        Return tempSvcPrice.DecimalVariable
     End Function
     'reset method
     Private Sub resetTempSvcPriceLabel()
@@ -303,7 +353,7 @@
         If Not pickTempSvcID = "" Then
             'if pickTempSvcID is not empty
             'create new instance/object
-            Dim deleteSvc As tempServiceDB = New tempServiceDB(pickTempSvcID)
+            Dim deleteSvc As tempServiceDB = New tempServiceDB(pickTempSvcID, windowID)
             deleteSvc.removeTempSvc()
 
             'update temp_svc_datagrid
@@ -326,7 +376,7 @@
         'empty datagrid and temp_svc_tb
         resetTempSvcIDLabel()
         'empty temp_svc_tb
-        tempServiceDB.emptyTempService()
+        tempServiceDB.emptyTempService(windowID)
         'update temp_svc_datagrid
         setTempSvcDataGrid()
         'update job_svc_datagrid
@@ -345,6 +395,12 @@
         inventoryDB.getAllItem(parts_data_grid)
     End Sub
 
+    'update table with restriction from temp_part_tb
+    Private Sub setSomePartsDatagrid()
+        'set datagridview for job parts
+        tempPartsDB.getSomeItem(parts_data_grid, windowID)
+    End Sub
+
     'cell onClick
     Private Sub parts_data_grid_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles parts_data_grid.CellClick
         'when parts datagrid is clicked
@@ -352,7 +408,7 @@
             Dim row As DataGridViewRow
             row = Me.parts_data_grid.Rows(e.RowIndex)
             'assign to instance variable
-            setPartsIDLabel(row.Cells(0).Value)
+            setPartsIDLabel(row.Cells(0).Value, row.Cells(5).Value)
         End If
     End Sub
 
@@ -365,17 +421,338 @@
     'label onClick
     Private Sub refresh_parts_label_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles refresh_parts_label.LinkClicked
         'refresh parts datagrid
-        setPartsDatagrid()
+        setSomePartsDatagrid()
     End Sub
 
+    'reset parts_id_label
+    Private Sub resetPartsIDLabel()
+        'empty pickPartID variable
+        setPickPartID("")
+        'empty pickPartPrice variable
+        setPickPartPrice(0.0)
+        'empty pickPartQuantity variable
+        setPickPartQuantity(1)
+        'set updown
+        part_qty_updown.Value = getPickPartQuantity()
+        'display select above text
+        part_id_label.Text = "Select Above"
+    End Sub
     'void method
-    Private Sub setPartsIDLabel(ByRef part_id As String)
+    Private Sub setPartsIDLabel(ByRef part_id As String, ByRef part_price As Decimal)
         'set parts label text and update selectedPartID
         'update instance variable selectedPartID
-        pickPartID = part_id
+        setPickPartID(part_id)
+        'update pickPartPrice
+        setPickPartPrice(part_price)
+        'update pickPartQuantity
+        setPickPartQuantity(part_qty_updown.Value) 'updown value
         'update label
-        part_id_label.Text = pickPartID
+        part_id_label.Text = getPickPartID()
     End Sub
+    'setter for pickPartID()
+    Private Sub setPickPartID(ByRef part_id As String)
+        'set value for pickPartID
+        pickPartID = part_id
+    End Sub
+    'getter for pickPartID()
+    Private Function getPickPartID()
+        'return string
+        Return pickPartID
+    End Function
+
+    'setter for pickPartPrice
+    Private Sub setPickPartPrice(ByRef part_price As Decimal)
+        'set value for pickPartPrice
+        pickPartPrice = part_price
+    End Sub
+    'getter for pickPartPrice
+    Private Function getPickPartPrice()
+        'return Decimal
+        Return pickPartPrice
+    End Function
+
+    'setter for pickPartQuantity
+    Private Sub setPickPartQuantity(ByRef part_quantity As Integer)
+        'set value for pickPartQuantity
+        pickPartQuantity = part_quantity
+    End Sub
+    'getter for pickPartQuantity
+    Private Function getPickPartQuantity()
+        'return Integer
+        Return pickPartQuantity
+    End Function
+
+    'clear_part_datagrid_button onClick event
+    Private Sub clear_part_datagrid_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles clear_part_datagrid_button.Click
+        'when clear selection button is clicked
+        'reset part_id_label
+        resetPartsIDLabel()
+        'clear selection for datagrid
+        parts_data_grid.ClearSelection()
+    End Sub
+
+    'add_part_button onClick event
+    Private Sub add_part_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles add_part_button.Click
+        'when add part button is clicked
+        'create new object/instance 
+        Dim addPart As tempPartsDB = New tempPartsDB(pickPartID, pickPartQuantity, windowID)
+        'check item if exist in database 
+        Dim isExist As Boolean = addPart.partExist()
+        'check item has plenty parts in db
+        Dim isPlenty As Boolean = addPart.partPlenty()
+
+        'if
+        If isExist Then
+            'if job item exist in DB
+            'add to temp_part_db
+            addPart.addTempPart()
+            'update job item datagrid view
+            setSomePartsDatagrid()
+            'update temp part service datagrid view
+            setTempPartDatagrid()
+
+            'update tempPartCount
+            setTempPartCount(getTempPartCount() + 1)
+            'compute pickPartPrice*pickPartQuantity
+            Dim price_quantity As Decimal = pickPartQuantity * pickPartPrice
+            'update tempPartPrice
+            setTempPartPrice(getTempPartPrice() + price_quantity)
+            'reset job part label
+            resetPartsIDLabel()
+        Else
+            MsgBox("Select a Part.")
+        End If
+    End Sub
+
+    'part_qty_updown ValueChanged event
+    Private Sub part_qty_updown_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles part_qty_updown.ValueChanged
+        'when part_qty_updown is clicked
+        setPickPartQuantity(part_qty_updown.Value)
+    End Sub
+
+    ''''''' ALL TEMP PARTS METHODS
+
+    'void method
+    Private Sub setTempPartDatagrid()
+        'set datagrid of temporary chosen parts
+        tempPartsDB.getTempPart(temp_part_datagrid, windowID)
+    End Sub
+
+    'temp_part_datagrid CellClick event()
+    Private Sub temp_part_datagrid_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles temp_part_datagrid.CellClick
+        'when datagrid is clicked
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow
+            row = Me.temp_part_datagrid.Rows(e.RowIndex)
+            'assign to instance variable, and display text
+            setTempPartIDLabel(row.Cells(0).Value, row.Cells(5).Value, row.Cells(4).Value)
+        End If
+    End Sub
+
+    'setter for temp_part_id_label
+    Private Sub setTempPartIDLabel(ByRef temp_part_id As String, ByRef temp_part_price As Decimal, ByRef temp_part_qty As Integer)
+        'set displayed text and update tempPartID
+        'set pickPartTempID
+        setPickTempPartID(temp_part_id)
+        'set pickTempPartPrice
+        setPickTempPartPrice(temp_part_price)
+        'set pickTempPartQty
+        setPickTempPartQty(temp_part_qty)
+
+        'display text
+        temp_part_id_label.Text = getPickTempPartID()
+    End Sub
+
+    'setter for pickTempPartID 
+    Private Sub setPickTempPartID(ByRef temp_part_id As String)
+        'set value for pickTempPartID
+        pickTempPartID = temp_part_id
+    End Sub
+    'getter for pickTempPartID
+    Private Function getPickTempPartID()
+        'return string
+        Return pickTempPartID
+    End Function
+
+
+    'setter for pickTempPartPrice
+    Private Sub setPickTempPartPrice(ByRef temp_part_price As String)
+        'set value for pickTempPartPrice
+        pickTempPartPrice = temp_part_price
+    End Sub
+    'getter for pickTempPartPrice
+    Private Function getPickTempPartPrice()
+        'return Decimal
+        Return pickTempPartPrice
+    End Function
+
+
+    'setter for pickTempPartQty
+    Private Sub setPickTempPartQty(ByRef temp_part_qty As String)
+        'set value for pickTempPartQty
+        pickTempPartQty = temp_part_qty
+    End Sub
+    'getter for pickTempPartQty
+    Private Function getPickTempPartQty()
+        'return Integer
+        Return pickTempPartQty
+    End Function
+
+
+    'setter for tempPartCount
+    '@param temp_part_count
+    Private Sub setTempPartCount(ByRef temp_part_count As Integer)
+        'set value for tempPartCount
+        tempPartCount = temp_part_count
+        'update temp_part_count_label
+        temp_part_count_label.Text = getTempPartCount()
+    End Sub
+    'getter for tempPartCount
+    Private Function getTempPartCount()
+        'return Integer
+        Return tempPartCount
+    End Function
+
+    'setter for tempPartPrice
+    '@param temp_part_qty
+    '@param temp_part_price
+    Private Sub setTempPartPrice(ByRef temp_part_price As Decimal)
+        'set value for tempPartPrice
+        tempPartPrice.DecimalVariable = temp_part_price
+        'update temp_part_price_label
+        temp_part_price_label.Text = getTempPartPrice()
+    End Sub
+    'getter for tempPartPrice
+    Private Function getTempPartPrice()
+        'return Decimal
+        Return tempPartPrice.DecimalVariable
+    End Function
+
+    'temp_part_id_label
+    Private Sub resetTempPartIDLabel()
+        'sets display text for temp_part_id_label
+        'reset pickPartID
+        setPickPartID("")
+        'reset pickTempPartPrice
+        setPickTempPartPrice(0.0)
+        'reset pickTempPartQuantity
+        setPickPartQuantity(0)
+        'reset display
+        temp_part_id_label.Text = "Select Above"
+    End Sub
+
+    'remove_part_button onClick Event
+    Private Sub remove_part_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles remove_part_button.Click
+        'when remove part button is clicked
+        'remove selected part from temp_part_tb
+        If Not pickTempPartID = "" Then
+            'if pickTempPartID is not empty
+            'create new instance/object
+            Dim deletePart As tempPartsDB = New tempPartsDB(pickTempPartID, pickTempPartQty, windowID)
+            deletePart.removeTempPart()
+
+            'update temp_part_datagrid
+            setTempPartDatagrid()
+            'update list of parts
+            setSomePartsDatagrid()
+            'set minus 1 in tempPartCount
+            setTempPartCount(getTempPartCount() - 1)
+            'pickTempPartPrice * pickPartTempQty
+            Dim temp_price_quantity As Decimal = pickTempPartQty * pickTempPartPrice
+            'subtract price from pickTempPartPrice
+            setTempPartPrice(getTempPartPrice() - temp_price_quantity)
+            'reset pickTempPartID
+            resetTempPartIDLabel()
+        Else
+            MsgBox("No Part Selected.")
+        End If
+    End Sub
+
+    'reset_temp_part_button onClick event
+    Private Sub reset_temp_part_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles reset_temp_part_button.Click
+        'when reset parts is clicked
+        resetTempPartIDLabel()
+        'empty temp_part_tb
+        tempPartsDB.emptyTempPart(windowID)
+        'update temp_part_datagrid
+        setTempPartDatagrid()
+        'update parts_datagrid
+        setSomePartsDatagrid()
+        'reset tempPartCount
+        resetTempPartCountLabel()
+        'reset tempPartPrice
+        resetTempPartPriceLabel()
+    End Sub
+
+    'reset temp_part_count_label
+    Private Sub resetTempPartCountLabel()
+        'reset label and count
+        setTempPartCount(0)
+    End Sub
+
+    'reset temp_part_price_label
+    Private Sub resetTempPartPriceLabel()
+        'reset label and count
+        setTempPartPrice(0.0)
+    End Sub
+    
+
+
+
+    ''''''' ALL GRAND TOTAL METHODS
+
+    'additional_updown ValueChanged Event
+    Private Sub additional_updown_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles additional_updown.ValueChanged
+        'when updown is pressed by up or down key
+        setAdditionalUpDown()
+    End Sub
+
+    'setter for addtional_updown
+    Private Sub setAdditionalUpDown()
+        'get value for addtional_updown
+        setAddCharge(additional_updown.Value)
+        'set grandTotal
+        setGrandTotal(getAddCharge() + getTempSvcPrice() + getTempPartPrice())
+    End Sub
+
+    'setter for addCharge
+    '@param add_charge
+    Private Sub setAddCharge(ByRef add_charge As Decimal)
+        'set value for addCharge
+        addCharge = add_charge
+    End Sub
+    'getter for addCharge
+    Private Function getAddCharge()
+        'return Decimal
+        Return addCharge
+    End Function
+
+    'setter for grandTotal
+    Private Sub setGrandTotal(ByRef grand_total As Decimal)
+        'set value for grandTotal
+        grandTotal = grand_total
+        'update display text for grand_total_label
+        grand_total_label.Text = getGrandTotal()
+    End Sub
+    'getter for grandTotal
+    Private Function getGrandTotal()
+        'return Decimal
+        Return grandTotal
+    End Function
+
+    'when tempSvcPrice Value is Changed
+    Private Sub tempSvcPrice_priceChanged(ByVal temp_svc_price As Decimal) Handles tempSvcPrice.priceChanged
+        'update grand total variable
+        setAdditionalUpDown()
+    End Sub
+
+    'when tempPartPrice Value is Changed
+    Private Sub tempPartPrice_priceChanged(ByVal temp_svc_price As Decimal) Handles tempPartPrice.priceChanged
+        'update grand total variable
+        setAdditionalUpDown()
+    End Sub
+
+
 
     ''''''''''' ALL CUSTOMER METHODS
 
@@ -411,6 +788,13 @@
         'set value for oldCustomerID
         oldCustomerID = old_customer_id
     End Sub
+
+    'getter for oldCustomerID
+    Private Function getOldCustomerID()
+        'return String
+        Return oldCustomerID
+    End Function
+
     'void method
     Private Sub resetOldCustomer()
         'clear variable, disable the customer icon
@@ -464,14 +848,14 @@
             'reset new customer
             resetOldCustomer()
             'set class variable isNewCustomer
-            isNewCustomer = True
+            setIsNewCustomer(True)
         Else
             'disable new customer groupbox
             enableNewCustomerGrpbx(False)
             'enable customer data grid
             enableOldCustomerGrpbx(True)
             'set class variable isNewCustomer
-            isNewCustomer = False
+            setIsNewCustomer(False)
         End If
     End Sub
 
@@ -496,6 +880,157 @@
         End If
     End Sub
 
+    'setter for isNewCustomer
+    Private Sub setIsNewCustomer(ByRef is_new_customer As Boolean)
+        'set value for isNewCustomer
+        isNewCustomer = is_new_customer
+    End Sub
+
+    'getter for isNewCustomer
+    Private Function getIsNewCustomer()
+        'return boolean
+        Return isNewCustomer
+    End Function
+
+
+
+    '''''''' ALL WARRANTY METHODS
+
+    'setter for repairDate
+    Private Sub setRepairDate(ByRef repair_date As Date)
+        'set value for repairDate
+        repairDate = repair_date
+    End Sub
+
+    'getter for repairDate
+    Private Function getRepairDate()
+        'return Date
+        Return repairDate
+    End Function
+
+    'repair_datepicker ValueChanged Event
+    Private Sub repair_datepicker_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles repair_datepicker.ValueChanged
+        'get value from datepicker
+        setRepairDate(repair_datepicker.Value())
+        setRepairDateLabel()
+        'set claim date
+        setClaimDate()
+        setExcpectClaimLabel()
+        'set warrantyDate
+        setWarrantyDate()
+        'display Text
+        setExpectWarrantyLabel()
+    End Sub
+
+    'set display text for repair_date_label
+    Private Sub setRepairDateLabel()
+        'display text
+        Dim display_date As Date = getRepairDate()
+        Dim string_date As String = display_date.ToString("dddd MMMM dd, yyyy")
+        repair_date_label.Text = string_date
+    End Sub
+
+    'setter for repairDay
+    Private Sub setRepairDay(ByRef repair_day As Integer)
+        'set value for repairDay
+        repairDay = repair_day
+    End Sub
+
+    'getter for repairDay
+    Private Function getRepairDay()
+        'return Integer
+        Return repairDay
+    End Function
+
+    'setter for claimDate
+    Private Sub setClaimDate()
+        'set value for repairDate
+        claimDate = getRepairDate().AddDays(getRepairDay())
+    End Sub
+
+    'getter for claimDate
+    Private Function getClaimDate()
+        'return Date
+        Return claimDate
+    End Function
+
+    'set display text for expect_claim_label
+    Private Sub setExcpectClaimLabel()
+        'set display text for expected claim date
+        'display text
+        Dim display_date As Date = getClaimDate()
+        Dim string_date As String = display_date.ToString("dddd MMMM dd, yyyy")
+        expect_claim_label.Text = string_date
+    End Sub
+
+    'repair_day_updown ValueChanged event
+    Private Sub repair_day_updown_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles repair_day_updown.ValueChanged
+        'set repair day and claim date
+        'when repair days is changed
+        setRepairDay(repair_day_updown.Value())
+        'set claimDate
+        setClaimDate()
+        'display text
+        setExcpectClaimLabel()
+        'set warrantyDate
+        setWarrantyDate()
+        'display Text
+        setExpectWarrantyLabel()
+    End Sub
+
+    'repair_day_updown Enabled
+    Private Sub repairDayEnabled(ByRef is_enabled As Boolean)
+        'sets enable or not for repair_day_updown
+        repair_day_updown.Enabled = is_enabled
+    End Sub
+
+    'setter for warrantyDate
+    Private Sub setWarrantyDate()
+        'set value for warrantyDate
+        warrantyDate = getClaimDate().AddDays(getWarrantyDay())
+    End Sub
+
+    'getter for warrantyDate
+    Private Function getWarrantyDate()
+        'return Date
+        Return warrantyDate
+    End Function
+
+    'setter for warrantyDay
+    Private Sub setWarrantyDay(ByRef warranty_day As Integer)
+        'set value for warrantyDay
+        warrantyDay = warranty_day
+    End Sub
+
+    'getter for warrantyDay
+    Private Function getWarrantyDay()
+        'return Integer
+        Return warrantyDay
+    End Function
+
+    'set display text for expect_warranty_label
+    Private Sub setExpectWarrantyLabel()
+        'set warranty date based on claim date and warranty day
+        Dim display_date As Date = getWarrantyDate()
+        'to string
+        Dim string_date As String = display_date.ToString("dddd MMMM dd, yyyy")
+        'set label
+        expect_warranty_label.Text = string_date
+    End Sub
+
+    'warranty_combo SelectedIndexChanged Event
+    Private Sub warranty_combo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles warranty_combo.SelectedIndexChanged
+        Dim warranty_day As Integer = 0
+        'get text from combo box
+        warranty_day = warrantyDB.getWarrantyDay(warranty_combo.SelectedItem.ToString())
+        'update warrantyDay
+        setWarrantyDay(warranty_day)
+        'set warrantyDate
+        setWarrantyDate()
+        'display Text
+        setExpectWarrantyLabel()
+    End Sub
+
     ''''''''' ALL JOB TYPE METHODS
 
     'void method
@@ -518,6 +1053,7 @@
                 MsgBox("jobRepairType Number not Supported.")
         End Select
     End Sub
+
     'getter method for jobRepairType
     Private Function getJobRepairType()
         'return Integer
@@ -530,6 +1066,21 @@
         If otg_radio.Checked Then
             'if on the go radio button is checked
             setJobRepairType(1)
+
+            'set disabled for days of repair
+            repairDayEnabled(False)
+            'set repairDay to zero
+            setRepairDay(0)
+            'set claimDate
+            setClaimDate()
+            'display text for expected claim
+            setExcpectClaimLabel()
+            'set warrantyDate
+            setWarrantyDate()
+            'display text for warranty label
+            setExpectWarrantyLabel()
+
+            
         End If
     End Sub
 
@@ -539,6 +1090,19 @@
         If admit_radio.Checked Then
             'if admit radio button is checked
             setJobRepairType(2)
+
+            'set disabled for days of repair
+            repairDayEnabled(True)
+            'when repair days is changed
+            setRepairDay(repair_day_updown.Value())
+            'set claimDate
+            setClaimDate()
+            'display text
+            setExcpectClaimLabel()
+            'set warrantyDate
+            setWarrantyDate()
+            'display Text
+            setExpectWarrantyLabel()
         End If
     End Sub
 
@@ -597,7 +1161,7 @@
         Next
     End Sub
 
-    ''''''''''' TAB PAGES METHODS
+    ''''''''''' ALL TAB PAGES METHODS
 
     'next_tab_button onClick
     Private Sub next_tab_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles next_tab_button.Click
@@ -648,10 +1212,302 @@
     End Function
 
 
-    Private Sub submit_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submit_button.Click
+    ''''''' WINDOW ID
+    Public ReadOnly Property getWindowID() As String
+        Get
+            Return windowID
+        End Get
+    End Property
 
+
+    '''''' SUBMIT BUTTON
+
+    'submit_button onClick event
+    Private Sub submit_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submit_button.Click
+        'Dim addJobOrder As jobOrderDB = New jobOrderDB(getIsNewCustomer(), getJobRepairType(), , getGrandTotal(), , )
+
+        'check if fields are all filled
+        Dim fieldEmpty As Boolean = isFieldEmpty()
+
+        'if
+        If fieldEmpty = False Then
+            'if fields are correctly filled
+
+            Dim job_order_id As String = "" ' JOB ORDER ID
+            'TAB 1 LOCAL VARIABLES
+            '  new customer details
+            Dim new_customer_id As String = "" ' new customerID
+            Dim customer_name As String = ""
+            Dim customer_contact As String = ""
+            ' old customer details
+            Dim old_customer_id As String = getOldCustomerID()
+            ' job order details
+            Dim job_customer_id As String = "" ' new_customer_id or old_customer_id
+            Dim job_repair_type As Integer = getJobRepairType()
+            Dim job_item_name As String = item_name_txtbox.Text
+            Dim total_price As Decimal = getGrandTotal()
+            Dim watch_serial_no As String = watch_serial_no_txtbox.Text
+            Dim watch_remark As String = watch_desc_txtbox.Text
+            ' technician
+            Dim technician_id As String = ""
+            Dim watch_build_id As Integer = 0
+            Dim watch_kind_id As Integer = 0
+            'TAB 3 LOCAL Variables
+            Dim start_repair_date As Date = getRepairDate()
+            Dim expected_claim_date As Date = getClaimDate()
+            Dim warranty_id As String = ""
+
+            'TAB 2 LOCAL VARIABLES
+
+
+            ' TAB 1 PROCESSES
+            Dim new_customer As Boolean = getIsNewCustomer()
+            If new_customer Then
+                'if new customer is true
+
+                'declare variables
+                Dim first_name, last_name, middle_i As String
+                'add comma to the lastname
+                last_name = last_name_txtbox.Text & ", "
+                'add space to the first name
+                first_name = first_name_txtbox.Text & " "
+                'add period to the middle initial
+                middle_i = middle_i_txtbox.Text & "."
+
+                'main variable
+                customer_name = last_name & first_name & middle_i 'concatenated
+                customer_contact = contact_no_txtbox.Text
+
+                'CREATE NEW OBJECT/INSTANCE for customerDB
+                Dim newCustomer As customerDB = New customerDB(customer_name, customer_contact)
+                Dim sameCustomerName As Boolean = newCustomer.sameName()
+                Dim sameCustomer As Boolean = newCustomer.sameCustomer()
+
+                'SAME NAME CHECK
+                If sameCustomerName = False Then
+                    'has no name match in DB
+                    If sameCustomer = False Then
+                        'has no same name and contact in DB
+                        newCustomer.addCustomer()
+                    End If
+                ElseIf sameCustomerName Then
+                    'has same name match in DB
+                    If sameCustomer = False Then
+                        'has same name but different number
+                        'prompt user if he is adding a new or same customer.
+                        Dim confirm As Boolean = MessageBox.Show(newCustomer.confirmName, "Same Customer Name", MessageBoxButtons.YesNo)
+                        If confirm = False Then
+                            'user is adding a different customer. they just happen to have same names
+                            newCustomer.addCustomer()
+                        Else
+                            'user is adding the same customer but different number
+                            MsgBox(newCustomer.wrongCustomer)
+                        End If
+                    Else
+                        'has same name and contact in DB
+                        MsgBox(newCustomer.wrongCustomer)
+
+                        'BREAK out of method
+                        Exit Sub
+                    End If
+                End If
+
+                'get newCustomerID
+                new_customer_id = newCustomer.getCustomerID()
+                ' equip to job_customer_id
+                job_customer_id = new_customer_id
+            Else
+                'if old customer
+                job_customer_id = getOldCustomerID()
+            End If
+
+
+            'ALL Technician Details
+            Dim technician_name As String = technician_combo.SelectedItem.ToString()
+            'create new instance/object
+            Dim newTechnician As technicianDB = New technicianDB(technician_name)
+            Dim sameTechnicianName As Boolean = newTechnician.sameName()
+            'SAME NAME check
+            If sameTechnicianName Then
+                'has name match in db
+                'get technician_id from DB
+                technician_id = newTechnician.getTechnicianID()
+            Else
+                'has no match in db
+                MsgBox(newTechnician.wrongName())
+                'BREAK FROM METHOD
+                Exit Sub
+            End If
+
+            'watch_serial_no get text. check above
+
+            'get watch_build_combo SelectedItem
+            Dim watch_build_remark As String = watch_build_combo.SelectedItem.ToString()
+            'get watch build ID from DB
+            watch_build_id = watchDB.getWatchBuildID(watch_build_remark)
+
+            'get watch_kind_combo Selected Item
+            Dim watch_kind_remark As String = watch_kind_combo.SelectedItem.ToString()
+            'escape string for watch_kind_remark
+            watch_kind_remark = Replace$(watch_kind_remark, "'", "''")
+            'get watch kind ID from DB
+            watch_kind_id = watchDB.getWatchKindID(watch_kind_remark)
+
+
+            'TAB 3 PROCESSES
+            Dim warranty_type_remark As String = warranty_combo.SelectedItem.ToString()
+            'create new instance/object for warranty
+            Dim checkWarranty As warrantyDB = New warrantyDB(warranty_type_remark)
+            ' check if warranty exist in DB
+            Dim warrantyExist As Boolean = checkWarranty.warrantyTypeRemarkExist()
+            'if
+            If warrantyExist Then
+                'if warranty type remark exists in DB
+                warranty_id = checkWarranty.getWarrantyID()
+            Else
+                'if warranty type remark doesn't exist in DB
+                MsgBox(checkWarranty.wrongTypeRemark()) 'error message
+                'BREAK out FROM THE METHOD
+                Exit Sub
+            End If
+
+
+            'ADD JOB ORDER
+            'create new instance/object for jobOrderDb
+            Dim addJobOrder As jobOrderDB = New jobOrderDB(job_repair_type, job_item_name, watch_remark, total_price, watch_serial_no)
+            Dim sameJobOrder As Boolean = addJobOrder.sameJobOrder(job_customer_id, watch_kind_id, watch_build_id, technician_id, start_repair_date, expected_claim_date, warranty_id)
+            'if
+            If sameJobOrder = False Then
+                'if job order doesn't exist
+                'add Job order
+                addJobOrder.addJobOrder()
+                'get job_order_id from DB
+                job_order_id = addJobOrder.getJobOrderID()
+            Else
+                'if job order exist
+                MsgBox(addJobOrder.wrongJobOrder())
+                'BREAK out FROM Method
+                Exit Sub
+            End If
+
+            'TAB 2 PROCESSES
+            'temp_job_svc_datagrid must have atleast 1 row
+            'add data from temp_job_svc to repair_svc_tb
+            tempServiceDB.addAllRepairService(job_order_id, getWindowID())
+
+
+            'get parts chosen count
+            Dim parts_chosen As Integer = getTempPartCount()
+            'if the user added parts in the job order
+            If parts_chosen > 0 Then
+                'add all temp to repair_part_tb
+                tempPartsDB.addAllRepairPart(job_order_id, getWindowID())
+
+                'create new instance/object for repairPartDB
+                Dim newRepairPart As repairPartDB = New repairPartDB(job_order_id)
+                'update quantity_exist to false when exceed quantity from job
+                newRepairPart.setAllLackQty()
+                'subtract inventory based on the added parts
+                newRepairPart.setAllGoodQty()
+            End If
+
+
+            MsgBox("Correct")
+        Else
+            'if other fields are empty
+            MsgBox("Please fill out all the forms.")
+        End If
     End Sub
 
+
+    ' checks all field if empty
+    Private Function isFieldEmpty()
+        'returns boolean
+        'must be True for the form to continue
+        Dim isEmpty As Boolean = True
+
+        'TAB 1
+        'technician
+        Dim technician As Boolean = (technician_combo.SelectedIndex = -1)
+
+        'isNewCustomer
+        Dim is_new_customer As Boolean = getIsNewCustomer()
+
+        'if isNewCustomer is true
+        Dim customer As Boolean = True
+        If is_new_customer Then
+            'check if forms are empty
+            Dim first_name As Boolean = (first_name_txtbox.Text = "")
+            Dim last_name As Boolean = (last_name_txtbox.Text = "")
+            Dim middle_i As Boolean = (middle_i_txtbox.Text = "")
+            'return flase if values are not empty
+            customer = (first_name And last_name And middle_i)
+        ElseIf is_new_customer = False Then
+            'return false if not empty
+            customer = (getOldCustomerID() = "")
+        End If
+
+        'item name
+        Dim item_name As Boolean = (item_name_txtbox.Text = "")
+
+        'watch serial no
+        Dim watch_serial_no As Boolean = (watch_serial_no_txtbox.Text = "")
+
+        'watch description
+        Dim watch_desc As Boolean = (watch_desc_txtbox.Text = "")
+
+        'watch kind combo
+        Dim watch_kind As Boolean = (watch_kind_combo.SelectedIndex = -1)
+
+        'watch build combo
+        Dim watch_build As Boolean = (watch_build_combo.SelectedIndex = -1)
+
+        'TAB 2
+        'job service
+        Dim job_service As Boolean = (getTempSvcCount() = 0)
+
+        'TAB 3
+        'warranty combo
+        Dim warranty As Boolean = (warranty_combo.SelectedIndex = -1)
+
+        'warranty description/remark
+        Dim warranty_desc As Boolean = (warranty_remark_txtbox.Text = "")
+
+        isEmpty = (customer Or item_name Or watch_serial_no Or watch_desc Or watch_kind Or watch_build Or job_service Or warranty Or warranty_desc)
+        'Return
+        Return isEmpty
+    End Function
+
+
     
-    
+End Class
+
+
+'NEW CLASS
+Public Class priceEvent
+    'create instance variable 'price
+    Private price As Decimal
+    'create public event 'priceChanged
+    Public Event priceChanged(ByVal price_value As Decimal)
+
+    'define property
+    Public Property DecimalVariable() As Decimal
+        'initialize DecimalVariable
+        Get
+            DecimalVariable = price
+        End Get
+        'set New Value
+        '@param price_value
+        Set(ByVal price_value As Decimal)
+            price = price_value
+            'raise event
+            RaiseEvent priceChanged(price)
+        End Set
+    End Property
+
+    'getter for price
+    Public Function getPrice()
+        'return Decimal
+        Return price
+    End Function
 End Class

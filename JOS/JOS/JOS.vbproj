@@ -86,6 +86,9 @@
     <Compile Include="addService.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="repairPartDB.vb" />
+    <Compile Include="windowNamer.vb" />
+    <Compile Include="tempPartsDB.vb" />
     <Compile Include="tempServiceDB.vb" />
     <Compile Include="warrantyDB.vb" />
     <Compile Include="watchDB.vb" />
