@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2017 at 04:34 PM
+-- Generation Time: Mar 27, 2017 at 08:15 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -113,10 +113,10 @@ CREATE TABLE `inventory_tb` (
 --
 
 INSERT INTO `inventory_tb` (`item_AI`, `item_id`, `item_model`, `item_quantity`, `item_price`, `critical_amount`, `added_by_emp_id`, `supplier_id`, `category_id`, `part_id`) VALUES
-(1, 'item_1', 'AA3201', 13, '20.00', 3, 'Default', 'supp_3', 'cat_1', 'part_1'),
+(1, 'item_1', 'AA3201', 12, '20.00', 3, 'Default', 'supp_3', 'cat_1', 'part_1'),
 (2, 'item_2', 'AB1230', 5, '12.00', 3, 'Default', 'supp_1', 'cat_1', 'part_2'),
 (3, 'item_3', 'M01B35', 8, '5.50', 2, 'Default', 'supp_5', 'cat_1', 'part_2'),
-(4, 'item_4', '12MN013', 7, '3.00', 2, 'Default', 'supp_4', 'cat_1', 'part_1'),
+(4, 'item_4', '12MN013', 5, '3.00', 2, 'Default', 'supp_4', 'cat_1', 'part_1'),
 (5, 'item_5', 'A0124AB', 18, '12.00', 6, 'Default', 'supp_3', 'cat_3', 'part_1');
 
 -- --------------------------------------------------------
@@ -257,7 +257,8 @@ INSERT INTO `repair_job_tb` (`job_AI`, `job_id`, `date_time_added`, `customer_id
 (9, 'job_9', '2017-03-24 23:15:31', 'cust_1', 'casio watch', 1, '124.00', 'warr_1', '024jav924sla', 2, 2, 'gold bracelet', 'emp_3', 1, '2017-03-24', '2017-03-24'),
 (10, 'job_10', '2017-03-24 23:23:47', 'cust_2', 'Casio watch', 1, '122.00', 'warr_2', '123lasj1234la', 2, 1, 'lady watch gold', 'emp_1', 1, '2017-03-24', '2017-03-24'),
 (11, 'job_11', '2017-03-24 23:25:20', 'cust_1', 'Gus watch', 1, '124.00', 'warr_1', '-0k234d92r', 1, 2, 'men watch silver', 'emp_3', 1, '2017-03-24', '2017-03-24'),
-(12, 'job_12', '2017-03-24 23:33:04', 'cust_8', 'gshock watch', 1, '124.00', 'warr_1', '1lkjdf10dfj', 2, 1, 'lady watch', 'emp_4', 1, '2017-03-24', '2017-03-24');
+(12, 'job_12', '2017-03-24 23:33:04', 'cust_8', 'gshock watch', 1, '124.00', 'warr_1', '1lkjdf10dfj', 2, 1, 'lady watch', 'emp_4', 1, '2017-03-24', '2017-03-24'),
+(14, 'job_14', '2017-03-26 23:18:54', 'cust_7', 'LuckyXiao Watch', 2, '120.00', 'warr_1', '091k4jdkal2', 2, 2, 'gold plated', 'emp_3', 1, '2017-03-26', '2017-03-29');
 
 -- --------------------------------------------------------
 
@@ -284,7 +285,8 @@ INSERT INTO `repair_part_tb` (`job_id`, `item_id`, `item_quantity`, `price_each`
 ('job_8', 'item_2', 1, '12.00', '12.00', 1, 3),
 ('job_10', 'item_5', 1, '12.00', '12.00', 1, 6),
 ('job_11', 'item_5', 2, '12.00', '24.00', 1, 7),
-('job_12', 'item_5', 2, '12.00', '24.00', 1, 8);
+('job_12', 'item_5', 2, '12.00', '24.00', 1, 8),
+('job_14', 'item_1', 1, '20.00', '20.00', 1, 10);
 
 -- --------------------------------------------------------
 
@@ -320,7 +322,8 @@ INSERT INTO `repair_svc_tb` (`job_id`, `job_desc_id`, `job_desc_price`, `ai_colu
 ('job_9', 'job_desc_1', '100.00', 7),
 ('job_10', 'job_desc_2', '110.00', 8),
 ('job_11', 'job_desc_1', '100.00', 9),
-('job_12', 'job_desc_1', '100.00', 10);
+('job_12', 'job_desc_1', '100.00', 10),
+('job_14', 'job_desc_1', '100.00', 12);
 
 -- --------------------------------------------------------
 
@@ -404,6 +407,13 @@ CREATE TABLE `warranty_job_tb` (
   `warranty_remark` varchar(200) NOT NULL DEFAULT 'No warranty'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `warranty_job_tb`
+--
+
+INSERT INTO `warranty_job_tb` (`job_id`, `warranty_expire`, `warranty_remark`) VALUES
+('job_14', '2017-04-05', '7 days of warranty');
+
 -- --------------------------------------------------------
 
 --
@@ -474,13 +484,6 @@ CREATE TABLE `window_maker_tb` (
   `window_AI` int(11) NOT NULL,
   `window_id` varchar(100) AS (concat('window_',window_AI)) VIRTUAL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `window_maker_tb`
---
-
-INSERT INTO `window_maker_tb` (`window_AI`, `window_id`) VALUES
-(1, 'window_1');
 
 --
 -- Indexes for dumped tables
@@ -695,17 +698,17 @@ ALTER TABLE `part_tb`
 -- AUTO_INCREMENT for table `repair_job_tb`
 --
 ALTER TABLE `repair_job_tb`
-  MODIFY `job_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `job_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `repair_part_tb`
 --
 ALTER TABLE `repair_part_tb`
-  MODIFY `ai_column` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ai_column` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `repair_svc_tb`
 --
 ALTER TABLE `repair_svc_tb`
-  MODIFY `ai_column` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ai_column` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `supplier_tb`
 --
@@ -715,12 +718,12 @@ ALTER TABLE `supplier_tb`
 -- AUTO_INCREMENT for table `temp_part_tb`
 --
 ALTER TABLE `temp_part_tb`
-  MODIFY `ai_column` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ai_column` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `temp_svc_tb`
 --
 ALTER TABLE `temp_svc_tb`
-  MODIFY `ai_column` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ai_column` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `warranty_type_tb`
 --
@@ -735,7 +738,7 @@ ALTER TABLE `watch_build_tb`
 -- AUTO_INCREMENT for table `window_maker_tb`
 --
 ALTER TABLE `window_maker_tb`
-  MODIFY `window_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `window_AI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

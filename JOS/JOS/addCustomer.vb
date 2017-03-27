@@ -75,8 +75,8 @@
             If sameCustomer = False Then
                 'has same name but different number
                 'prompt user if he is adding a new or same customer.
-                Dim confirm As Boolean = MessageBox.Show(newCustomer.confirmName, "Same Customer Name", MessageBoxButtons.YesNo)
-                If confirm = False Then
+                Dim confirm As Object = MessageBox.Show(newCustomer.confirmName, "Same Customer Name", MessageBoxButtons.YesNo)
+                If confirm = DialogResult.No Then
                     'user is adding a different customer. they just happen to have same names
                     newCustomer.addCustomer()
                 Else

@@ -1231,6 +1231,13 @@
 
         'if
         If fieldEmpty = False Then
+            'generate are you sure message
+            Dim confirmAddJobOrder As Object = MessageBox.Show("Add Job Order?", "Confirm Add Job Order", MessageBoxButtons.YesNo)
+            'if confirm add job order
+            If confirmAddJobOrder = DialogResult.No Then
+                'proceed
+                Exit Sub
+            End If
             'if fields are correctly filled
 
             Dim job_order_id As String = "" ' JOB ORDER ID
@@ -1256,6 +1263,8 @@
             Dim start_repair_date As Date = getRepairDate()
             Dim expected_claim_date As Date = getClaimDate()
             Dim warranty_id As String = ""
+            Dim warranty_remark As String = warranty_remark_txtbox.Text
+            Dim warranty_expire_date As Date = getWarrantyDate()
 
             'TAB 2 LOCAL VARIABLES
 
@@ -1295,8 +1304,8 @@
                     If sameCustomer = False Then
                         'has same name but different number
                         'prompt user if he is adding a new or same customer.
-                        Dim confirm As Boolean = MessageBox.Show(newCustomer.confirmName, "Same Customer Name", MessageBoxButtons.YesNo)
-                        If confirm = False Then
+                        Dim confirm As Object = MessageBox.Show(newCustomer.confirmName, "Same Customer Name", MessageBoxButtons.YesNo)
+                        If confirm = DialogResult.No Then
                             'user is adding a different customer. they just happen to have same names
                             newCustomer.addCustomer()
                         Else
@@ -1409,6 +1418,21 @@
                 newRepairPart.setAllLackQty()
                 'subtract inventory based on the added parts
                 newRepairPart.setAllGoodQty()
+            End If
+
+            'TAB 3 PROCESSES
+            'create new instance/object for warrantyDB
+            Dim addWarrantyJob As warrantyDB = New warrantyDB(job_order_id, warranty_expire_date, warranty_remark)
+            'check if exists in db
+            Dim warrantyJobExist As Boolean = addWarrantyJob.sameWarrantyJobID()
+            'if
+            If warrantyJobExist = False Then
+                'if job_id wasn't found in DB
+                'add to warranty_job_tb
+                addWarrantyJob.addWarrantyJob()
+            Else
+                'generate error msgbox
+                MsgBox(addWarrantyJob.wrongWarrantyJob())
             End If
 
 

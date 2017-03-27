@@ -182,3 +182,33 @@ addJO1.vb
 
 -notes: no window_id yet for mulitple windows using job_order.
 --try to test if there are bugs just let me know
+
+
+'button onClick
+    Private Sub add_service_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles add_service_button.Click
+        'when add service button is clicked
+        'create new object/instance
+        Dim addService As tempServiceDB = New tempServiceDB(pickJobSvcID)
+        'check if job service id exist in database
+        Dim isExist As Boolean = addService.jobServiceExist()
+        'if
+        If isExist Then
+            'if job service exists in DB
+            'add job service to temp_svc_tb
+            addService.addTempSvc()
+            'update job service datagrid view
+            setSomeJobServiceDataGrid()
+            'update temp job service datagrid view
+            setTempSvcDataGrid()
+
+            'update tempSvcCount
+            setTempSvcCount(getTempSvcCount() + 1)
+            'update tempSvcPrice
+            setTempSvcPrice(getTempSvcPrice() + getPickJobSvcPrice())
+            'reset job service label
+            resetJobServiceIDLabel()
+        Else
+            'if job service not found in the DB
+            MsgBox(addService.wrongJobService())
+        End If
+    End Sub
